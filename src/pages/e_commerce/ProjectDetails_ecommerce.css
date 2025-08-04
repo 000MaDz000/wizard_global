@@ -1,0 +1,167 @@
+.project-details-page {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    direction: rtl;
+}
+
+.back-button {
+    background: #1e5ba6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #4a6ac4;
+    transform: translateX(-5px);
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.project-header h1 {
+    color: #1e5ba6;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.project-subtitle {
+    color: #666;
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.project-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+}
+
+.project-overview {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-overview h2,
+.project-features h2,
+.project-gallery h2 {
+    color: #1e5ba6;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.project-overview p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.project-launch-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    background: #f5f8ff;
+    padding: 15px;
+    border-radius: 8px;
+    color: #1e5ba6;
+    font-weight: bold;
+}
+
+.calendar-icon {
+    font-size: 20px;
+}
+
+.project-features {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-features ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-features li:before {
+    content: "•";
+    color: #1e5ba6;
+    font-size: 24px;
+    line-height: 0;
+}
+
+.project-gallery {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .project-header h1 {
+        font-size: 28px;
+    }
+    
+    .project-subtitle {
+        font-size: 16px;
+    }
+    
+    .project-content {
+        display: block;
+    }
+    .project-overview{
+        margin-bottom: 29px;
+    }
+}

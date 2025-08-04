@@ -1,0 +1,58 @@
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import '../styles/About.css';
+import { Link } from 'react-router-dom';
+import wazir from '../assets/global-network-digital-earth-visualization.png';
+import { FaGlobe } from "react-icons/fa";
+import { GiWorld } from "react-icons/gi";
+import { MdPublic } from "react-icons/md";
+import { AiOutlineGlobal } from "react-icons/ai";
+
+
+
+
+
+const AboutUs = () => {
+    useEffect(() => {
+        AOS.init({
+            once: true, // الأنيميشن يظهر مرة واحدة فقط عند النزول
+            duration: 800, // سرعة الأنيميشن الافتراضية
+        });
+    }, []);
+
+    return (
+        <section className="about-us" data-aos="fade-up">
+            <div className="about-container">
+                <div className="about-header" data-aos="fade-right" data-aos-delay="200">
+                    <h2>ماذا تعرف عن</h2>
+                    <h3> WAZIR GLOBALX</h3>
+                    <p className="about-p">
+                        تأسست الشركة  في دبي، بهدف توفير خدمات احترافية وعالمية في مجالات استيراد وتصدير السيارات، تكنولوجيا المعلومات، والتجارة الإلكترونية. تجمع شركتنا بين الابتكار والثقة لتقديم حلول ذكية تناسب تطلعات عملائنا في السوق المحلي والدولي.
+                    </p>
+                    {/* <Link className='know' to="/about" data-aos="zoom-in" data-aos-delay="600">اعرف المزيد</Link> */}
+                </div>
+                <br />
+                <div className="section-with-text-image">
+                    {/* <div className="details" data-aos="fade-up" data-aos-delay="800">
+                        <h4>
+                            رؤيتنا: <span className="highlight">الريادة في تقديم حلول متكاملة</span>
+                        </h4>
+                        <p>
+                            نحن في WAZIR نطمح إلى أن نكون منصة موحدة ومتعددة الأنشطة تدعم عملاءنا من خلال الشراكات الدولية، والموقع الاستراتيجي، والدعم التقني المستمر. نعمل على تقديم قيمة مضافة لكل من نعمل معهم.
+                        </p>
+                    </div> */}
+                    <div className="image-side" data-aos="fade-left" data-aos-delay="1000">
+                        <div className="img-container">
+                            {/* <AiOutlineGlobal id='sideP' /> */}
+                            <img id="sideP" src={wazir} alt="مقر الشركة" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    );
+};
+
+export default AboutUs;

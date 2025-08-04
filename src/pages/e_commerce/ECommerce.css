@@ -1,0 +1,350 @@
+.e-commerce-page {
+  margin: 0 auto;
+  direction: rtl;
+  margin-top: -82px;
+}
+
+.e-commerce-hero {
+  background: linear-gradient(rgb(16 76 241 / 65%), #474c5e47), url(/src/assets/pexels-karolina-grabowska-5632402.png.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+  margin-bottom: 30px;
+  margin-top: -23px;
+}
+
+.e-commerce-hero h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.e-commerce-hero p {
+  font-size: 1.2rem;
+  color: #f0f0f0db;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.e-commerce-section {
+  margin-bottom: 50px;
+  padding: 0 15%;
+}
+
+.e-commerce-section h2, .proje_h2{
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+  font-size: 2rem;
+}
+
+/* تنسيقات الخدمات */
+.e-commerce-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.e-commerce-service-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #f5e6d9;
+}
+
+.e-commerce-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #1e5ba6;
+}
+
+.e-commerce-service-card h3 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.e-commerce-service-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* تنسيقات المنصة */
+.e-commerce-platform {
+  background: linear-gradient(135deg, #1e5ba6 0%, #f0f0f0 100%);
+  color: white;
+  border-radius: 8px;
+  padding: 60px 5%;
+  margin: 40px 5%;
+  text-align: center;
+}
+
+.e-commerce-platform h2 {
+  color: white;
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.e-commerce-platform p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.e-commerce-platform-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: white;
+  color: #1e5ba6;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.e-commerce-platform-button:hover {
+  background: #f8f8f8;
+  transform: scale(1.05);
+}
+
+/* تنسيقات المشاريع المستقبلية */
+.e-commerce-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.e-commerce-project-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 7px #5779a2b5;
+  transition: transform 0.3s;
+}
+
+.e-commerce-project-card:hover {
+  transform: translateY(-5px);
+}
+
+.e-commerce-project-card h3 {
+  color: #1e5ba6;
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.e-commerce-project-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* تنسيقات الفيديو */
+.e-commerce-video-section {
+  margin-top: 50px;
+  padding: 0 5%;
+}
+
+.e-commerce-video-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.e-commerce-video-placeholder {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.e-commerce-video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: #1e5ba6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.e-commerce-video-play-button:hover {
+  background: rgba(211, 84, 0, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* تنسيقات النموذج */
+.e-commerce-form-section {
+  background: #f9f9f9;
+  padding: 40px 5%;
+  border-radius: 8px;
+  margin: 40px 5%;
+  border: 1px solid #eee;
+}
+
+.e-commerce-form-section h2 {
+  color: #1e5ba6;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.e-commerce-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  gap: 8px;
+}
+
+.input-icon {
+  font-size: 1rem;
+  color: #1e5ba6;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 86%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #1e5ba6;
+  box-shadow: 0 0 0 3px rgba(30, 91, 166, 0.1);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit-btn {
+  grid-column: 1 / -1;
+  padding: 15px;
+  background: #1e5ba6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-submit-btn:hover {
+  background: #164a8a;
+  transform: translateY(-2px);
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .e-commerce-hero {
+    padding: 100px 20px;
+  }
+  
+  .e-commerce-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .e-commerce-hero p {
+    font-size: 1rem;
+  }
+  
+  .e-commerce-section h2,
+  .e-commerce-form-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .e-commerce-platform {
+    padding: 40px 5%;
+    margin: 30px 5%;
+  }
+  
+  .e-commerce-platform h2 {
+    font-size: 1.5rem;
+  }
+  
+  .e-commerce-services-grid,
+  .e-commerce-projects-grid,
+  .e-commerce-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .e-commerce-form-section {
+    padding: 30px 5%;
+    margin: 30px 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .e-commerce-hero {
+            padding: 99px 15px;
+  }
+  
+  .e-commerce-hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .e-commerce-service-card,
+  .e-commerce-project-card {
+    padding: 20px;
+  }
+  
+  .service-icon {
+    font-size: 2rem;
+  }
+  
+  .e-commerce-video-play-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}

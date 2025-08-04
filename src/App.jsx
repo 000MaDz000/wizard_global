@@ -1,0 +1,39 @@
+// App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
+import Home from './pages/Home';
+import About from './pages/About_Details';
+
+import CarList from './pages/cars/CarList';
+import CarDetails from './pages/cars/CarDetails';
+import ITSolutions from './pages/IT/ITSolutions';
+import ECommerce from './pages/e_commerce/ECommerce';
+import ArticleDetail from './pages/ArticleDetail';
+import ProjectDetails from './pages/IT/IT_Projects';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import ProjectDetails_ecommerce from './pages/e_commerce/ProjectDetails_ecommerce';
+
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cars" element={< CarList />} />
+        <Route path="/cars/:id" element={<CarDetails />} />
+        <Route path="/it" element={<ITSolutions />} />
+        <Route path="/ecommerce" element={<ECommerce />} />
+        <Route path="/articles/:id" element={<ArticleDetail />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
+        <Route path="/ecommerc_projects/:id" element={<ProjectDetails_ecommerce />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

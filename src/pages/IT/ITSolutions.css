@@ -1,0 +1,258 @@
+.it-solutions-page {
+  /* font-family: 'Arial', sans-serif; */
+  /* max-width: 1200px; */
+    margin: 0 auto;
+  /* padding: 20px; */
+  direction: rtl;
+      margin-top: -115px;
+}
+
+.it-hero {
+      background: linear-gradient(rgb(16 76 241 / 65%), #474c5e47), url(/src/assets/6613574_17929.jpg);  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+  /* border-radius: 8px; */
+  margin-bottom: 30px;
+      margin-top: -23px;
+}
+
+.it-hero h1 {
+  
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.it-hero p {
+  font-size: 1.2rem;
+  color: #fffefedf;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.it-section {
+  margin-bottom: 50px;
+  padding: 0 240px;
+}
+
+.it-section h2 {
+  color: #2a6496;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+/* تنسيقات الخدمات */
+.it_services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.it_service-card {
+  background: white;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.it_service-card:hover {
+  transform: translateY(-5px);
+}
+
+.it_service-icon {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #2a6496;
+}
+.it_service-icon svg, .tech-icon svg{
+  width: 50px;
+  height: 70px;
+}
+
+.it_service-card h3 {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+/* تنسيقات التقنيات */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  transition: all 0.3s;
+}
+
+.tech-card:hover {
+  background: #f0f7ff;
+}
+
+.tech-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* تنسيقات المشاريع */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 20px;
+  background: white;
+}
+
+.project-info h3 {
+  color: #2a6496;
+  margin-top: 0;
+}
+
+.project-info p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* تنسيقات CTA */
+.it-cta {
+      margin: 18px auto;
+    width: 50%;
+
+    text-align: center;
+    padding: 28px;
+background: linear-gradient(rgba(17, 63, 216, 0.72), #a5b7c7);
+    color: white;
+    border-radius: 86px;
+    margin-top: 50px;
+    border: .1px solid rgba(100, 100, 225, 0.399);
+}
+
+
+.it-cta h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  background: white;
+  color: #2a6496;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cta-button:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .it_services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .it-hero h1 {
+    font-size: 27px;
+  }
+  
+  .it-hero p {
+    font-size: 13px;
+  }
+  .it_service-card h3 {
+  
+    font-size: 1rem;
+}
+  .it-hero{
+       
+        /* margin-top: -92px;  */
+        padding: 132px 20px;
+        /* margin-bottom: -6px; */
+        padding-bottom: 36px;
+  }
+  .it-section {
+  padding: 0 18px;
+}
+
+}
+
+/* إضافات للأزرار والايقونات */
+.project-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.project-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.demo-btn {
+    background-color: #1e5ba6;
+    color: white;
+}
+
+.demo-btn:hover {
+    background-color: #4da6ff;
+}
+
+.learn-btn {
+    background-color: #0a1f3d;
+    color: white;
+    border: 1px solid #1e5ba6;
+}
+
+.learn-btn:hover {
+    background-color: #1e5ba6;
+}

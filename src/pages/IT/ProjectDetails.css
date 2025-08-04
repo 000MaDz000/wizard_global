@@ -1,0 +1,247 @@
+.project-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #333;
+  text-align: center;
+}
+.projects_nav{
+background-color: #4da6ff00;
+}
+.project-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.project-tagline {
+    font-size: 1.2rem;
+    color: #1e5ba6;
+    margin-bottom: 2rem;
+}
+
+/* معرض الصور */
+.gallery-container {
+    position: relative;
+    margin: 2rem 0;
+}
+.it_h1{
+    font-size: 32px;
+    padding: 0;
+    margin: 0;
+}
+
+.gallery-image-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-main-image {
+    width: 100%;
+    height: 61vh;
+    /* height: auto; */
+    display: block;
+    margin-top: -37px;
+    transition: opacity 0.3s ease;   
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #0a1f3d;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-button {
+    left: 20px;
+}
+
+.next-button {
+    right: 20px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border-color: #1e5ba6;
+    transform: scale(1.1);
+}
+
+/* أزرار ومحتوى المشروع */
+.demo-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1e5ba6;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.demo-button:hover {
+    background: white;
+    color: #1e5ba6;
+    border-color: #1e5ba6;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(30, 91, 166, 0.2);
+}
+
+.project-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.project-section {
+    margin-bottom: 2.5rem;
+}
+
+.project-section h2 {
+    color: #0a1f3d;
+    border-bottom: 2px solid #4da6ff;
+    padding-bottom: 8px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    margin-bottom: 1rem;
+    padding-left: 0rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.feature-icon {
+       position: absolute;
+    left: 28px;
+    color: #1e5ba6;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.technologies-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    background: #e6f0ff;
+    color: #1e5ba6;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.back-button {
+        display: inline-flex
+;
+    align-items: center;
+    gap: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid;
+    padding: 7px 10px;
+    font-weight: 500;
+    border-radius: 9px;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    color: #4da6ff;
+    transform: translateX(-5px);
+}
+
+/* التجاوب */
+@media (max-width: 768px) {
+    .project-details-container {
+        padding: 1rem;
+    }
+    
+    .gallery-image-wrapper {
+        border-radius: 8px;
+    }
+    
+    .it_h1{
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
+}
+    .nav-button {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+    .back-button {
+    display: inline-flex
+;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid;
+    padding: 4px 8px;
+    font-weight: 500;
+    border-radius: 9px;
+    transition: all 0.3s ease;
+    font-size: 9px;
+}
+.gallery-main-image{
+    height: auto;
+}
+}

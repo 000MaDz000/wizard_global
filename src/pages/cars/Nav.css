@@ -1,0 +1,160 @@
+.navbar_bar {
+    background-color: #f0f0f069;
+        color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px #1668dc63;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar_bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar_bar-contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-link {
+  background-color:#0a1f3dad;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 8px 15px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.contact-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar_bar-links {
+  display: flex;
+  gap: 30px;
+}
+.navbar_bar-links img{
+          width: 185px;
+    margin-bottom: -9px;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background-color: white;
+  color: #2a6496;
+  font-weight: bold;
+}
+
+.navbar_bar-search {
+  display: flex;
+  align-items: center;
+}
+
+.navbar_bar-search form {
+  display: none;
+  align-items: center;
+}
+
+.navbar_bar-search input {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  width: 200px;
+}
+
+.navbar_bar-search button {
+  padding: 10px 15px;
+  background-color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbar_bar-search button:hover {
+  background-color: #f0f0f0;
+}
+
+.search-icon {
+  font-size: 1rem;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .navbar_bar{
+      padding: 5px 0;
+    }
+  .navbar_bar-container {
+            flex-direction: row;
+        /* gap: 15px; */
+        /* padding: 15px; */
+        font-size: 10px;
+  }
+  
+  .navbar_bar-contact,
+  .navbar_bar-links,
+  .navbar_bar-search {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .navbar_bar-search input {
+            width: 97%;
+        padding: 0px 10px;
+  }
+  .navbar_bar-search button{
+            padding: 1.2px 12px;
+  }
+  .navbar_bar input,.navbar_bar select,.navbar_bar textarea,.search-icon{
+    font-size: 10px;
+        text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar_bar{
+            background-color: #00000054;
+  }
+  .navbar_bar-links {
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+  }
+  .navbar_bar-links img{
+      width: 80px;
+    margin-bottom: -9px;
+}
+.contact-link {
+
+    padding: 2px 12px;
+    
+}
+}

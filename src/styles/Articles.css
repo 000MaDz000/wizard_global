@@ -1,0 +1,261 @@
+/* تنسيقات عامة */
+ .article-detail-page {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  /* padding: 20px; */
+  direction: rtl;
+}
+.articles-page{
+     max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+}
+.articles-page h1, .article-detail-page h1 {
+  text-align: center;
+  color: #2a6496;
+  margin-bottom: 40px;
+}
+
+/* تنسيقات قائمة المقالات */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.article-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: white;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.article-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.article-content {
+  padding: 20px;
+}
+
+.article-content h2 {
+    color: #1e4363;
+      margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.article-summary {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.read-more {
+  color: #2a6496;
+  font-weight: bold;
+}
+
+/* تنسيقات صفحة المقال المفرد */
+.article-detail-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  /* border-radius: 8px; */
+  margin-bottom: 30px;
+      margin-top: -150px;
+
+}
+
+.article-detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-detail-content h1 {
+  text-align: right;
+    color: #1e4363;
+      margin-bottom: 15px;
+}
+
+.article-text {
+  line-height: 1.8;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.article-text p {
+  margin-bottom: 20px;
+}
+
+.article-not-found {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .article-content {
+    padding: 15px;
+  }
+  
+  .article-detail-content {
+    padding: 0 15px;
+  }
+  
+  .article-detail-image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .article-content h2 {
+    font-size: 1.1rem;
+  }
+  
+  .article-summary {
+    font-size: 0.9rem;
+  }
+    .article-detail-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    /* border-radius: 8px; */
+        margin-bottom: -16px;
+            margin-top: -74px;
+}
+}
+
+.articles-categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 8px 20px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.category-btn:hover {
+    background: #e0e0e0;
+}
+
+.category-btn.active {
+    background: #2a6496;
+    color: white;
+}
+
+/* تنسيقات فئة المقال في البطاقة */
+.article-category {
+    background: #e9f0f7;
+    color: #2a6496;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+/* تنسيقات صفحة التفاصيل */
+.article-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.article-meta-detail {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.back-to-articles {
+    display: inline-block;
+    margin-top: 30px;
+    color: #2a6496;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.back-to-articles:hover {
+    color: #1a4b7a;
+    text-decoration: underline;
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .articles-categories {
+        gap: 10px;
+    }
+    
+    .category-btn {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+    }
+    
+    .article-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .article-category {
+        font-size: 0.7rem;
+    }
+}
+.show-more-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.show-more-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.show-more-btn:hover {
+  background-color: #0056b3;
+}
