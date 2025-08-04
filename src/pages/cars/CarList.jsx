@@ -323,7 +323,7 @@ const CarList = () => {
                     )}
                 </div>
             </div>
-            <CarServicesSection />
+              <Features />
             <Footer />
         </>
 
