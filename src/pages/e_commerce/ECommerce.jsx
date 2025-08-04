@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './ECommerce.css';
 import Footer from '../../components/Footer';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/red_logo.png';
 import {
-  FaShoppingCart,
-  FaCreditCard,
-  FaBoxOpen,
-  FaBullhorn,
-  FaTruck,
-  FaPlay,
-  FaEnvelope,
-  FaPhone,
-  FaUser,
-  FaStore,
-  FaMoneyBillWave,
-  FaCommentAlt
+    FaShoppingCart,
+    FaCreditCard,
+    FaBoxOpen,
+    FaBullhorn,
+    FaTruck,
+    FaEnvelope,
+    FaPhone,
+    FaUser,
+    FaStore,
+    FaMoneyBillWave,
+    FaCommentAlt
 } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const ECommerce = () => {
+    const { i18n } = useTranslation();
+    const currentLang = i18n.language;
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -40,7 +44,7 @@ const ECommerce = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً');
+        alert(currentLang === 'ar' ? 'تم استلام طلبك بنجاح! سنتواصل معك قريباً' : 'Your request has been received successfully! We will contact you soon.');
         setFormData({
             name: '',
             email: '',
@@ -50,6 +54,7 @@ const ECommerce = () => {
             requirements: ''
         });
     };
+
 
     const handleProjectClick = (projectId) => {
         navigate(`/ecommerc_projects/${projectId}`);
@@ -145,6 +150,20 @@ const ECommerce = () => {
 
     return (
         <>
+            <Helmet>
+                <html lang={currentLang} />
+                <title>
+                    {currentLang === 'ar' ? 'حلول التجارة الإلكترونية - Wazir GlobalX' : 'E-commerce Solutions - Wazir GlobalX'}
+                </title>
+                <meta
+                    name="description"
+                    content={
+                        currentLang === 'ar'
+                            ? 'حلول التجارة الإلكترونية من Wazir GlobalX. خدمات متكاملة لإنشاء المتاجر الإلكترونية، التسويق الرقمي، إدارة المخزون، والخدمات اللوجستية. مقرنا في دبي، نوفر حلول مبتكرة تلبي احتياجات عملك.'
+                            : 'E-commerce solutions by Wazir GlobalX. Comprehensive services for building online stores, digital marketing, inventory management, and logistics. Based in Dubai, we provide innovative solutions tailored for your business needs.'
+                    }
+                />
+            </Helmet>
             <div className="e-commerce-page">
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
@@ -195,8 +214,8 @@ const ECommerce = () => {
                     <h2>مشاريعنا المستقبلية</h2>
                     <div className="e-commerce-projects-grid">
                         {eCommerceData.e_commerce_future_projects.map((project) => (
-                            <div 
-                                key={project.id} 
+                            <div
+                                key={project.id}
                                 className="e-commerce-project-card"
                                 onClick={() => handleProjectClick(project.id)}
                             >

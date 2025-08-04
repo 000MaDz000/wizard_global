@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react';
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+
 import '../styles/Articles.css';
+import Footer from '../components/Footer';
+
 import car from '../assets/neil-mark-thomas-vCX0NQeXWiY-unsplash.jpg';
 import car1 from '../assets/colin-lloyd-titfVBWn_hc-unsplash.jpg';
 import car2 from '../assets/pexels-egeardaphotos-2148533277-30149547.jpg';
 import tech1 from '../assets/b6.webp';
 import ecommerce1 from '../assets/b6.webp';
 import logo from '../assets/red_logo.png';
-import Footer from '../components/Footer';
 
 const ArticleDetail = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
+    const { i18n } = useTranslation();
+    const currentLang = i18n.language;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -19,8 +26,6 @@ const ArticleDetail = () => {
     const handleContactClick = () => {
         navigate('/', { state: { scrollToContact: true } });
     };
-
-    const { id } = useParams();
 
     const articles = [
         { id: 1, title: "أفضل السيارات الكهربائية لعام 2023", summary: "تعرف على أحدث السيارات الكهربائية...", image: car, date: "15 أكتوبر 2023", content: "المحتوى الكامل للمقال عن السيارات الكهربائية...", category: "cars" },
@@ -40,11 +45,28 @@ const ArticleDetail = () => {
 
     return (
         <>
+            <Helmet>
+                <html lang={currentLang} />
+                <title>
+                    {currentLang === 'ar'
+                        ? `${article.title} | مقالات Wazir GlobalX`
+                        : `${article.title} | Wazir GlobalX Articles`}
+                </title>
+                <meta
+                    name="description"
+                    content={
+                        currentLang === 'ar'
+                            ? `اقرأ مقال "${article.title}" من مقالات Wazir GlobalX. مواضيع متعلقة بالسيارات، التكنولوجيا، والتجارة الإلكترونية.`
+                            : `Read the article "${article.title}" from Wazir GlobalX Articles. Topics include cars, technology, and e-commerce.`
+                    }
+                />
+            </Helmet>
+
             <div className="article-detail-page">
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
-                            <a style={{ cursor:"pointer"}} onClick={handleContactClick} className="contact-link">
+                            <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 تواصل معنا
                             </a>
                         </div>

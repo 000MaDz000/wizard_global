@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+
 import './CarListPage.css';
 import Footer from '../../components/Footer';
 import Navbar_bar from './Nav';
-import { FaMapMarkerAlt, FaHandshake, FaLayerGroup, FaHeadset } from "react-icons/fa";
 import Features from './Features';
-import CarServicesSection from './Features';
 
 const CarList = () => {
     const [cars, setCars] = useState([]);
@@ -14,8 +15,11 @@ const CarList = () => {
     const [selectedModel, setSelectedModel] = useState('all');
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
-    
-  
+
+    const { i18n } = useTranslation();
+    const currentLang = i18n.language;
+
+
     const handleSearch = (query) => {
         setSearchTerm(query.toLowerCase());
     };
@@ -157,6 +161,31 @@ const CarList = () => {
 
     return (
         <>
+            <Helmet>
+                <html lang={currentLang} />
+                <title>
+                    {currentLang === 'ar'
+                        ? 'قائمة السيارات | Wazir GlobalX'
+                        : 'Car Listing | Wazir GlobalX'}
+                </title>
+                <meta
+                    name="description"
+                    content={
+                        currentLang === 'ar'
+                            ? 'استعرض مجموعة واسعة من السيارات الجديدة والمستعملة من أشهر الماركات مثل مرسيدس، بي إم دبليو، تويوتا وغيرها. اختر الموديل والحالة التي تناسبك، وتمتع بخدمة تصفح سريعة ومريحة.'
+                            : 'Explore a wide selection of new and used cars from top brands like Mercedes, BMW, Toyota, and more. Choose the right model and condition for your needs with a fast and easy browsing experience.'
+                    }
+                />
+                <meta
+                    name="keywords"
+                    content={
+                        currentLang === 'ar'
+                            ? 'سيارات, مرسيدس, بي ام دبليو, تويوتا, سيارات جديدة, سيارات مستعملة, Wazir GlobalX, استيراد سيارات دبي'
+                            : 'Cars, Mercedes, BMW, Toyota, new cars, used cars, Wazir GlobalX, car import Dubai'
+                    }
+                />
+            </Helmet>
+
             <Navbar_bar onSearch={handleSearch} />
             <div className="car-list-page">
                 {/* قسم الهيرو */}

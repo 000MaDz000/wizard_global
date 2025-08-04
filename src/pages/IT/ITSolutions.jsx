@@ -6,6 +6,7 @@ import '../../styles/Articles.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/red_logo.png'
 import it from '../../assets/pexels-luckysam-50614.jpg'
+import { Helmet } from 'react-helmet';
 
 // React Icons
 import { FaTools, FaMobileAlt, FaRobot, FaDatabase, FaCode, FaFire } from 'react-icons/fa';
@@ -14,15 +15,15 @@ import { BiLinkExternal } from 'react-icons/bi';
 import { BsInfoCircle } from 'react-icons/bs';
 
 const ITSolutions = () => {
-     const navigate = useNavigate();
-    
-        useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
-    
-        const handleContactClick = () => {
-            navigate('/', { state: { scrollToContact: true } });
-        };
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const handleContactClick = () => {
+        navigate('/', { state: { scrollToContact: true } });
+    };
     // Dummy Data للقسم
     const itData = {
         intro: "نقدم حلول تقنية متكاملة تشمل تطوير التطبيقات الذكية، أنظمة إدارة الأعمال، ودمج تقنيات الذكاء الاصطناعي في بيئات العمل لضمان التوسع الرقمي.",
@@ -77,11 +78,15 @@ const ITSolutions = () => {
 
     return (
         <>
+            <Helmet>
+                <title>حلول المعلومات والتقنية - Wazir GlobalX</title>
+                <meta name="description" content="نقدم حلول تقنية متكاملة تشمل تطوير التطبيقات الذكية، أنظمة إدارة الأعمال، ودمج تقنيات الذكاء الاصطناعي." />
+            </Helmet>
             <div className="it-solutions-page">
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
-                             <a style={{ cursor:"pointer"}} onClick={handleContactClick} className="contact-link">
+                            <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 تواصل معنا
                             </a>
                         </div>
@@ -158,7 +163,7 @@ const ITSolutions = () => {
                 {/* CTA */}
                 <div className="it-cta">
                     <h2>هل ترغب في تطوير تطبيقك الخاص؟</h2>
-                     {/* رقم رجل المبيعات تبع السيارات */}
+                    {/* رقم رجل المبيعات تبع السيارات */}
                     <button className="cta-button">تواصل معنا الآن</button>
                 </div>
             </div>
