@@ -2,7 +2,7 @@
   position: relative;
       width: auto;
     height: 100vh;
-/*     background-image: linear-gradient(rgba(37, 34, 100, 0.5), rgba(0, 0, 0, 0.381)), 
+    /* background-image: linear-gradient(rgba(37, 34, 100, 0.5), rgba(0, 0, 0, 0.381)), 
     url('../assets/15410.jpg');  */
         background: rgb(13 51 88);
   background-size: cover;
@@ -13,6 +13,7 @@
 .all{
   display: flex;
 }
+
 
 .overlay {
   position: absolute;
@@ -28,16 +29,15 @@
 }
 
 .hero-content {
-  flex: 1;
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  top: 34%;
-  transform: translateY(20%);
-      padding-left: 54px;
-
-  width: 35%;
-}
+  
+    flex: .5;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    top: 33%;
+    transform: translateY(5%);
+    padding-left: 104px;
+    width: 35%;}
 
 .images{
   flex: 1;
@@ -47,7 +47,7 @@
   text-align: justify;
   top: 34%;
   transform: translateY(15%);
-  padding: 0 20px;
+  /* padding: 0 20px; */
 
 }
 .images img{
@@ -75,13 +75,14 @@
 
 .images .cartoon_imag{
   width: 800px;
+      margin-right: 111px;
 }
 .hero-content h1 {
  
-      margin-bottom: 47px;
-          font-size: 40px;
-    text-align: center;
-    width: 80%;
+  margin-bottom: 5px;
+font-size: 68px;  
+  text-align: left;
+    width: 100%;
 
   
 }
@@ -92,14 +93,14 @@
     width: 77%;
     /* text-align: center; */
     margin: 0 0;
-    text-align: center;
-        color: #ffffffd6;
-}
+text-align: justify;
+    color: #79c0e3;
+  }
 
 .hero-content button {
 padding: 10px 29px;
   margin-top: 27px;
-  margin-left: 31%;
+
   font-size: 1rem;
   border: none;
   background-color: #0056b3;
@@ -196,7 +197,9 @@ padding: 10px 29px;
     padding: 0 30px;
     top: 42%;
     text-align: justify;
-    width: 88%;
+    /* width: 80%; */
+        transform: translateY(27%);
+
   }
 
   .hero-content h1 {
@@ -239,6 +242,10 @@ padding: 10px 29px;
         bottom: -42px;
         width: 160px;
     }
+    .images .cartoon_imag{
+      width: 700px;
+      margin-right: 0;
+}
 
 }
 
@@ -248,7 +255,7 @@ padding: 10px 29px;
   }
 
   .hero-content {
-    padding: 0 20px;
+    padding: 0px 0px;
         top: -4%;
         text-align: center;
   }
