@@ -108,7 +108,7 @@
 
   .logo img{
     width: 260px;
-    margin-top: 46px;
+    margin-top: 16px;
   }
   .cta {
     display: none;
@@ -121,6 +121,6 @@
 
   @media (max-width: 500px) {
     .logo img{
-      width: 180px;
+              width: 137px;
     }
   }
