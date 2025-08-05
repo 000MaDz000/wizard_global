@@ -14,6 +14,7 @@ import ProjectDetails from './pages/IT/IT_Projects';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ProjectDetails_ecommerce from './pages/e_commerce/ProjectDetails_ecommerce';
+import Terms from './pages/Terms';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/ecommerc_projects/:id" element={<ProjectDetails_ecommerce />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
     </Router>
   );
