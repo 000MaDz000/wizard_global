@@ -1,5 +1,5 @@
 .contact-section {
-    padding: 60px 20px;
+    padding: 3px 20px;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #f9f9f9;
@@ -116,7 +116,7 @@
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
@@ -196,8 +196,12 @@
         grid-template-columns: 1fr;
     }
     
-    .contact-icon {
-        width: 70px;
-        height: 70px;
+    .contact-icon, .social-icon {
+                width: 50px;
+        height: 50px;
+        gap: 10px;
+    }
+    .social-links{
+        gap: 10px;
     }
 }
