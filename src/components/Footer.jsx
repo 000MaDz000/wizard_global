@@ -12,7 +12,7 @@ const Footer = () => {
                     <p>IFZA Digital Park - A2, Dubai Silicon Oasis, Dubai - UAE</p>
                 </div>
                 <div className="footer-center">
-                    <a href="/privacy">سياسة الخصوصية</a>
+                    <a href="/terms">سياسة الخصوصية</a>
                     <a href="/terms">شروط الاستخدام</a>
                 </div>
                 <div className="footer-right">
