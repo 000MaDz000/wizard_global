@@ -99,3 +99,17 @@
 .h1_logo img{
     width: 100%;
 }
+
+@media (max-width: 780px) {
+    .h1_logo{
+           margin: 0 21px;
+    padding: 0px 0px;
+      
+}
+.h1_logo img{
+    width: 70%;
+}
+.auth-container{
+        min-height: 80vh;
+}
+}
