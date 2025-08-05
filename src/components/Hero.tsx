@@ -16,8 +16,7 @@ const Hero = () => {
             <div className="all">
                 <div className="hero-content">
                     <h1 data-aos="fade-down" data-aos-delay="300">
-                        حلول عالمية في السيارات والتقنية والتجارة الإلكترونية
-                    </h1>
+                        من قلب الابتكار... ننطلق لنصنع الفارق عالميًا                    </h1>
                     <p data-aos="fade-up" data-aos-delay="600">
                         نقدم حلولًا مبتكرة تعتمد على التكنولوجيا وتواكب تطورات السوق العالمي من تجارة السيارات إلى خدمات تقنية المعلومات والمنصات الإلكترونية.
                     </p>
@@ -28,7 +27,7 @@ const Hero = () => {
                 <div className="images">
                     <div className="car_it_ecom">
                         {/* سيبهم زي ما هما  */}
-                        <img className="cartoon_imag" src={all} alt=""  data-aos="fade-left" data-aos-delay="1000"/>
+                        <img className="cartoon_imag" src={all} alt="" data-aos="fade-left" data-aos-delay="1000" />
                         {/* <img className="ecom" src={ecom} alt="" data-aos="fade-right" data-aos-delay="1800" />
                         <img className="global" src={global} alt="" data-aos="fade-up" data-aos-delay="1500" />
                         <img className="car" src={car} alt="" data-aos="fade-left" data-aos-delay="1300" /> */}
