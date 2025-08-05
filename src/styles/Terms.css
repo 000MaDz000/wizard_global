@@ -1,0 +1,81 @@
+.terms-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+  text-align: right;
+  color: #333;
+  line-height: 1.6;
+}
+
+.terms-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.terms-header h1 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+}
+
+.terms-content {
+  margin-bottom: 40px;
+}
+
+.terms-content h2 {
+  color: #3498db;
+  font-size: 1.8rem;
+  margin-top: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.last-updated {
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.section-item {
+  margin-bottom: 25px;
+}
+
+.section-item h3 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.section-item p {
+  margin: 0;
+  color: #555;
+}
+
+.terms-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  color: #7f8c8d;
+}
+
+/* تنسيقات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .terms-container {
+    padding: 15px;
+  }
+  
+  .terms-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .terms-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-item h3 {
+    font-size: 1.1rem;
+  }
+}
