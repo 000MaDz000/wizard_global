@@ -61,6 +61,19 @@
   color: #7f8c8d;
 }
 
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #2a6496;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  border: 1px solid #2a6496;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+
 /* تنسيقات للشاشات الصغيرة */
 @media (max-width: 768px) {
   .terms-container {
@@ -78,4 +91,5 @@
   .section-item h3 {
     font-size: 1.1rem;
   }
+
 }
