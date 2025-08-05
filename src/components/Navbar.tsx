@@ -27,11 +27,11 @@ const Navbar = () => {
                     <li><a href="#about">من نحن</a></li>
                     <li><a href="#services">خدماتنا</a></li>
                     <li><a href="#clients">عملائنا</a></li>
-                    <li><a href="#contact">تواصل معنا</a></li>
+                    <li><a href="#clients">شركائنا</a></li>
                     <li><a href="#artical"> المقالات</a></li>
                 </ul>
 
-                <button className='cta'>  <a style={{textDecoration:'none', color:'black'}} href="#contact">تواصل معنا</a></button>
+                <button className='cta'>  <a style={{ textDecoration: 'none', color: 'black' }} href="#contact">تواصل معنا</a></button>
 
                 {/* زر فتح/غلق القائمة */}
                 <button className="menu-toggle" onClick={toggleMenu}>
