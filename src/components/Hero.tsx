@@ -16,10 +16,10 @@ const Hero = () => {
             <div className="all">
                 <div className="hero-content">
                     <h1 data-aos="fade-down" data-aos-delay="300">
-                        من قلب الابتكار... ننطلق لنصنع الفارق عالميًا                    </h1>
+                        من قلب الابتكار ننطلق لنصنع الفارق عالميًا                    </h1>
                     <p data-aos="fade-up" data-aos-delay="600">
-                        نقدم حلولًا مبتكرة تعتمد على التكنولوجيا وتواكب تطورات السوق العالمي من تجارة السيارات إلى خدمات تقنية المعلومات والمنصات الإلكترونية.
-                    </p>
+                        IFZA DIGITAL PARK - A2                    </p>
+
                     <a href="#services" data-aos="zoom-in" data-aos-delay="900">
                         <button>أطلب خدماتك</button>
                     </a>
