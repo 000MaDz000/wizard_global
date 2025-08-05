@@ -110,7 +110,7 @@
 /* التجاوب مع الشاشات الصغيرة */
 @media (max-width: 768px) {
     .navbar_bar{
-      padding: 5px 0;
+            padding: 7px 0;
     }
   .navbar_bar-container {
             flex-direction: row;
@@ -122,7 +122,7 @@
   .navbar_bar-contact,
   .navbar_bar-links,
   .navbar_bar-search {
-    width: 100%;
+    
     justify-content: center;
   }
   
@@ -141,15 +141,14 @@
 
 @media (max-width: 480px) {
   .navbar_bar{
-            background-color: #00000054;
-  }
+        background-color: #bdd2ebba;  }
   .navbar_bar-links {
     flex-direction: column;
     gap: 0px;
     align-items: center;
   }
   .navbar_bar-links img{
-      width: 80px;
+     width: 122px;
     margin-bottom: -9px;
 }
 .contact-link {
