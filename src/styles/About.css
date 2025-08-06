@@ -165,16 +165,22 @@ font-weight: 400;
 @media (max-width: 992px) {
   .about-container {
     padding: 20px;
-            height: 32vh;
+      height: 66vh;
   }
 
   .about-header h2 {
-    font-size: 22px;
+    font-size: 23px;
+        margin-bottom: -30px;
   }
 
   .about-container h3 {
-    font-size: 32px;
+    font-size: 24px;
   }
+  #sideP {
+    width: 88%;
+  }
+  
+  
 
   .about-header p {
     font-size: 18px;
