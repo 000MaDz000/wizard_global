@@ -154,10 +154,11 @@ padding: 10px 29px;
 
 
 
-@media (max-width: 1400px) {
+@media (max-width: 1450px) {
 
 .hero-content h1 {
-        font-size: 40px;   
+        font-size: 45px;   
+        margin-bottom: 2px;
 }
 .hero-content{
       transform: translateY(34%);
@@ -167,15 +168,81 @@ padding: 10px 29px;
     margin-top: 116px;
 }
 .images .cartoon_imag {
-    width: 700px;
-    margin-right: 40px;
+width: 548px;    margin-right: 40px;
 }
+      .hero-content {
+        padding: 0 32px;
+       
+    }
+    .hero-content p {
+        font-size: 20px;
+        width: 111%;
+    }
 }
+
 
 
 
 
 @media (max-width: 1024px) {
+   .all{
+  display: flex;
+ }
+  .hero-content {
+        padding: 0 60px;
+        top: 37%;
+        width: 100%;
+    
+  }
+
+  .hero-content h1 {
+        font-size: 28px;
+            margin-bottom: 30px;
+  }
+
+  .hero-content p {
+    font-size: 20px;
+    width: 110%;
+  }
+
+  .hero-content button {
+    font-size: 0.95rem;
+    padding: 10px 24px;
+     margin-left: 0;
+  }
+  .images {
+    padding: 0 20px;
+        top: 113%;
+        /* text-align: center; */
+  }
+  .images img{
+  width:100px;
+       margin-top: 33px;
+      margin-right: 3px;
+
+}
+.images .car{
+          width: 759px;
+        margin-top: -253px;
+    
+}
+    .images .cartoon_imag {
+        width: 628px;
+    }
+.images .ecom{
+        position: relative;
+        top: -113px;
+        width: 159px;
+    }
+.images .global{
+               position: relative;
+        right: 28px;
+        bottom: 89px;
+        width: 244px;
+    }
+
+}
+@media (max-width: 950px) {
    .all{
   display: grid;
  }
@@ -233,6 +300,15 @@ padding: 10px 29px;
     }
 
 }
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 768px) {
   .hero {
