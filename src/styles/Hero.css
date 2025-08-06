@@ -113,356 +113,336 @@ padding: 10px 29px;
   color: #0056b3;
 }
 
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-    width: 100%;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
- .all{
-  display: grid;
- }
- .images img{
-         width: 346px;
-        margin-top: 55px;
-}
-
-}
-
-
-/* @media (max-width: 1080px) {
-   .all{
-  display: flex;
- }
- .images .cartoon_imag {
-    width: 600px;
-    margin-right: 39px;
-}
-.hero-content h1 {
-    font-size: 36px;
-   
-}
-.hero-content p {
-    font-size: 19px;
-    
-}
-
-} */
-
-
-
 @media (max-width: 1450px) {
-
-.hero-content h1 {
-        font-size: 45px;   
-        margin-bottom: 2px;
-}
-.hero-content{
-      transform: translateY(34%);
-}
-.images img {
-
+  .hero-content h1 {
+    font-size: 45px;
+    margin-bottom: 2px;
+  }
+  
+  .hero-content {
+    transform: translateY(34%);
+  }
+  
+  .images img {
     margin-top: 116px;
+  }
+  
+  .images .cartoon_imag {
+    width: 548px;
+    margin-right: 40px;
+  }
+  
+  .hero-content {
+    padding: 0 32px;
+  }
+  
+  .hero-content p {
+    font-size: 20px;
+    width: 111%;
+  }
 }
-.images .cartoon_imag {
-width: 548px;    margin-right: 40px;
-}
-      .hero-content {
-        padding: 0 32px;
-       
-    }
-    .hero-content p {
-        font-size: 20px;
-        width: 111%;
-    }
-}
-
-
-
-
 
 @media (max-width: 1400px) {
-   .all{
-  display: flex;
- }
+  .all {
+    display: flex;
+  }
+  
   .hero-content {
-        padding: 0 60px;
-        top: 37%;
-        width: 100%;
-    
+    padding: 0 60px;
+    top: 37%;
+    width: 100%;
   }
-
+  
   .hero-content h1 {
-        font-size: 28px;
-            margin-bottom: 30px;
+    font-size: 28px;
+    margin-bottom: 30px;
   }
-
+  
   .hero-content p {
     font-size: 20px;
     width: 110%;
   }
-
+  
   .hero-content button {
     font-size: 0.95rem;
     padding: 10px 24px;
-     margin-left: 0;
+    margin-left: 0;
   }
+  
   .images {
     padding: 0 20px;
-        top: 113%;
-        /* text-align: center; */
+    top: 113%;
   }
-  .images img{
-  width:100px;
-       margin-top: 33px;
-      margin-right: 3px;
+  
+  .images img {
+    width: 100px;
+    margin-top: 33px;
+    margin-right: 3px;
+  }
+  
+  .images .car {
+    width: 759px;
+    margin-top: -253px;
+  }
+  
+  .images .cartoon_imag {
+    width: 628px;
+  }
+  
+  .images .ecom {
+    position: relative;
+    top: -113px;
+    width: 159px;
+  }
+  
+  .images .global {
+    position: relative;
+    right: 28px;
+    bottom: 89px;
+    width: 244px;
+  }
+}
 
-}
-.images .car{
-          width: 759px;
-        margin-top: -253px;
-    
-}
-    .images .cartoon_imag {
-        width: 628px;
-    }
-.images .ecom{
-        position: relative;
-        top: -113px;
-        width: 159px;
-    }
-.images .global{
-               position: relative;
-        right: 28px;
-        bottom: 89px;
-        width: 244px;
-    }
-
-}
-@media (max-width: 950px) {
-   .all{
-  display: grid;
- }
+@media (max-width: 890px) {
+  .all {
+    display: grid;
+  }
+  
   .hero-content {
-        padding: 0 60px;
-        top: 37%;
-        width: 100%;
-    
+    padding: 0 60px;
+    top: 37%;
+    width: 100%;
   }
-
+  
   .hero-content h1 {
     font-size: 38px;
     margin-bottom: 30px;
   }
-
+  
   .hero-content p {
     font-size: 20px;
     width: 80%;
   }
-
+  
   .hero-content button {
     font-size: 0.95rem;
     padding: 10px 24px;
-     margin-left: 0;
+    margin-left: 0;
   }
+  
   .images {
     padding: 0 20px;
-        top: 113%;
-        /* text-align: center; */
+    top: 113%;
   }
-  .images img{
-  width:100px;
-         margin-top: -136px;
-}
-.images .car{
-          width: 759px;
-        margin-top: -253px;
-    
-}
-.images .cartoon_imag {
+  
+  .images img {
+    width: 100px;
+    margin-top: -136px;
+  }
+  
+  .images .car {
+    width: 759px;
+    margin-top: -253px;
+  }
+  
+  .images .cartoon_imag {
     width: 757px;
-
-   
+  }
+  
+  .images .ecom {
+    position: relative;
+    top: -113px;
+    width: 159px;
+  }
+  
+  .images .global {
+    position: relative;
+    right: 28px;
+    bottom: 89px;
+    width: 244px;
+  }
 }
-.images .ecom{
-        position: relative;
-        top: -113px;
-        width: 159px;
-    }
-.images .global{
-               position: relative;
-        right: 28px;
-        bottom: 89px;
-        width: 244px;
-    }
 
-}
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
+@media (max-width: 790px) {
   .hero {
     height: 100vh;
   }
-
+  
   .hero-content {
     padding: 0 30px;
     top: 42%;
     text-align: justify;
-    /* width: 80%; */
-        transform: translateY(27%);
-
+    transform: translateY(27%);
   }
-
+  
   .hero-content h1 {
     font-size: 28px;
     margin-bottom: 24px;
   }
-
+  
   .hero-content p {
     font-size: 16px;
     width: 100%;
     line-height: 1.6;
   }
-
+  
   .hero-content button {
     font-size: 0.9rem;
     padding: 8px 20px;
   }
+  
   .images {
     padding: 0 20px;
-        top: -4%;
-        text-align: center;
+    top: -4%;
+    text-align: center;
   }
-  .images img{
-  width:100px;
-        margin-top: 121px;
-}
-.images .car{
-      width: 337px;
-      margin-top: -53px;
-    
-}
-.images .ecom{
- position: relative;
-                top: 22px;
-                width: 111px;
-    }
-.images .global{
-                   position: relative;
-        right: 20px;
-        bottom: -42px;
-        width: 160px;
-    }
-    .images .cartoon_imag{
-              width: 720px;
-      margin-right: 0;
+  
+  .images img {
+    width: 100px;
+    margin-top: 121px;
+  }
+  
+  .images .car {
+    width: 337px;
+    margin-top: -53px;
+  }
+  
+  .images .ecom {
+    position: relative;
+    top: 22px;
+    width: 111px;
+  }
+  
+  .images .global {
+    position: relative;
+    right: 20px;
+    bottom: -42px;
+    width: 160px;
+  }
+  
+  .images .cartoon_imag {
+    width: 720px;
+    margin-right: 0;
+  }
 }
 
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+    width: 100%;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .all {
+    display: grid;
+  }
+  
+  .images img {
+    width: 346px;
+    margin-top: 55px;
+  }
 }
 
 @media (max-width: 550px) {
-      .hero-content h1 {
-        font-size: 23px;
-    }
-.images .cartoon_imag {
-        width: 450px;
-       
-    }
-
-        .hero-content {
-        transform: translateY(-1%);
-    }
-        .images img {
-       
-        margin-top: 95px;
-    }
-
-        .about-container {
-       
-        height: 46vh;
-    }
-    .about-container h3 {
-        font-size: 19px;
-    }
-    .about-header h2{
-          margin-bottom: -25px;
-    }
-    .about-header p{
-      margin: 20px auto;
-    }
-
-
+  .hero-content h1 {
+    font-size: 23px;
   }
-
+  
+  .images .cartoon_imag {
+    width: 450px;
+  }
+  
+  .hero-content {
+    transform: translateY(-1%);
+  }
+  
+  .images img {
+    margin-top: 95px;
+  }
+  
+  .about-container {
+    height: 46vh;
+  }
+  
+  .about-container h3 {
+    font-size: 19px;
+  }
+  
+  .about-header h2 {
+    margin-bottom: -25px;
+  }
+  
+  .about-header p {
+    margin: 20px auto;
+  }
+}
 
 @media (max-width: 480px) {
   .hero {
     height: 100vh;
   }
-
+  
   .hero-content {
     padding: 0px 0px;
-        top: -4%;
-        text-align: center;
+    top: -4%;
+    text-align: center;
   }
+  
   .images {
     padding: 0 20px;
-        top: -4%;
-        text-align: center;
+    top: -4%;
+    text-align: center;
   }
-  .images img{
-  width:100px;
-  margin-top: 25px;
-}
-.images .car{
-      width: 337px;
-      margin-top: -53px;
-    
-}
-.car_it_ecom{
-            margin-top: 2px;
-}
-.images .ecom{
- position: relative;
-                top: 22px;
-                width: 111px;
-    }
-.images .global{
-                   position: relative;
-        right: 20px;
-        bottom: -42px;
-        width: 160px;
-    }
-
+  
+  .images img {
+    width: 100px;
+    margin-top: 25px;
+  }
+  
+  .images .car {
+    width: 337px;
+    margin-top: -53px;
+  }
+  
+  .car_it_ecom {
+    margin-top: 2px;
+  }
+  
+  .images .ecom {
+    position: relative;
+    top: 22px;
+    width: 111px;
+  }
+  
+  .images .global {
+    position: relative;
+    right: 20px;
+    bottom: -42px;
+    width: 160px;
+  }
+  
   .hero-content h1 {
     font-size: 25px;
     margin-bottom: 20px;
-    text-align:center;
+    text-align: center;
   }
-
+  
   .hero-content p {
     font-size: 13px;
     line-height: 1.6;
     text-align: center;
   }
-
+  
   .hero-content button {
     font-size: 1.1rem;
-        padding: 8px 28px;
+    padding: 8px 28px;
   }
+  
   .images .cartoon_imag {
     width: 321px;
     margin-top: 78px;
-}
+  }
 }
