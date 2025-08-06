@@ -1,6 +1,6 @@
 .navbar_bar {
-    background-color: #f0f0f069;
-        color: white;
+    background-color: #f0f0f0;
+  color: white;
     padding: 1rem 0;
     box-shadow: 0 2px 10px #1668dc63;
     position: sticky;
@@ -24,8 +24,8 @@
 }
 
 .contact-link {
-  background-color:#0a1f3dad;
-  color: white;
+    background-color: #2a6496;
+      color: white;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -140,8 +140,7 @@
 }
 
 @media (max-width: 480px) {
-  .navbar_bar{
-        background-color: #bdd2ebba;  }
+
   .navbar_bar-links {
     flex-direction: column;
     gap: 0px;
