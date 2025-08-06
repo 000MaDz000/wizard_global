@@ -206,6 +206,11 @@ color: #000000;
     max-width: 400px;
   }
 }
+@media (max-width: 500px) {
+  .services-grid {
+    display: flex;
+  }
+}
 
 /* 
 .core-values {
