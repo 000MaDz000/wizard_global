@@ -13,8 +13,6 @@
 .all{
   display: flex;
 }
-
-
 .overlay {
   position: absolute;
   top: 0;
@@ -134,12 +132,36 @@ padding: 10px 29px;
 
 }
 
+
+@media (max-width: 1080px) {
+   .all{
+  display: flex;
+ }
+ .images .cartoon_imag {
+    width: 600px;
+    margin-right: 39px;
+}
+.hero-content h1 {
+    font-size: 36px;
+   
+}
+.hero-content p {
+    font-size: 19px;
+    
+}
+
+}
+
+
+
+
+
 @media (max-width: 1024px) {
    .all{
   display: grid;
  }
   .hero-content {
-            padding: 0 60px;
+        padding: 0 60px;
         top: 37%;
         width: 100%;
     
@@ -167,12 +189,17 @@ padding: 10px 29px;
   }
   .images img{
   width:100px;
-  margin-top: 25px;
+         margin-top: -106px;
 }
 .images .car{
           width: 759px;
         margin-top: -253px;
     
+}
+.images .cartoon_imag {
+    width: 757px;
+
+   
 }
 .images .ecom{
         position: relative;
@@ -224,7 +251,7 @@ padding: 10px 29px;
   }
   .images img{
   width:100px;
-  margin-top: 25px;
+        margin-top: 121px;
 }
 .images .car{
       width: 337px;
@@ -243,11 +270,46 @@ padding: 10px 29px;
         width: 160px;
     }
     .images .cartoon_imag{
-      width: 700px;
+              width: 720px;
       margin-right: 0;
 }
 
 }
+
+@media (max-width: 550px) {
+      .hero-content h1 {
+        font-size: 23px;
+    }
+.images .cartoon_imag {
+        width: 450px;
+       
+    }
+
+        .hero-content {
+        transform: translateY(-1%);
+    }
+        .images img {
+       
+        margin-top: 95px;
+    }
+
+        .about-container {
+       
+        height: 46vh;
+    }
+    .about-container h3 {
+        font-size: 19px;
+    }
+    .about-header h2{
+          margin-bottom: -25px;
+    }
+    .about-header p{
+      margin: 20px auto;
+    }
+
+
+  }
+
 
 @media (max-width: 480px) {
   .hero {
