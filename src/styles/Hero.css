@@ -133,7 +133,7 @@ padding: 10px 29px;
 }
 
 
-@media (max-width: 1080px) {
+/* @media (max-width: 1080px) {
    .all{
   display: flex;
  }
@@ -150,7 +150,7 @@ padding: 10px 29px;
     
 }
 
-}
+} */
 
 
 
@@ -184,7 +184,7 @@ width: 548px;    margin-right: 40px;
 
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
    .all{
   display: flex;
  }
