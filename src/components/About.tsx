@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../styles/About.css';
 import { Link } from 'react-router-dom';
-import wazir from '../assets/global-network-digital-earth-visualization.png';
+import wazir from '../assets/about.png';
 import { FaGlobe } from "react-icons/fa";
 import { GiWorld } from "react-icons/gi";
 import { MdPublic } from "react-icons/md";
@@ -16,8 +16,8 @@ import { AiOutlineGlobal } from "react-icons/ai";
 const AboutUs = () => {
     useEffect(() => {
         AOS.init({
-            once: true, // الأنيميشن يظهر مرة واحدة فقط عند النزول
-            duration: 800, // سرعة الأنيميشن الافتراضية
+            once: true, 
+            duration: 800, 
         });
     }, []);
 
@@ -25,8 +25,8 @@ const AboutUs = () => {
         <section className="about-us" data-aos="fade-up">
             <div className="about-container">
                 <div className="about-header" data-aos="fade-right" data-aos-delay="200">
-                    <h2>ماذا تعرف عن</h2>
-                    <h3> WAZIR GLOBALX</h3>
+                    <h2>ماذا تعرف عنا ؟</h2>
+                    <h3> رواد تقديم الحلول المبتكرة عالميًا </h3>
                     <p className="about-p">
                         تأسست الشركة  في دبي، بهدف توفير خدمات احترافية وعالمية في مجالات استيراد وتصدير السيارات، تكنولوجيا المعلومات، والتجارة الإلكترونية. تجمع شركتنا بين الابتكار والثقة لتقديم حلول ذكية تناسب تطلعات عملائنا في السوق المحلي والدولي.
                     </p>
