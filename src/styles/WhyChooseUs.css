@@ -1,4 +1,6 @@
 .why-choose-section {
+  /* display: flex;
+  grid:50px; */
     padding: 30px 190px;
     text-align: center;
   background-size: cover;
@@ -12,8 +14,13 @@
 }
 
 .section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    font-family: Cairo;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 76px;
+    letter-spacing: 0%;
+    text-align: center;
     color: #0d3559;
 }
 
@@ -29,9 +36,9 @@
 }
 .details .second_p{
   flex: 1.7;
-  font-size: 20px;
-  /* margin-top: 50px; */
-  color: #000000a4;
+    font-size: 21px;
+    /* margin-top: 50px; */
+    color: #04162b;
   
 }
 
