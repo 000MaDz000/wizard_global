@@ -154,6 +154,25 @@ padding: 10px 29px;
 
 
 
+@media (max-width: 1400px) {
+
+.hero-content h1 {
+        font-size: 40px;   
+}
+.hero-content{
+      transform: translateY(34%);
+}
+.images img {
+
+    margin-top: 116px;
+}
+.images .cartoon_imag {
+    width: 700px;
+    margin-right: 40px;
+}
+}
+
+
 
 
 @media (max-width: 1024px) {
@@ -189,7 +208,7 @@ padding: 10px 29px;
   }
   .images img{
   width:100px;
-         margin-top: -106px;
+         margin-top: -136px;
 }
 .images .car{
           width: 759px;
