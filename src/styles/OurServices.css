@@ -1,7 +1,8 @@
 .services-section {
   padding: 40px 20px;
-      background-image: linear-gradient(rgb(1 13 41 / 93%), #010e35f5), url(/src/assets/pexels-brett-sayles-3653997.jpg);
-    background-size: cover;
+      /* background-image: linear-gradient(rgb(1 13 41 / 93%), #010e35f5), url(/src/assets/pexels-brett-sayles-3653997.jpg); */
+    background-color: #165082;
+      background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
@@ -22,7 +23,11 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
-
+.service-card img{
+      margin: 0 auto;
+    /* width: 40%; */
+    height: 113px;
+}
 .service-card {
   background: white;
   padding: 25px;
