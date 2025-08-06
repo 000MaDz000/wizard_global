@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/OurServices.css";
-import cars from "../assets/pexels-mikebirdy-120049.jpg";
-import ecom from "../assets/pexels-karolina-grabowska-5632402.jpg";
-import it from "../assets/pexels-luckysam-50614.jpg";
+import it from '../assets/internet.png'
 import { FaCar } from "react-icons/fa";
+import { IoGlobeOutline } from "react-icons/io5";
+
 import { FaGlobe } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
@@ -24,8 +24,8 @@ const OurServices = () => {
 
 
                 <div className="service-card" data-aos="zoom-in" data-aos-delay="400">
-                    {/* <img src={it} alt="تكنولوجيا المعلومات" /> */}
-                    <FaGlobe className="icon"/>
+                    <img src={it} alt="تكنولوجيا المعلومات"/>
+                    {/* <IoGlobeOutline className="icon"/> */}
                     <h3 className="servic_h3">تكنولوجيا المعلومات وتطوير التطبيقات</h3>
                     <p>نشر تطبيقات الهاتف والمواقع وتطوير نظم معلومات مخصصة.</p>
                     <a href="/it" className="learn-more-btn">اعرف المزيد</a>
