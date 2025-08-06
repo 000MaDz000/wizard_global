@@ -122,7 +122,7 @@ const ClientsPartners = ({ isAuthenticated }) => {
         <section className="clients-section">
             {/* شركاؤنا */}
             <div className="partners-section" data-aos="fade-up">
-                <h4>شركائنا في <span style={{ color: "#5b7be4" }}>النجاح</span></h4>
+                <h4>شركائنا في النجاح </h4>
                 <p>تندرج تحت مظلة "شركة Wazir" مجموعة من الشركاء الاستراتيجيين الذين يدعمون نجاحنا المستمر في مجالات متنوعة.</p>
                 <div className="partners-logos" data-aos="zoom-in">
                     <img src={partner1} alt="شريك 1" />
@@ -135,7 +135,7 @@ const ClientsPartners = ({ isAuthenticated }) => {
             {/* آراء العملاء */}
             <div className="testimonials" data-aos="fade-up" data-aos-delay="200">
                 <div className="testimonials-header">
-                    <h4>آراء <span style={{ color: "white" }}>عملائنا</span></h4>
+                    <h4>آراء عملائنا</h4>
                     <button 
                         onClick={handleAddTestimonialClick}
                         className="add-testimonial-btn"
