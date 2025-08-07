@@ -13,8 +13,11 @@ import ArticlesList from '../components/ArticlesList';
 import { useHomepage } from '../api/hooks/useHomepage';
 import { buildStrapiPopulateParams, homepagePopulation } from '../api/const/populations';
 import Loading from '../components/Loading';
+import { useAuth } from '../api/hooks/useAuth';
 
 const Home = () => {
+    const auth = useAuth();
+    const isAuthenticated = Boolean(auth.data) && Boolean(!auth.isLoading);
     const location = useLocation();
     const { i18n } = useTranslation();
     const response = useHomepage(buildStrapiPopulateParams(homepagePopulation));
@@ -76,7 +79,7 @@ const Home = () => {
             </div>
 
             <div id="clients">
-                <ClientsPartners data={data.clients_partners} />
+                <ClientsPartners data={data.clients_partners} isAuthenticated={isAuthenticated} />
             </div>
 
             <div id="artical">

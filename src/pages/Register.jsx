@@ -1,56 +1,78 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
-import logo from '../assets/wazir.png'
+import logo from '../assets/wazir.png';
+import { useAuth, useSignup } from '../api/hooks/useAuth';
 
-const Register = ({ setIsAuthenticated }) => {
-    const [formData, setFormData] = useState({
+const Register = () => {
+    const navigate = useNavigate();
+    const { data: user, isLoading } = useAuth();
+    const { mutate, isPending } = useSignup();
+
+    const formRef = useRef({
         name: '',
         email: '',
         password: '',
         confirmPassword: ''
     });
+
     const [error, setError] = useState('');
-    const navigate = useNavigate();
+
+    // ✅ إعادة التوجيه إذا كان هناك مستخدم بالفعل
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user, navigate]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        formRef.current[name] = value;
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError('');
+    const handleSubmit = useCallback(
+        (e) => {
+            e.preventDefault();
+            setError('');
 
-        if (formData.password !== formData.confirmPassword) {
-            setError('كلمة المرور غير متطابقة');
-            return;
-        }
+            const { name, email, password, confirmPassword } = formRef.current;
 
-        try {
-            // هنا سيتم الاتصال مع Strapi لتسجيل المستخدم الجديد
-            // هذا مثال فقط - سيتم استبداله بالاتصال الفعلي مع الخادم
-            if (formData.name && formData.email && formData.password) {
-                setIsAuthenticated(true);
-                navigate('/');
-            } else {
+            if (!name || !email || !password || !confirmPassword) {
                 setError('جميع الحقول مطلوبة');
+                return;
             }
-        } catch (err) {
-            setError('حدث خطأ أثناء التسجيل. يرجى المحاولة لاحقاً');
-        }
-    };
+
+            if (password !== confirmPassword) {
+                setError('كلمة المرور غير متطابقة');
+                return;
+            }
+
+            mutate(
+                { username: name, email, password },
+                {
+                    onSuccess: () => {
+                        navigate('/');
+                    },
+                    onError: () => {
+                        setError('حدث خطأ أثناء التسجيل. يرجى المحاولة لاحقاً');
+                    }
+                }
+            );
+        },
+        [mutate, navigate]
+    );
+
+    if (isLoading) return <p>جاري التحقق من الجلسة...</p>;
 
     return (
         <div className="auth-container">
             <div className="auth-card">
                 <Link to={'/'}>
-                    <h1 className='h1_logo'><img src={logo} alt="" /></h1>
-
+                    <h1 className="h1_logo">
+                        <img src={logo} alt="Logo" />
+                    </h1>
                 </Link>
+
                 <h2>إنشاء حساب جديد</h2>
                 {error && <div className="error-message">{error}</div>}
 
@@ -60,7 +82,6 @@ const Register = ({ setIsAuthenticated }) => {
                         <input
                             type="text"
                             name="name"
-                            value={formData.name}
                             onChange={handleInputChange}
                             required
                         />
@@ -71,7 +92,6 @@ const Register = ({ setIsAuthenticated }) => {
                         <input
                             type="email"
                             name="email"
-                            value={formData.email}
                             onChange={handleInputChange}
                             required
                         />
@@ -82,7 +102,6 @@ const Register = ({ setIsAuthenticated }) => {
                         <input
                             type="password"
                             name="password"
-                            value={formData.password}
                             onChange={handleInputChange}
                             required
                         />
@@ -93,17 +112,21 @@ const Register = ({ setIsAuthenticated }) => {
                         <input
                             type="password"
                             name="confirmPassword"
-                            value={formData.confirmPassword}
                             onChange={handleInputChange}
                             required
                         />
                     </div>
 
-                    <button type="submit" className="auth-button">إنشاء حساب</button>
+                    <button type="submit" className="auth-button" disabled={isPending}>
+                        {isPending ? 'جاري التسجيل...' : 'إنشاء حساب'}
+                    </button>
                 </form>
 
                 <div className="auth-footer">
-                    <p>لديك حساب بالفعل؟ <span onClick={() => navigate('/login')}>سجل الدخول</span></p>
+                    <p>
+                        لديك حساب بالفعل؟{' '}
+                        <span onClick={() => navigate('/login')}>سجل الدخول</span>
+                    </p>
                 </div>
             </div>
         </div>

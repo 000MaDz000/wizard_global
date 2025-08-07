@@ -1,5 +1,7 @@
 import { axios } from './axios';
 import { StrapiResponse, PaginationParams } from '../types/strapi';
+import { articlePopulation, carPopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
+import { AuthCredentials, AuthSignupData, AuthResponse, AuthUser } from '../types/auth';
 import {
     Article,
     ArticleCategory,
@@ -17,7 +19,6 @@ import {
     Term,
     Footer
 } from '../types/content-types';
-import { articlePopulation, carPopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
 
 // Helper function to build query string
 const buildQueryString = (params: PaginationParams = {}): string => {
@@ -257,5 +258,48 @@ export const fetchIT = async (populate?: string | string[]): Promise<StrapiRespo
 export const fetchTerm = async (populate?: string | string[]): Promise<StrapiResponse<Term>> => {
     const queryString = populate ? buildQueryString({ populate }) : '';
     const response = await axios.get(`/term?${queryString}`);
+    return response.data;
+};
+
+
+
+
+const API = '';
+
+export const login = async (data: AuthCredentials): Promise<AuthResponse> => {
+    const res = await axios.post(`${API}/auth/local`, data, { headers: { Authorization: null } });
+    return res.data;
+};
+
+export const signup = async (data: AuthSignupData): Promise<AuthResponse> => {
+    const res = await axios.post(`${API}/auth/local/register`, data, { headers: { Authorization: null } });
+    return res.data;
+};
+
+export const getMe = async (jwt: string): Promise<AuthUser> => {
+    const res = await axios.get(`${API}/users/me`, {
+        headers: {
+            Authorization: `Bearer ${jwt}`,
+        },
+    });
+    return res.data;
+};
+
+import { TestimonialInput } from '../types/content-types';
+
+export const sendTestimonial = async (
+    data: TestimonialInput,
+    token: string
+) => {
+    const response = await axios.post(
+        '/testimonials',
+        data,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
     return response.data;
 };

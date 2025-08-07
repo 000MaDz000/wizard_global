@@ -263,3 +263,11 @@ export interface Term {
     publishedAt?: string;
     locale?: string;
 }
+
+
+export interface TestimonialInput {
+    name: string;
+    job: string;
+    rating: number;
+    feedback: string;
+}

@@ -5,6 +5,8 @@ import "../styles/ClientsPartners.css";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import ClientImage from "./ClientImage";
+import { useJWT } from "../api/hooks/useAuth";
+import { sendTestimonial } from "../api/lib/fetchers";
 
 const testimonials = [
     {
@@ -52,6 +54,7 @@ const testimonials = [
 const ClientsPartners = ({ isAuthenticated, data }) => {
     const testimonials = data?.testimonials_section?.testimonials || [];
     const [showAllTestimonials, setShowAllTestimonials] = useState(false);
+    const { token } = useJWT();
     /** @type {[typeof testimonials]} */
     const [displayedTestimonials, setDisplayedTestimonials] = useState([]);
     const [newTestimonial, setNewTestimonial] = useState({
@@ -102,8 +105,10 @@ const ClientsPartners = ({ isAuthenticated, data }) => {
         // هنا سيتم إرسال البيانات إلى الخادم عند اكتمال الجزء الخلفي
         const submittedTestimonial = {
             ...newTestimonial,
-            image: "https://randomuser.me/api/portraits/men/1.jpg" // صورة افتراضية
+            // image: "https://randomuser.me/api/portraits/men/1.jpg" // صورة افتراضية
         };
+
+        sendTestimonial(submittedTestimonial, token);
 
         testimonials.unshift(submittedTestimonial);
         setDisplayedTestimonials(showAllTestimonials ? [...testimonials] : [...testimonials.slice(0, 3)]);

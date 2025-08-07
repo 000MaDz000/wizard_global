@@ -1,81 +1,105 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Auth.css';
-import logo from '../assets/wazir.png'
+import logo from '../assets/wazir.png';
 import { Link } from 'react-router-dom';
+import { useAuth, useLogin } from '../api/hooks/useAuth';
 
-const Login = ({ setIsAuthenticated }) => {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: ''
-    });
-    const [error, setError] = useState('');
+const Login = () => {
     const navigate = useNavigate();
+    const { data: user, isLoading } = useAuth();
+    const { mutate, isPending, error: loginError } = useLogin();
+
+    const formRef = useRef({
+        email: '',
+        password: '',
+    });
+
+    const [error, setError] = useState('');
+
+    // ✅ إعادة التوجيه إذا كان هناك مستخدم
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [user, navigate]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+        formRef.current[name] = value;
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError('');
-        
-        try {
-            // هنا سيتم الاتصال مع Strapi للتحقق من بيانات الدخول
-            // هذا مثال فقط - سيتم استبداله بالاتصال الفعلي مع الخادم
-            if (formData.email && formData.password) {
-                setIsAuthenticated(true);
-                navigate('/');
-            } else {
+    const handleSubmit = useCallback(
+        (e) => {
+            e.preventDefault();
+            setError('');
+
+            const { email, password } = formRef.current;
+
+            if (!email || !password) {
                 setError('البريد الإلكتروني وكلمة المرور مطلوبان');
+                return;
             }
-        } catch (err) {
-            setError('بيانات الدخول غير صحيحة');
-        }
-    };
+
+            mutate(
+                { identifier: email, password },
+                {
+                    onSuccess: () => {
+                        navigate('/');
+                    },
+                    onError: () => {
+                        setError('بيانات الدخول غير صحيحة');
+                    },
+                }
+            );
+        },
+        [mutate, navigate]
+    );
+
+    if (isLoading) return <p>جاري التحقق من الجلسة...</p>;
 
     return (
         <div className="auth-container">
             <div className="auth-card">
                 <Link to={'/'}>
-                    <h1 className='h1_logo'><img src={logo} alt="" /></h1>
-
+                    <h1 className="h1_logo">
+                        <img src={logo} alt="Logo" />
+                    </h1>
                 </Link>
                 <h2>تسجيل الدخول</h2>
                 {error && <div className="error-message">{error}</div>}
-                
+
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>البريد الإلكتروني</label>
                         <input
                             type="email"
                             name="email"
-                            value={formData.email}
                             onChange={handleInputChange}
                             required
                         />
                     </div>
-                    
+
                     <div className="form-group">
                         <label>كلمة المرور</label>
                         <input
                             type="password"
                             name="password"
-                            value={formData.password}
                             onChange={handleInputChange}
                             required
                         />
                     </div>
-                    
-                    <button type="submit" className="auth-button">تسجيل الدخول</button>
+
+                    <button type="submit" className="auth-button" disabled={isPending}>
+                        {isPending ? 'جارٍ تسجيل الدخول...' : 'تسجيل الدخول'}
+                    </button>
                 </form>
-                
+
                 <div className="auth-footer">
-                    <p>ليس لديك حساب؟ <span onClick={() => navigate('/register')}>سجل الآن</span></p>
+                    <p>
+                        ليس لديك حساب؟{' '}
+                        <span onClick={() => navigate('/register')}>سجل الآن</span>
+                    </p>
                 </div>
             </div>
         </div>
