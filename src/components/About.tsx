@@ -30,7 +30,7 @@ const AboutUs = () => {
                     <p className="about-p">
                         تأسست الشركة  في دبي، بهدف توفير خدمات احترافية وعالمية في مجالات استيراد وتصدير السيارات، تكنولوجيا المعلومات، والتجارة الإلكترونية. تجمع شركتنا بين الابتكار والثقة لتقديم حلول ذكية تناسب تطلعات عملائنا في السوق المحلي والدولي.
                     </p>
-                    {/* <Link className='know' to="/about" data-aos="zoom-in" data-aos-delay="600">اعرف المزيد</Link> */}
+                    <Link className='know' to="/about" data-aos="zoom-in" data-aos-delay="600">اعرف المزيد</Link>
                 </div>
                 <br />
                 <div className="section-with-text-image">
