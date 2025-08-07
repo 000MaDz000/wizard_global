@@ -17,7 +17,8 @@ import {
     TextArray,
     Filters,
     TermsOfService,
-    CarService
+    CarService,
+    ECommerceContactSection
 } from './components';
 
 // Content Type Interfaces
@@ -184,7 +185,7 @@ export interface ECommerce {
     hero_contact_button_text: string;
     click_for_more_details_button_text: string;
     video_section?: Video;
-    contact_section: ContactSection;
+    contact_section: ECommerceContactSection;
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;

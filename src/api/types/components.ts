@@ -77,6 +77,17 @@ export interface ContactForm {
     service: Budget;
 }
 
+export interface ECommerceContactForm {
+    name: FormItemGroup;
+    email: FormItemGroup;
+    country: FormItemGroup;
+    requirements: FormItemGroup;
+    submit_button_text: string;
+    choose_service_text: string;
+    budget?: Budget;
+    business_type: Budget;
+}
+
 export interface AddTestimonialForm {
     title: string;
     name_label_text: string;
@@ -143,6 +154,11 @@ export interface Articles {
 export interface ContactSection {
     title: Title;
     form?: ContactForm;
+}
+
+export interface ECommerceContactSection {
+    title: Title;
+    form?: ECommerceContactForm;
 }
 
 export interface CTA {

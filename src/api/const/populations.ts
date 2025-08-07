@@ -118,14 +118,14 @@ export const eCommercePopulation = {
                 populate: {
                     name: true,
                     email: true,
-                    country: true,
-                    message: true,
+                    phone: true,
+                    requirements: true,
                     budget: {
                         populate: {
                             chooices: true
                         }
                     },
-                    service: {
+                    business_type: {
                         populate: {
                             chooices: true
                         }

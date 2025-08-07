@@ -249,7 +249,7 @@ const ECommerce = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="businessType"><FaStore className="input-icon" /> نوع النشاط التجاري:</label>
+                            <label htmlFor="businessType"><FaStore className="input-icon" /> {data.contact_section.form.business_type.title}</label>
                             <select
                                 id="businessType"
                                 name="businessType"
@@ -257,11 +257,9 @@ const ECommerce = () => {
                                 onChange={handleChange}
                                 required
                             >
-                                <option value="">اختر نوع النشاط</option>
-                                <option value="retail">بيع بالتجزئة</option>
-                                <option value="wholesale">بيع بالجملة</option>
-                                <option value="services">خدمات</option>
-                                <option value="other">أخرى</option>
+                                {data.contact_section.form.business_type.chooices.map(chooice => (
+                                    <option value={chooice.text} key={chooice.text}>{chooice.text}</option>
+                                ))}
                             </select>
                         </div>
 
@@ -284,12 +282,13 @@ const ECommerce = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="requirements"><FaCommentAlt className="input-icon" /> متطلبات إضافية:</label>
+                            <label htmlFor="requirements"><FaCommentAlt className="input-icon" /> {data.contact_section.form.requirements.label}</label>
                             <textarea
                                 id="requirements"
                                 name="requirements"
                                 value={formData.requirements}
                                 onChange={handleChange}
+                                placeholder={data.contact_section.form.requirements.placeholder}
                                 rows="4"
                             ></textarea>
                         </div>
