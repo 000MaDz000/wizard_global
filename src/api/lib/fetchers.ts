@@ -14,7 +14,8 @@ import {
     CarsPage,
     ECommerce,
     IT,
-    Term
+    Term,
+    Footer
 } from '../types/content-types';
 import { articlePopulation, carPopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
 
@@ -182,6 +183,19 @@ export const fetchECommerceFutureProjects = async (params?: PaginationParams): P
     const response = await axios.get(`/e-commerce-future-projects?${queryString}`);
     return response.data;
 };
+
+export const fetchFooter = async (): Promise<StrapiResponse<Footer>> => {
+    const response = await axios.get("/footer", {
+        params: {
+            populate: {
+                contact_info: true
+            }
+        }
+    });
+
+    return response.data;
+
+}
 
 export const fetchECommerceFutureProject = async (id: number): Promise<StrapiResponse<ECommerceFutureProject>> => {
     const response = await axios.get(`/e-commerce-future-projects`, {

@@ -18,7 +18,8 @@ import {
     Filters,
     TermsOfService,
     CarService,
-    ECommerceContactSection
+    ECommerceContactSection,
+    ContactInfo
 } from './components';
 
 // Content Type Interfaces
@@ -150,6 +151,15 @@ export interface ECommerceFutureProject extends StrapiEntity {
     updatedAt: string;
     publishedAt?: string;
     locale?: string;
+}
+
+export interface Footer extends StrapiEntity {
+    privacy_policy_text: string;
+    terms_of_service_text: string;
+    address?: string;
+    copyright?: string;
+    contact_info?: ContactInfo;
+
 }
 
 export interface Testimonial extends StrapiEntity {
