@@ -80,12 +80,12 @@ export interface ContactForm {
 export interface ECommerceContactForm {
     name: FormItemGroup;
     email: FormItemGroup;
-    country: FormItemGroup;
+    phone: FormItemGroup;
     requirements: FormItemGroup;
-    submit_button_text: string;
-    choose_service_text: string;
     budget?: Budget;
     business_type: Budget;
+    submit_button_text: string;
+    choose_service_text: string;
 }
 
 export interface AddTestimonialForm {

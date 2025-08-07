@@ -237,11 +237,12 @@ const ECommerce = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="phone"><FaPhone className="input-icon" /> رقم الهاتف:</label>
+                            <label htmlFor="phone"><FaPhone className="input-icon" /> {data.contact_section.form.phone.label}</label>
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
+                                placeholder={data.contact_section.form.phone.placeholder}
                                 value={formData.phone}
                                 onChange={handleChange}
                                 required
