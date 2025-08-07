@@ -104,7 +104,7 @@ export const eCommercePopulation = {
     future_projects_section: {
         populate: {
             projects: {
-                populate: ["image", "features", "technologies", "screenshots"]
+                populate: ["images", "features"]
             }
         }
     },

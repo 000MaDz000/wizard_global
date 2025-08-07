@@ -16,7 +16,7 @@ import {
     IT,
     Term
 } from '../types/content-types';
-import { articlePopulation, carsPopulation } from '../const/populations';
+import { articlePopulation, carsPopulation, eCommerceFutureProjectPopulation } from '../const/populations';
 
 // Helper function to build query string
 const buildQueryString = (params: PaginationParams = {}): string => {
@@ -156,9 +156,23 @@ export const fetchECommerceFutureProjects = async (params?: PaginationParams): P
     return response.data;
 };
 
-export const fetchECommerceFutureProject = async (id: number, populate?: string | string[]): Promise<StrapiResponse<ECommerceFutureProject>> => {
-    const queryString = populate ? buildQueryString({ populate }) : '';
-    const response = await axios.get(`/e-commerce-future-projects/${id}?${queryString}`);
+export const fetchECommerceFutureProject = async (id: number): Promise<StrapiResponse<ECommerceFutureProject>> => {
+    const response = await axios.get(`/e-commerce-future-projects`, {
+        params: {
+            filter: {
+                id: {
+                    $eq: id
+                }
+            },
+            populate: eCommerceFutureProjectPopulation
+        }
+    });
+
+
+    if (response.data?.data?.[0]) {
+        response.data.data = response.data.data[0];
+    }
+
     return response.data;
 };
 

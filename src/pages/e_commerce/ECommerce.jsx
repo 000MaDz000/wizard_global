@@ -156,7 +156,7 @@ const ECommerce = () => {
         }
     };
 
-    const data = res.data.data;
+    const data = res.data?.data;
     if (!data) return;
 
     return (
@@ -202,7 +202,7 @@ const ECommerce = () => {
                         {data.services.map((service) => (
                             <div key={service.id} className="e-commerce-service-card">
                                 <div className="e-commerce-service-icon">
-                                    <ClientImage src={service.service_icon} />
+                                    <ClientImage src={service.service_icon} style={{ width: '8rem', height: '8rem' }} />
                                 </div>
 
                                 <h3>{service.service_name}</h3>
@@ -213,52 +213,64 @@ const ECommerce = () => {
                 </div>
 
                 {/* المنصة */}
-                <div className="e-commerce-platform">
-                    <div className="e-commerce-platform-content">
-                        <h2>{data.cta.title}</h2>
-                        <p>{data.cta.description}</p>
-                        <ClientLink href={data.cta.link} className="e-commerce-platform-button">
-                            {data.cta.link.text}
-                        </ClientLink>
-                    </div>
-                </div>
+                {
+                    data.cta ? (
+                        <div className="e-commerce-platform">
+                            <div className="e-commerce-platform-content">
+                                <h2>{data.cta.title}</h2>
+                                <p>{data.cta.description}</p>
+                                <ClientLink href={data.cta.link} className="e-commerce-platform-button">
+                                    {data.cta.link.text}
+                                </ClientLink>
+                            </div>
+                        </div>
+                    ) : null
+                }
 
                 {/* المشاريع المستقبلية */}
-                <div className="e-commerce-section">
-                    <h2>{data.future_projects_section.title}</h2>
-                    <div className="e-commerce-projects-grid">
-                        {data.future_projects_section?.projects?.map((project) => (
-                            <div
-                                key={project.id}
-                                className="e-commerce-project-card"
-                                onClick={() => handleProjectClick(project.id)}
-                            >
-                                <h3>{project.project_name}</h3>
-                                <p>{project.project_description}</p>
-                                <div className="project-more-info">{data.click_for_more_details_button_text}</div>
+                {
+                    data.future_projects_section ? (
+                        <div className="e-commerce-section">
+                            <h2>{data.future_projects_section?.title}</h2>
+                            <div className="e-commerce-projects-grid">
+                                {data.future_projects_section?.projects?.map((project) => (
+                                    <div
+                                        key={project.id}
+                                        className="e-commerce-project-card"
+                                        onClick={() => handleProjectClick(project.id)}
+                                    >
+                                        <h3>{project.project_name}</h3>
+                                        <p>{project.project_description}</p>
+                                        <div className="project-more-info">{data.click_for_more_details_button_text}</div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                </div>
+                        </div>
+                    ) : null
+                }
 
-                <div className="e-commerce-video-section">
-                    <h2 className='proje_h2'>{data.video_section.video_title}</h2>
-                    <div className="e-commerce-video-container">
-                        <iframe
-                            width="100%"
-                            height="500"
-                            src={`${data.video_section.video.url}`}
-                            title={data.video_section.video_title}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                </div>
+                {
+                    data.video_section ? (
+                        <div className="e-commerce-video-section">
+                            <h2 className='proje_h2'>{data.video_section?.video_title}</h2>
+                            <div className="e-commerce-video-container">
+                                <iframe
+                                    width="100%"
+                                    height="500"
+                                    src={`${data.video_section?.video.url}`}
+                                    title={data.video_section?.video_title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    ) : null
+                }
 
                 {/* النموذج */}
                 <div className="e-commerce-form-section" id="contact-form">
-                    <h2>{data.contact_section.title}</h2>
+                    <h2>{data.contact_section?.title.title_start} {data.contact_section.title.title_end}</h2>
                     <form onSubmit={handleSubmit} className="e-commerce-form">
                         <div className="form-group">
                             <label htmlFor="name"><FaUser className="input-icon" /> {data.contact_section.form.name.label}</label>
@@ -327,7 +339,7 @@ const ECommerce = () => {
                                 <option value="">{data.contact_section.form.budget.title}</option>
                                 {
                                     data.contact_section.form.budget.chooices.map(choice => (
-                                        <option value={choice.text}>{choice.text}</option>
+                                        <option key={choice} value={choice.text}>{choice.text}</option>
                                     ))
                                 }
                             </select>

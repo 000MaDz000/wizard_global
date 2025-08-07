@@ -3,9 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './ProjectDetails_ecommerce.css';
 import Footer from '../../components/Footer';
 import { FaArrowLeft, FaCalendarAlt } from 'react-icons/fa';
+import { useECommerceFutureProject } from '../../api/hooks';
+import Loading from '../../components/Loading';
+import ClientImage from '../../components/ClientImage';
 
 const ProjectDetails_ecommerce = () => {
     const { id } = useParams();
+    const dataRes = useECommerceFutureProject(id);
     const navigate = useNavigate();
 
     // بيانات المشاريع (يجب أن تكون متطابقة مع البيانات في ECommerce.js)
@@ -48,7 +52,9 @@ const ProjectDetails_ecommerce = () => {
         }
     ];
 
-    const project = projects.find(p => p.id === parseInt(id));
+
+    if (dataRes.isLoading) return <Loading />
+    const project = dataRes.data.data;
 
     if (!project) {
         return <div>المشروع غير موجود</div>;
@@ -80,8 +86,8 @@ const ProjectDetails_ecommerce = () => {
                     <div className="project-features">
                         <h2>المميزات الرئيسية</h2>
                         <ul>
-                            {project.features.map((feature, index) => (
-                                <li key={index}>{feature}</li>
+                            {project.features?.map((feature, index) => (
+                                <li key={index}>{feature.text}</li>
                             ))}
                         </ul>
                     </div>
@@ -89,9 +95,9 @@ const ProjectDetails_ecommerce = () => {
                     <div className="project-gallery">
                         <h2>معرض الصور</h2>
                         <div className="gallery-grid">
-                            {project.images.map((image, index) => (
+                            {project.images?.map((image, index) => (
                                 <div key={index} className="gallery-item">
-                                    <img src={image} alt={`Project ${project.id} - ${index + 1}`} />
+                                    <ClientImage src={image} alt={image.alternativeText || project.project_name} />
                                 </div>
                             ))}
                         </div>
