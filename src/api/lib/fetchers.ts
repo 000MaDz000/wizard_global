@@ -16,7 +16,7 @@ import {
     IT,
     Term
 } from '../types/content-types';
-import { articlePopulation, carPopulation, carsPopulation, eCommerceFutureProjectPopulation } from '../const/populations';
+import { articlePopulation, carPopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
 
 // Helper function to build query string
 const buildQueryString = (params: PaginationParams = {}): string => {
@@ -152,15 +152,28 @@ export const fetchCarModel = async (id: number, populate?: string | string[]): P
     return response.data;
 };
 
-export const fetchProjects = async (params?: PaginationParams): Promise<StrapiResponse<Project[]>> => {
+export const fetchItProjects = async (params?: PaginationParams): Promise<StrapiResponse<Project[]>> => {
     const queryString = buildQueryString(params);
     const response = await axios.get(`/projects?${queryString}`);
     return response.data;
 };
 
-export const fetchProject = async (id: number, populate?: string | string[]): Promise<StrapiResponse<Project>> => {
-    const queryString = populate ? buildQueryString({ populate }) : '';
-    const response = await axios.get(`/projects/${id}?${queryString}`);
+export const fetchItProject = async (id: number): Promise<StrapiResponse<Project>> => {
+    const response = await axios.get(`/projects`, {
+        params: {
+            populate: projectPopulation,
+            filter: {
+                id: {
+                    $eq: id
+                }
+            }
+        }
+    });
+
+    if (response.data?.data?.[0]) {
+        response.data.data = response.data.data[0];
+    }
+
     return response.data;
 };
 

@@ -15,6 +15,7 @@ import { BiLinkExternal } from 'react-icons/bi';
 import { BsInfoCircle } from 'react-icons/bs';
 import { useIT } from '../../api/hooks';
 import { buildStrapiPopulateParams, itPopulation } from '../../api/const/populations';
+import ClientImage from '../../components/ClientImage';
 
 const ITSolutions = () => {
     const res = useIT(buildStrapiPopulateParams(itPopulation));
@@ -120,7 +121,7 @@ const ITSolutions = () => {
                     <div className="it_services-grid">
                         {data.services.map((service, index) => (
                             <div key={service.id} className="it_service-card">
-                                <ClientImage className="it_service-icon" src={service.icon} />
+                                <ClientImage className="it_service-icon" src={service.icon} style={{ width: "8rem", height: "8rem" }} />
                                 <h3>{service.name}</h3>
                             </div>
                         ))}
@@ -133,7 +134,7 @@ const ITSolutions = () => {
                     <div className="tech-grid">
                         {data.technologies.map((tech, index) => (
                             <div key={tech.id} className="tech-card">
-                                <ClientImage className="tech-icon" src={service.icon} />
+                                <ClientImage className="tech-icon" src={tech.icon} style={{ width: "8rem", height: "8rem" }} />
                                 <span>{tech.name}</span>
                             </div>
                         ))}
@@ -157,13 +158,13 @@ const ITSolutions = () => {
                                             rel="noopener noreferrer"
                                             className="project-btn demo-btn"
                                         >
-                                            <BiLinkExternal /> Live Demo
+                                            <BiLinkExternal /> {data.live_demo_text}
                                         </a>
                                         <Link
                                             to={`/projects/${project.id}`}
                                             className="project-btn learn-btn"
                                         >
-                                            <BsInfoCircle /> Learn More
+                                            <BsInfoCircle /> {data.learn_more_text}
                                         </Link>
                                     </div>
                                 </div>
@@ -175,8 +176,9 @@ const ITSolutions = () => {
                 {/* CTA */}
                 <div className="it-cta">
                     <h2>{data.footer_cta_title}</h2>
+                    <p>{data.footer_cta_text}</p>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <button className="cta-button" onClick={handleContactClick}>{data.footer_cta_text}</button>
+                    <button className="cta-button" onClick={handleContactClick}>{data.footer_cta_link_text}</button>
                 </div>
             </div>
             <Footer />

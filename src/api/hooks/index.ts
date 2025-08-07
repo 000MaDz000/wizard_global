@@ -5,7 +5,7 @@ export * from './useCars';
 export * from './useCarBrands';
 export * from './useCarFuelTypes';
 export * from './useCarModels';
-export * from './useProjects';
+export * from './useItProjects';
 export * from './useECommerceFutureProjects';
 export * from './useTestimonials';
 

@@ -202,8 +202,12 @@ export interface IT {
     services_section_title: string;
     technologies_section_title: string;
     projects_section_title: string;
+    live_demo_text: string;
+    learn_more_text: string;
     footer_cta_title: string;
     footer_cta_text: string;
+    footer_cta_link_text: string;
+
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;
