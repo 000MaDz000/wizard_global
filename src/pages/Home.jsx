@@ -10,10 +10,14 @@ import ClientsPartners from '../components/ClientsPartners';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import ArticlesList from '../components/ArticlesList';
+import { useHomepage } from '../api/hooks/useHomepage';
+import { buildStrapiPopulateParams, homepagePopulation } from '../api/const/populations';
+import Loading from '../components/Loading';
 
 const Home = () => {
     const location = useLocation();
     const { i18n } = useTranslation();
+    const response = useHomepage(buildStrapiPopulateParams(homepagePopulation));
     const currentLang = i18n.language;
 
     useEffect(() => {
@@ -24,6 +28,12 @@ const Home = () => {
             }
         }
     }, [location]);
+
+    if (response.isLoading) {
+        return <Loading />
+    }
+
+    const data = response.data.data;
 
     return (
         <div>
@@ -52,25 +62,29 @@ const Home = () => {
                 />
             </Helmet>
 
-            <Hero />
+            <Hero data={data.hero} />
+
             <div id="about">
-                <AboutUs />
+                <AboutUs data={data.about} />
             </div>
             <div id="services">
-                <OurServices />
+                <OurServices data={data.services} />
             </div>
             <div id="why">
-                <WhyChooseUs />
+                <WhyChooseUs data={data.why_us} />
             </div>
+
             <div id="clients">
-                <ClientsPartners />
+                <ClientsPartners data={data.clients_partners} />
             </div>
+
             <div id="artical">
-                <ArticlesList />
+                <ArticlesList data={data.newest_articles} />
             </div>
+
             <div style={{ background: "linear-gradient( #113fd8b8,rgb(255, 255, 255))" }} id="contact">
                 <br />
-                <ContactForm />
+                <ContactForm data={data.contact} />
                 <br />
             </div>
             <Footer />

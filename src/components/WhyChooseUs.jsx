@@ -4,19 +4,29 @@ import "aos/dist/aos.css";
 import "../styles/WhyChooseUs.css";
 import { FaMapMarkerAlt, FaHandshake, FaLayerGroup, FaHeadset } from "react-icons/fa";
 
-const WhyChooseUs = () => {
+/**
+ * 
+ * @param {{data?: import("../api/types/components").WhyUs}} param0 
+ * @returns 
+ */
+const WhyChooseUs = ({ data }) => {
+
     useEffect(() => {
         AOS.init({ duration: 1000, once: true });
     }, []);
 
+    if (!data) return null;
+
     return (
         <section className="why-choose-section">
-            <h2 className="section-title" data-aos="fade-up">لماذا تختارنا؟</h2>
+            <h2 className="section-title" data-aos="fade-up">{data.title.title_start} {data.title.title_end}</h2>
             <div className="details">
                 {/* <div className="first_p">شريكك الموثوق دائما</div> */}
-                <div className="second_p">تندرج حت مظلة "شركة Wazir" مجموعة من الشركاء الاستراتيجيين الذين يدعمون نجاحنا المستمر في مجالات متنوعة. تحت مظلة "شركة Wazir" مجموعة من الشركاء الاستراتيجيين الذين يدعمون نجاحنا المستمر في مجالات متنوعة.
+                <div className="second_p">
+                    {data.description}
                 </div>
             </div>
+
             {/* الجداول */}
             {/* <div className="reasons-grid">
                 <div className="reason-card" data-aos="zoom-in">

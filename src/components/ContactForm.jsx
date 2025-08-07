@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { 
-  FaWhatsapp, 
-  FaLinkedin, 
-  FaFacebook, 
-  FaInstagram, 
-  FaTwitter,
-  FaTelegram,
-  FaEnvelope,
-  FaPhone
+import {
+    FaWhatsapp,
+    FaLinkedin,
+    FaFacebook,
+    FaInstagram,
+    FaTwitter,
+    FaTelegram,
+    FaEnvelope,
+    FaPhone
 } from "react-icons/fa";
 import "../styles/ContactForm.css";
 
-const ContactForm = () => {
+/**
+ * 
+ * @param {{data?: import("../api/types/components").ContactSection}} param0 
+ * @returns 
+ */
+const ContactForm = ({ data }) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -22,12 +27,7 @@ const ContactForm = () => {
         message: "",
     });
 
-    const services = [
-        "استيراد وتصدير السيارات",
-        "تكنولوجيا المعلومات وتطوير التطبيقات",
-        "التجارة الإلكترونية",
-        "خدمة أخرى",
-    ];
+    const services = data?.form?.service?.chooices?.map(item => item.text) || []
 
     const handleChange = (e) => {
         setFormData((prev) => ({
@@ -46,57 +46,59 @@ const ContactForm = () => {
         AOS.init({ duration: 1000, once: true });
     }, []);
 
+    if (!data) return null;
+
     return (
         <section className="contact-section" dir="rtl">
-            <h2>تواصل معنا</h2>
+            <h2>{data.title.title_start} {data.title.title_end}</h2>
 
             <div className="contact-form" onSubmit={handleSubmit} data-aos="fade-up">
                 <div className="form-grid">
                     <div className="form-group" data-aos="zoom-in">
-                        <span>الاسم</span>
+                        <span>{data.form.name.label}</span>
                         <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            placeholder="أدخل اسمك"
+                            placeholder={data.form.name.placeholder}
                             required
                         />
                     </div>
 
                     <div className="form-group">
-                        <span>البريد الإلكتروني</span>
+                        <span>{data.form.email.label}</span>
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="example@email.com"
+                            placeholder={data.form.email.label}
                             required
                         />
                     </div>
 
                     <div className="form-group">
-                        <span>الدولة</span>
+                        <span>{data.form.country.label}</span>
                         <input
                             type="text"
                             name="country"
                             value={formData.country}
                             onChange={handleChange}
-                            placeholder="مثلاً: مصر، السعودية"
+                            placeholder={data.form.country.label}
                             required
                         />
                     </div>
 
                     <div className="form-group">
-                        <span>نوع الخدمة المطلوبة</span>
+                        <span>{data.form.choose_service_text}</span>
                         <select
                             name="service"
                             value={formData.service}
                             onChange={handleChange}
                             required
                         >
-                            <option value="" disabled>اختر الخدمة</option>
+                            <option value="" disabled>{data.form.choose_service_text}</option>
                             {services.map((service, i) => (
                                 <option key={i} value={service}>{service}</option>
                             ))}
@@ -105,18 +107,18 @@ const ContactForm = () => {
                 </div>
 
                 <div className="form-group">
-                    <span>الرسالة</span>
+                    <span>{data.form.message.label}</span>
                     <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="اكتب رسالتك هنا..."
+                        placeholder={data.form.message.placeholder}
                         rows="5"
                         required
                     />
                 </div>
 
-                <button type="button" className="submit-btn" onClick={handleSubmit}>إرسال</button>
+                <button type="button" className="submit-btn" onClick={handleSubmit}>{data.form.submit_button_text}</button>
             </div>
 
             <div className="contact-info">
@@ -124,36 +126,36 @@ const ContactForm = () => {
                 <div className="direct-contact">
                     <h3>تواصل مباشر</h3>
                     <div className="contact-icons">
-                        <a 
-                            href="https://wa.me/201118069683" 
-                            target="_blank" 
+                        <a
+                            href="https://wa.me/201118069683"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon whatsapp"
                             title="واتساب"
                         >
                             <FaWhatsapp size={28} />
                         </a>
-                        
-                        <a 
-                            href="https://t.me/username" 
-                            target="_blank" 
+
+                        <a
+                            href="https://t.me/username"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon telegram"
                             title="تيليجرام"
                         >
                             <FaTelegram size={28} />
                         </a>
-                        
-                        <a 
-                            href="mailto:info@example.com" 
+
+                        <a
+                            href="mailto:info@example.com"
                             className="contact-icon email"
                             title="البريد الإلكتروني"
                         >
                             <FaEnvelope size={28} />
                         </a>
-                        
-                        <a 
-                            href="tel:+201118069683" 
+
+                        <a
+                            href="tel:+201118069683"
                             className="contact-icon phone"
                             title="اتصال هاتفي"
                         >
@@ -166,36 +168,36 @@ const ContactForm = () => {
                 <div className="social-media">
                     <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
                     <div className="social-links">
-                        <a 
-                            href="https://linkedin.com/in/username" 
-                            target="_blank" 
+                        <a
+                            href="https://linkedin.com/in/username"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon linkedin"
                             title="لينكد إن"
                         >
                             <FaLinkedin size={28} />
                         </a>
-                        <a 
-                            href="https://facebook.com/username" 
-                            target="_blank" 
+                        <a
+                            href="https://facebook.com/username"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon facebook"
                             title="فيسبوك"
                         >
                             <FaFacebook size={28} />
                         </a>
-                        <a 
-                            href="https://instagram.com/username" 
-                            target="_blank" 
+                        <a
+                            href="https://instagram.com/username"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon instagram"
                             title="إنستجرام"
                         >
                             <FaInstagram size={28} />
                         </a>
-                        <a 
-                            href="https://twitter.com/username" 
-                            target="_blank" 
+                        <a
+                            href="https://twitter.com/username"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon twitter"
                             title="تويتر"

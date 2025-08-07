@@ -26,6 +26,7 @@ const ITSolutions = () => {
     };
     // Dummy Data للقسم
     const itData = {
+        hero_title: "حلول المعلومات والتقنية",
         intro: "نقدم حلول تقنية متكاملة تشمل تطوير التطبيقات الذكية، أنظمة إدارة الأعمال، ودمج تقنيات الذكاء الاصطناعي في بيئات العمل لضمان التوسع الرقمي.",
 
         services: [
@@ -98,7 +99,7 @@ const ITSolutions = () => {
                     </div>
                 </nav>
                 <div className="it-hero">
-                    <h1>حلول المعلومات والتقنية</h1>
+                    <h1>{itData.hero_title}</h1>
                     <p>{itData.intro}</p>
                 </div>
 

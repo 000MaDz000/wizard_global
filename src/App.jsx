@@ -15,27 +15,31 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ProjectDetails_ecommerce from './pages/e_commerce/ProjectDetails_ecommerce';
 import Terms from './pages/Terms';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queyrClient = new QueryClient();
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cars" element={< CarList />} />
-        <Route path="/cars/:id" element={<CarDetails />} />
-        <Route path="/it" element={<ITSolutions />} />
-        <Route path="/ecommerce" element={<ECommerce />} />
-        <Route path="/articles/:id" element={<ArticleDetail />} />
-        <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/ecommerc_projects/:id" element={<ProjectDetails_ecommerce />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/terms" element={<Terms />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <QueryClientProvider client={queyrClient}>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/cars" element={< CarList />} />
+                    <Route path="/cars/:id" element={<CarDetails />} />
+                    <Route path="/it" element={<ITSolutions />} />
+                    <Route path="/ecommerce" element={<ECommerce />} />
+                    <Route path="/articles/:id" element={<ArticleDetail />} />
+                    <Route path="/projects/:id" element={<ProjectDetails />} />
+                    <Route path="/ecommerc_projects/:id" element={<ProjectDetails_ecommerce />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/terms" element={<Terms />} />
+                </Routes>
+            </Router>
+        </QueryClientProvider>
+    );
 }
 
 export default App;

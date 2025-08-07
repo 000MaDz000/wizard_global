@@ -6,9 +6,13 @@ import all from '../assets/20250804_1539_Transparent Tech Elements_remix_01k1th9
 import car from '../assets/main_car-hpkzbezO.png'
 import global from '../assets/global-network-digital-earth-visualization.png'
 import ecom from '../assets/ecommerce.png'
+import type { Hero } from "../api/types/components";
+import ClientLink from "./ClientLink";
 
 
-const Hero = () => {
+const Hero = (props: { data: Hero }) => {
+    const { data } = props;
+
     return (
         <section className="hero" data-aos="fade-in">
             <Navbar />
@@ -16,13 +20,17 @@ const Hero = () => {
             <div className="all">
                 <div className="hero-content">
                     <h1 data-aos="fade-down" data-aos-delay="300">
-                        من قلب الابتكار ننطلق لنصنع الفارق عالميًا                    </h1>
+                        {/* من قلب الابتكار ننطلق لنصنع الفارق عالميًا */}
+                        {data.title}
+                    </h1>
                     <p data-aos="fade-up" data-aos-delay="600">
-                        IFZA DIGITAL PARK - A2                    </p>
+                        {/* IFZA DIGITAL PARK - A2 */}
+                        {data.subtitle}
+                    </p>
 
-                    <a href="#services" data-aos="zoom-in" data-aos-delay="900">
-                        <button>أطلب خدماتك</button>
-                    </a>
+                    <ClientLink href={data.cta} data-aos="zoom-in" data-aos-delay="900">
+                        <button>{data.cta.text}</button>
+                    </ClientLink>
                 </div>
                 <div className="images">
                     <div className="car_it_ecom">
