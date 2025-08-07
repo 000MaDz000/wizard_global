@@ -47,6 +47,7 @@ export interface Service {
 }
 
 export interface ECommerceService {
+    id: number;
     service_name: string;
     service_details?: string;
     service_icon: StrapiMedia;
@@ -163,12 +164,16 @@ export interface ECommerceFutureProjects {
 
 export interface Filters {
     title: string;
-    type: 'brand' | 'fuel' | 'model';
+    type: 'brand' | 'fuel' | 'model' | "condition";
     brands?: CarBrand[];
     models?: CarModel[];
     fuel_types?: CarFuelType[];
+    all_condition_text?: string;
+    used_condition_text?: string;
+    new_condition_text?: string;
 }
 
+export type CarService = ECommerceService;
 export interface TermsOfService {
     title: string;
     sections: TitleContent[];

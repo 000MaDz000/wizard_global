@@ -16,6 +16,7 @@ import {
     IT,
     Term
 } from '../types/content-types';
+import { carsPopulation } from '../const/populations';
 
 // Helper function to build query string
 const buildQueryString = (params: PaginationParams = {}): string => {
@@ -23,7 +24,7 @@ const buildQueryString = (params: PaginationParams = {}): string => {
 
     if (params.page) searchParams.append('pagination[page]', params.page.toString());
     if (params.pageSize) searchParams.append('pagination[pageSize]', params.pageSize.toString());
-    if (params.sort) searchParams.append('sort', params.sort);
+    // if (params.sort) searchParams.append('sort', params.sort);
 
     if (params.populate instanceof URLSearchParams) {
         params.populate.forEach((value, key) => {
@@ -72,8 +73,12 @@ export const fetchArticleCategory = async (id: number, populate?: string | strin
 };
 
 export const fetchCars = async (params?: PaginationParams): Promise<StrapiResponse<Car[]>> => {
-    const queryString = buildQueryString(params);
-    const response = await axios.get(`/cars?${queryString}`);
+    // const queryString = buildQueryString(params);
+    const response = await axios.get(`/cars`, {
+        params: {
+            populate: carsPopulation
+        }
+    });
     return response.data;
 };
 

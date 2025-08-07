@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { FaShippingFast, FaSearch, FaFileAlt, FaCarSide } from 'react-icons/fa';
 import './Features.css';
+import ClientImage from '../../components/ClientImage';
 
-const CarServicesSection = () => {
+/**
+ * 
+ * @param {{data?: import('../../api/types/content-types').CarsPage['services_section'] & {categories_section_title?: string, categories?: import('../../api/types/content-types').CarsPage['categories']}}} param0 
+ * @returns 
+ */
+const CarServicesSection = ({ data }) => {
+    if (!data) return;
     // بيانات الخدمات والأنواع
     const carServicesData = {
         car_services_description: "تقدم شركتنا خدمات استيراد وتصدير السيارات الجديدة والمستعملة من أسواق متعددة، مع التركيز على الجودة، التوثيق الكامل، والشحن الآمن إلى الأسواق العالمية.",
@@ -137,28 +144,28 @@ const CarServicesSection = () => {
         <div className="car-services-container">
             {/* قسم الخدمات */}
             <section className="car-services">
-                <h2>خدماتنا في تجارة السيارات</h2>
+                <h2>{data.title}</h2>
                 <p className="services-description">
-                    {carServicesData.car_services_description}
+                    {data.description}
                 </p>
 
                 <div className="car-services-grid">
-                    {carServicesData.car_services_list.map(service => (
-                        <div key={service.car_service_id} className="car-service-card">
+                    {data.services?.map(service => (
+                        <div key={service.id} className="car-service-card">
                             <div className="car-service-icon">
-                                {renderServiceIcon(service.car_service_icon)}
+                                <ClientImage src={service.service_icon} style={{ width: "8rem", height: "8rem" }} />
                             </div>
-                            <h3>{service.car_service_title}</h3>
-                            <p>{service.car_service_description}</p>
+                            <h3>{service.service_name}</h3>
+                            <p>{service.service_details}</p>
                         </div>
                     ))}
                 </div>
 
                 <div className="car-categories">
-                    <h3>الأنواع المتوفرة:</h3>
+                    <h3>{data.categories_section_title}</h3>
                     <div className="categories-list">
-                        {carServicesData.car_available_categories.map((category, index) => (
-                            <span key={index} className="category-badge">{category}</span>
+                        {data.categories?.map((category, index) => (
+                            <span key={category.text} className="category-badge">{category.text}</span>
                         ))}
                     </div>
                 </div>

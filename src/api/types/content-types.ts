@@ -16,7 +16,8 @@ import {
     ProjectComponent,
     TextArray,
     Filters,
-    TermsOfService
+    TermsOfService,
+    CarService
 } from './components';
 
 // Content Type Interfaces
@@ -150,6 +151,13 @@ export interface CarsPage {
     loading_text: string;
     no_results_text: string;
     reset_filters_text: string;
+    categories_section_title: string;
+    categories?: TextArray[];
+    services_section?: {
+        title: string;
+        description?: string;
+        services?: CarService[];
+    }
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;

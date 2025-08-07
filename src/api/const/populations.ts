@@ -76,12 +76,20 @@ export const homepagePopulation = {
 
 // Cars Page populations
 export const carsPagePopulation = {
+    categories: true,
     filters: {
         populate: {
             brands: true,
             models: true,
             fuel_types: true
         }
+    },
+    services_section: {
+        populate: {
+            services: {
+                populate: ["service_icon"]
+            }
+        },
     }
 };
 
