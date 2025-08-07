@@ -445,7 +445,7 @@ line-height: 100%;
         width: 87%;
 }
 .intro{
-  height: 55vh;
+  height: 70vh;
       margin-bottom: 0rem;
 }
   .intro h1 {
@@ -518,7 +518,7 @@ line-height: 100%;
 
   .vision-container {
     flex-direction: column;
-    text-align: right;
+    padding: 0 0;
     gap: 2rem;
   }
 
