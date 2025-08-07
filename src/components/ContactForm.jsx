@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -12,6 +12,7 @@ import {
     FaPhone
 } from "react-icons/fa";
 import "../styles/ContactForm.css";
+import { submitHomeContact } from "../api/contact/senders";
 
 /**
  * 
@@ -36,11 +37,19 @@ const ContactForm = ({ data }) => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
+        await submitHomeContact({
+            name: formData.name,
+            email: formData.email,
+            country: formData.country,
+            service: formData.service,
+            message: formData.message
+        });
+
         alert("تم إرسال الرسالة! شكراً لتواصلك معنا.");
         setFormData({ name: "", email: "", country: "", service: "", message: "" });
-    };
+    }, [formData]);
 
     useEffect(() => {
         AOS.init({ duration: 1000, once: true });

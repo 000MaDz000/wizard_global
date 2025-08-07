@@ -9,7 +9,7 @@ function ClientImage({
     if (!src) return null;
 
 
-    const baseUrl = (window as any).env?.PUBLIC_STRAPI_URL;
+    const baseUrl = (import.meta as any).env.VITE_PUBLIC_STRAPI_URL;
 
     if (!baseUrl) {
         console.warn('PUBLIC_STRAPI_URL is not defined in window.env');

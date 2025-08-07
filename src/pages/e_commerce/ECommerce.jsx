@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './ECommerce.css';
@@ -23,6 +23,7 @@ import { buildStrapiPopulateParams, eCommercePopulation } from '../../api/const/
 import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
 import ClientLink from '../../components/ClientLink';
+import { submitEcommerceContact } from '../../api/contact/senders';
 
 const ECommerce = () => {
     const res = useECommerce(buildStrapiPopulateParams(eCommercePopulation));
@@ -48,113 +49,50 @@ const ECommerce = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
-        alert(currentLang === 'ar' ? 'تم استلام طلبك بنجاح! سنتواصل معك قريباً' : 'Your request has been received successfully! We will contact you soon.');
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            businessType: '',
-            budget: '',
-            requirements: ''
-        });
-    };
+
+        try {
+            const payload = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                business_type: formData.businessType,
+                budget: formData.budget,
+                other_requirements: formData.requirements
+            };
+
+            await submitEcommerceContact(payload);
+
+            alert(currentLang === 'ar'
+                ? '✅ تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.'
+                : '✅ Your request has been received! We will contact you shortly.');
+
+            // إعادة تعيين النموذج
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                businessType: '',
+                budget: '',
+                requirements: ''
+            });
+
+        } catch (error) {
+            console.error('فشل إرسال النموذج:', error);
+            alert(currentLang === 'ar'
+                ? '❌ حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى لاحقًا.'
+                : '❌ Something went wrong while submitting the form. Please try again later.');
+        }
+    }, [formData]);
 
 
-    const handleProjectClick = (projectId) => {
+
+    const handleProjectClick = useCallback((projectId) => {
         navigate(`/ecommerc_projects/${projectId}`);
-    };
+    }, [navigate]);
 
     if (res.isLoading) return <Loading />;
-
-    const eCommerceData = {
-        e_commerce_intro: "نساعد عملاءنا على الدخول إلى عالم التجارة الإلكترونية من خلال حلول متكاملة تشمل إنشاء المتاجر، التسويق الرقمي، وخدمات لوجستية احترافية.",
-
-        e_commerce_services: [
-            {
-                id: 1,
-                service_name: "إنشاء متاجر إلكترونية",
-                service_details: "(Shopify / WooCommerce)",
-                service_icon: <FaShoppingCart className="service-icon" />
-            },
-            {
-                id: 2,
-                service_name: "تجهيز بوابات الدفع والتوصيل",
-                service_details: "",
-                service_icon: <FaCreditCard className="service-icon" />
-            },
-            {
-                id: 3,
-                service_name: "إدارة المخزون والطلبات",
-                service_details: "",
-                service_icon: <FaBoxOpen className="service-icon" />
-            },
-            {
-                id: 4,
-                service_name: "حملات تسويق رقمي",
-                service_details: "(Google – Meta)",
-                service_icon: <FaBullhorn className="service-icon" />
-            },
-            {
-                id: 5,
-                service_name: "استشارات لوجستية وتخزين",
-                service_details: "",
-                service_icon: <FaTruck className="service-icon" />
-            }
-        ],
-
-        e_commerce_platform: {
-            platform_name: "متجرك معنا",
-            platform_description: "هل ترغب في متجر إلكتروني خاص بك؟ املأ النموذج",
-            platform_form_link: "#contact-form"
-        },
-
-        e_commerce_future_projects: [
-            {
-                id: 1,
-                project_name: "e-Market for Auto Parts",
-                project_description: "سوق إلكتروني متخصص في قطع غيار السيارات",
-                details: "منصة متكاملة لبيع قطع غيار السيارات عبر الإنترنت مع نظام توصيل متطور",
-                features: [
-                    "بحث متقدم بمعايير متعددة",
-                    "نظام توصيل ذكي",
-                    "تقييمات البائعين والمشترين",
-                    "دعم فني متخصص"
-                ],
-                images: [
-                    "https://via.placeholder.com/800x500?text=Auto+Parts+Market+1",
-                    "https://via.placeholder.com/800x500?text=Auto+Parts+Market+2",
-                    "https://via.placeholder.com/800x500?text=Auto+Parts+Market+3"
-                ],
-                expected_launch: "Q1 2024"
-            },
-            {
-                id: 2,
-                project_name: "منصة تجارية بين المصنع والموزّع",
-                project_description: "حلول B2B للتجارة الإلكترونية",
-                details: "منصة متخصصة في الربط بين المصانع والموزعين لتبسيط عمليات الشراء بالجملة",
-                features: [
-                    "نظام طلبات متكامل",
-                    "إدارة المخزون الآلي",
-                    "تقارير مبيعات مفصلة",
-                    "دعم متعدد اللغات"
-                ],
-                images: [
-                    "https://via.placeholder.com/800x500?text=B2B+Platform+1",
-                    "https://via.placeholder.com/800x500?text=B2B+Platform+2",
-                    "https://via.placeholder.com/800x500?text=B2B+Platform+3"
-                ],
-                expected_launch: "Q2 2024"
-            }
-        ],
-
-        e_commerce_video: {
-            video_title: "دورة التجارة الإلكترونية",
-            video_url: "https://www.youtube.com/embed/9d_EykIDid4",
-            video_placeholder: "https://i.ytimg.com/vi/9d_EykIDid4/maxresdefault.jpg"
-        }
-    };
 
     const data = res.data?.data;
     if (!data) return;

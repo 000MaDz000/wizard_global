@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaShippingFast, FaSearch, FaFileAlt, FaCarSide } from 'react-icons/fa';
 import './Features.css';
 import ClientImage from '../../components/ClientImage';
+import { submitCarContact } from '../../api/contact/senders';
 
 /**
  * 
@@ -99,35 +100,46 @@ const CarServicesSection = ({ data }) => {
     };
 
     // معالجة إرسال النموذج
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // تحضير بيانات التواصل
-        const contactDetails = {
-            email: requestForm.contact_email,
-            phone: requestForm.contact_phone,
-            whatsapp: requestForm.contact_whatsapp
-        };
+        try {
+            // استخراج وسيلة التواصل حسب الاختيار
+            let contact_info = '';
+            if (requestForm.contact_method === 'email') contact_info = requestForm.contact_email;
+            if (requestForm.contact_method === 'phone') contact_info = requestForm.contact_phone;
+            if (requestForm.contact_method === 'whatsapp') contact_info = requestForm.contact_whatsapp;
 
-        const formData = {
-            ...requestForm,
-            contact_details: contactDetails
-        };
+            // تجهيز البيانات لإرسالها
+            const payload = {
+                car_type: requestForm.car_type,
+                country: requestForm.destination,
+                budget: requestForm.budget,
+                contact_method: requestForm.contact_method,
+                contact_info,
+            };
 
-        console.log('طلب سيارة:', formData);
-        alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً');
+            await submitCarContact(payload);
 
-        // إعادة تعيين النموذج
-        setRequestForm({
-            car_type: '',
-            destination: '',
-            budget: '',
-            contact_method: '',
-            contact_email: '',
-            contact_phone: '',
-            contact_whatsapp: ''
-        });
+            alert('✅ تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.');
+
+            // إعادة تعيين النموذج
+            setRequestForm({
+                car_type: '',
+                destination: '',
+                budget: '',
+                contact_method: '',
+                contact_email: '',
+                contact_phone: '',
+                contact_whatsapp: ''
+            });
+
+        } catch (error) {
+            console.error('فشل إرسال الطلب:', error);
+            alert('❌ حدث خطأ أثناء إرسال الطلب. حاول مرة أخرى لاحقًا.');
+        }
     };
+
 
     // عرض أيقونة الخدمة
     const renderServiceIcon = (icon) => {
