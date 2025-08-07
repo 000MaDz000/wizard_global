@@ -4,25 +4,24 @@ import { StrapiResponse, PaginationParams } from '../types/strapi';
 import { Car } from '../types/content-types';
 
 export const useCars = (
-  params?: PaginationParams,
-  options?: UseQueryOptions<StrapiResponse<Car[]>>
+    params?: PaginationParams,
+    options?: UseQueryOptions<StrapiResponse<Car[]>>
 ) => {
-  return useQuery({
-    queryKey: ['cars', params],
-    queryFn: () => fetchCars(params),
-    ...options,
-  });
+    return useQuery({
+        queryKey: ['cars', params],
+        queryFn: () => fetchCars(params),
+        ...options,
+    });
 };
 
 export const useCar = (
-  id: number,
-  populate?: string | string[],
-  options?: UseQueryOptions<StrapiResponse<Car>>
+    id: number,
+    options?: UseQueryOptions<StrapiResponse<Car>>
 ) => {
-  return useQuery({
-    queryKey: ['car', id, populate],
-    queryFn: () => fetchCar(id, populate),
-    enabled: !!id,
-    ...options,
-  });
+    return useQuery({
+        queryKey: ['car', id],
+        queryFn: () => fetchCar(id),
+        enabled: !!id,
+        ...options,
+    });
 };

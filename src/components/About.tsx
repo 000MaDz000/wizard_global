@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import '../styles/About.css';
 import { About } from '../api/types/components';
 import ClientImage from './ClientImage';
+import { Link } from 'react-router-dom';
 
 
 

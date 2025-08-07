@@ -199,7 +199,9 @@ export const carPopulation = {
     fuel_type: true,
     model: true,
     images: true,
-    thumbnail: true
+    thumbnail: true,
+    safety_features: true,
+    features: true,
 };
 
 export const carsPopulation = {

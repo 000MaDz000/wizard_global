@@ -47,12 +47,21 @@ export interface ArticleCategory extends StrapiEntity {
 export interface Car extends StrapiEntity {
     brand?: CarBrand;
     fuel_type?: CarFuelType;
+    safety_features?: TextArray[];
     model?: CarModel;
     description: string;
     images: StrapiMedia[];
     thumbnail: StrapiMedia;
     year: number;
     price: number;
+    overview
+    features: TextArray[]
+    mileage: string;
+    color: string;
+    transmission: string;
+    engine: string;
+    horsepower: string;
+    seating_capacity: string;
     condition: 'used' | 'new';
     createdAt: string;
     updatedAt: string;

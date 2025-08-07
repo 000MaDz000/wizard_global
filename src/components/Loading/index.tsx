@@ -2,7 +2,7 @@
 import React from 'react';
 import { CopperLoading } from 'respinner';
 
-const Loading = () => {
+const Loading = ({ children }) => {
     return (
         <div
             style={{
@@ -17,7 +17,6 @@ const Loading = () => {
             }}
         >
             <CopperLoading id="spin" fill={"#0070f3"} style={{ zIndex: 60 }} />
-
             <p
                 style={{
                     marginTop: '1.5rem',
@@ -27,7 +26,7 @@ const Loading = () => {
                     fontFamily: 'system-ui, sans-serif',
                 }}
             >
-
+                {children}
             </p>
         </div>
     );
