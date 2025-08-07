@@ -89,7 +89,7 @@ const ProjectDetails = () => {
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact" >
                         <Link to="/it" className="back-button">
-                            <BsArrowLeft /> العودة للمشاريع
+                            <BsArrowLeft /> {project.back_to_previous_page_text}
                         </Link>
                     </div>
                     <div className="navbar_bar-links">
@@ -141,18 +141,18 @@ const ProjectDetails = () => {
                         rel="noopener noreferrer"
                         className="demo-button"
                     >
-                        <BiLinkExternal /> تجربة العرض الحي
+                        <BiLinkExternal /> {project.live_preview_text}
                     </a>
                 </div>
 
                 <div className="project-content">
                     <section className="project-section">
-                        <h2>تفاصيل المشروع</h2>
+                        <h2>{project.details_title}</h2>
                         <p>{project.details}</p>
                     </section>
 
                     <section className="project-section">
-                        <h2>المميزات الرئيسية</h2>
+                        <h2>{project.main_features_title}</h2>
                         <ul className="features-list">
                             {project.features?.map((feature, index) => (
                                 <li key={index}>
@@ -164,7 +164,7 @@ const ProjectDetails = () => {
                     </section>
 
                     <section className="project-section">
-                        <h2>التقنيات المستخدمة</h2>
+                        <h2>{project.used_technologies_title}</h2>
                         <div className="technologies-tags">
                             {project.technologies?.map((tech, index) => (
                                 <span key={index} className="tech-tag">{tech.text}</span>

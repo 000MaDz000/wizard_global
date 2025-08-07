@@ -102,6 +102,11 @@ export interface Project extends StrapiEntity {
     description: string;
     image: StrapiMedia;
     features: TextArray[];
+    back_to_previous_page_text?: string;
+    live_preview_text: string;
+    details_title: string;
+    main_features_title: string;
+    used_technologies_title: string;
     details: string;
     demo_url: string;
     technologies?: TextArray[];
@@ -115,6 +120,10 @@ export interface Project extends StrapiEntity {
 export interface ECommerceFutureProject extends StrapiEntity {
     project_name: string;
     project_description: string;
+    back_to_previous_page_title?: string;
+    gallery_title: string;
+    main_features_title: string;
+    overview_title: string;
     details: string;
     features: TextArray[];
     images: StrapiMedia[];

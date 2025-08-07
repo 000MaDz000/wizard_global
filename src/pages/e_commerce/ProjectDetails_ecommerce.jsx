@@ -64,7 +64,7 @@ const ProjectDetails_ecommerce = () => {
         <>
             <div className="project-details-page">
                 <button onClick={() => navigate(-1)} className="back-button">
-                    <FaArrowLeft /> العودة
+                    <FaArrowLeft /> {project.back_to_previous_page_title}
                 </button>
 
                 <div className="project-header">
@@ -74,17 +74,17 @@ const ProjectDetails_ecommerce = () => {
 
                 <div className="project-content">
                     <div className="project-overview">
-                        <h2>نظرة عامة</h2>
+                        <h2>{project.overview_title}</h2>
                         <p>{project.details}</p>
 
                         <div className="project-launch-date">
                             <FaCalendarAlt className="calendar-icon" />
-                            <span>تاريخ الإطلاق المتوقع: {project.expected_launch}</span>
+                            <span>{project.expected_launch}</span>
                         </div>
                     </div>
 
                     <div className="project-features">
-                        <h2>المميزات الرئيسية</h2>
+                        <h2>{project.main_features_title}</h2>
                         <ul>
                             {project.features?.map((feature, index) => (
                                 <li key={index}>{feature.text}</li>
@@ -93,7 +93,7 @@ const ProjectDetails_ecommerce = () => {
                     </div>
 
                     <div className="project-gallery">
-                        <h2>معرض الصور</h2>
+                        <h2>{project.gallery_title}</h2>
                         <div className="gallery-grid">
                             {project.images?.map((image, index) => (
                                 <div key={index} className="gallery-item">
