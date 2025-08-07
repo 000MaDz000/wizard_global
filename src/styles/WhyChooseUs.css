@@ -92,6 +92,9 @@
     grid-template-columns: 1fr;
     gap: 15px;
   }
+  .details .second_p{
+    font-size: 16px;
+  }
 
   .section-title {
     font-size: 1.5rem;
