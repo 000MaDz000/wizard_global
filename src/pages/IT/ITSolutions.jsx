@@ -13,9 +13,13 @@ import { FaTools, FaMobileAlt, FaRobot, FaDatabase, FaCode, FaFire } from 'react
 import { SiFlutter, SiReact, SiNodedotjs, SiOpenai } from 'react-icons/si';
 import { BiLinkExternal } from 'react-icons/bi';
 import { BsInfoCircle } from 'react-icons/bs';
+import { useIT } from '../../api/hooks';
+import { buildStrapiPopulateParams, itPopulation } from '../../api/const/populations';
 
 const ITSolutions = () => {
+    const res = useIT(buildStrapiPopulateParams(itPopulation));
     const navigate = useNavigate();
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,58 +28,65 @@ const ITSolutions = () => {
     const handleContactClick = () => {
         navigate('/', { state: { scrollToContact: true } });
     };
+
+    if (res.isLoading) return;
+    const data = res.data?.data;
+    if (!data) return;
+
+
     // Dummy Data للقسم
-    const itData = {
-        hero_title: "حلول المعلومات والتقنية",
-        intro: "نقدم حلول تقنية متكاملة تشمل تطوير التطبيقات الذكية، أنظمة إدارة الأعمال، ودمج تقنيات الذكاء الاصطناعي في بيئات العمل لضمان التوسع الرقمي.",
+    // const itData = {
+    //     hero_title: "حلول المعلومات والتقنية",
+    //     intro: "نقدم حلول تقنية متكاملة تشمل تطوير التطبيقات الذكية، أنظمة إدارة الأعمال، ودمج تقنيات الذكاء الاصطناعي في بيئات العمل لضمان التوسع الرقمي.",
 
-        services: [
-            { name: "تطوير تطبيقات الهاتف (iOS وAndroid)", icon: <FaMobileAlt size={24} /> },
-            { name: "استشارات تقنية لمشاريع الابتكار", icon: <FaTools size={24} /> },
-            { name: "إدارة بيانات وتحليلات", icon: <FaDatabase size={24} /> },
-            { name: "تطوير حلول ذكاء صناعي", icon: <FaRobot size={24} /> },
-            { name: "ربط API بين الأنظمة", icon: <FaCode size={24} /> }
-        ],
+    //     services: [
+    //         { name: "تطوير تطبيقات الهاتف (iOS وAndroid)", icon: <FaMobileAlt size={24} /> },
+    //         { name: "استشارات تقنية لمشاريع الابتكار", icon: <FaTools size={24} /> },
+    //         { name: "إدارة بيانات وتحليلات", icon: <FaDatabase size={24} /> },
+    //         { name: "تطوير حلول ذكاء صناعي", icon: <FaRobot size={24} /> },
+    //         { name: "ربط API بين الأنظمة", icon: <FaCode size={24} /> }
+    //     ],
 
-        technologies: [
-            { name: "Flutter", icon: <SiFlutter size={24} /> },
-            { name: "React", icon: <SiReact size={24} /> },
-            { name: "Supabase", icon: <FaDatabase size={24} /> },
-            { name: "GPT", icon: <SiOpenai size={24} /> },
-            { name: "Node.js", icon: <SiNodedotjs size={24} /> },
-            { name: "Firebase", icon: <FaFire size={24} /> }
-        ],
+    //     technologies: [
+    //         { name: "Flutter", icon: <SiFlutter size={24} /> },
+    //         { name: "React", icon: <SiReact size={24} /> },
+    //         { name: "Supabase", icon: <FaDatabase size={24} /> },
+    //         { name: "GPT", icon: <SiOpenai size={24} /> },
+    //         { name: "Node.js", icon: <SiNodedotjs size={24} /> },
+    //         { name: "Firebase", icon: <FaFire size={24} /> }
+    //     ],
 
-        projects: [
-            {
-                id: 1,
-                name: "LingoWise",
-                description: "تطبيق ترجمة المكالمات",
-                image: it,
-                details: "تطبيق متقدم لترجمة المكالمات الصوتية في الوقت الحقيقي يدعم 40 لغة",
-                features: ["ترجمة فورية", "دعم 40 لغة", "تخزين المحادثات"],
-                demoUrl: "https://demo.example.com"
-            },
-            {
-                id: 2,
-                name: "SmartAgri",
-                description: "نظام زراعي ذكي",
-                image: it,
-                details: "نظام إدارة المزارع الذكية باستخدام إنترنت الأشياء والذكاء الاصطناعي",
-                features: ["مراقبة التربة", "توصيات الري", "تنبؤات المحاصيل"],
-                demoUrl: "https://demo.example.com"
-            },
-            {
-                id: 3,
-                name: "CashierPro",
-                description: "برنامج محاسبي ذكي",
-                image: it,
-                details: "نظام نقاط بيع متكامل مع تحليلات مالية ذكية",
-                features: ["إدارة المخزون", "تقارير مالية", "تكامل مع البنوك"],
-                demoUrl: "https://demo.example.com"
-            }
-        ]
-    };
+    //     projects: [
+    //         {
+    //             id: 1,
+    //             name: "LingoWise",
+    //             description: "تطبيق ترجمة المكالمات",
+    //             image: it,
+    //             details: "تطبيق متقدم لترجمة المكالمات الصوتية في الوقت الحقيقي يدعم 40 لغة",
+    //             features: ["ترجمة فورية", "دعم 40 لغة", "تخزين المحادثات"],
+    //             demoUrl: "https://demo.example.com"
+    //         },
+    //         {
+    //             id: 2,
+    //             name: "SmartAgri",
+    //             description: "نظام زراعي ذكي",
+    //             image: it,
+    //             details: "نظام إدارة المزارع الذكية باستخدام إنترنت الأشياء والذكاء الاصطناعي",
+    //             features: ["مراقبة التربة", "توصيات الري", "تنبؤات المحاصيل"],
+    //             demoUrl: "https://demo.example.com"
+    //         },
+    //         {
+    //             id: 3,
+    //             name: "CashierPro",
+    //             description: "برنامج محاسبي ذكي",
+    //             image: it,
+    //             details: "نظام نقاط بيع متكامل مع تحليلات مالية ذكية",
+    //             features: ["إدارة المخزون", "تقارير مالية", "تكامل مع البنوك"],
+    //             demoUrl: "https://demo.example.com"
+    //         }
+    //     ]
+    // };
+
 
     return (
         <>
@@ -88,7 +99,7 @@ const ITSolutions = () => {
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
-                                تواصل معنا
+                                {data.hero_contact_text}
                             </a>
                         </div>
                         <div className="navbar_bar-links">
@@ -99,17 +110,17 @@ const ITSolutions = () => {
                     </div>
                 </nav>
                 <div className="it-hero">
-                    <h1>{itData.hero_title}</h1>
-                    <p>{itData.intro}</p>
+                    <h1>{data.hero_title}</h1>
+                    <p>{data.intro}</p>
                 </div>
 
                 {/* الخدمات */}
                 <div className="it-section">
-                    <h2>الخدمات المقدمة</h2>
+                    <h2>{data.services_section_title}</h2>
                     <div className="it_services-grid">
-                        {itData.services.map((service, index) => (
-                            <div key={index} className="it_service-card">
-                                <div className="it_service-icon">{service.icon}</div>
+                        {data.services.map((service, index) => (
+                            <div key={service.id} className="it_service-card">
+                                <ClientImage className="it_service-icon" src={service.icon} />
                                 <h3>{service.name}</h3>
                             </div>
                         ))}
@@ -118,11 +129,11 @@ const ITSolutions = () => {
 
                 {/* التقنيات */}
                 <div className="it-section">
-                    <h2>التقنيات المستخدمة</h2>
+                    <h2>{data.technologies_section_title}</h2>
                     <div className="tech-grid">
-                        {itData.technologies.map((tech, index) => (
-                            <div key={index} className="tech-card">
-                                <span className="tech-icon">{tech.icon}</span>
+                        {data.technologies.map((tech, index) => (
+                            <div key={tech.id} className="tech-card">
+                                <ClientImage className="tech-icon" src={service.icon} />
                                 <span>{tech.name}</span>
                             </div>
                         ))}
@@ -131,17 +142,17 @@ const ITSolutions = () => {
 
                 {/* المشاريع */}
                 <div className="it-section">
-                    <h2>نماذج مشاريعنا</h2>
+                    <h2>{data.projects_section_title}</h2>
                     <div className="projects-grid">
-                        {itData.projects.map((project) => (
+                        {data.projects?.map(({ project }) => (
                             <div key={project.id} className="project-card">
-                                <img src={project.image} alt={project.name} />
+                                <ClientImage src={project.image} alt={project.name} />
                                 <div className="project-info">
                                     <h3>{project.name}</h3>
                                     <p>{project.description}</p>
                                     <div className="project-buttons">
                                         <a
-                                            href={project.demoUrl}
+                                            href={project.demo_url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="project-btn demo-btn"
@@ -163,9 +174,9 @@ const ITSolutions = () => {
 
                 {/* CTA */}
                 <div className="it-cta">
-                    <h2>هل ترغب في تطوير تطبيقك الخاص؟</h2>
+                    <h2>{data.footer_cta_title}</h2>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <button className="cta-button">تواصل معنا الآن</button>
+                    <button className="cta-button" onClick={handleContactClick}>{data.footer_cta_text}</button>
                 </div>
             </div>
             <Footer />

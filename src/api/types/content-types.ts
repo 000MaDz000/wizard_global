@@ -163,6 +163,9 @@ export interface ECommerce {
     services: ECommerceService[];
     cta: CTA;
     future_projects_section?: ECommerceFutureProjects;
+    services_section_title: string;
+    hero_contact_button_text: string;
+    click_for_more_details_button_text: string;
     video_section?: Video;
     contact_section: ContactSection;
     createdAt: string;

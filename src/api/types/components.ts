@@ -1,5 +1,5 @@
 import { NativeLinkEnumeration } from '../../types/components/ClientLink';
-import { Article, ArticleCategory, CarBrand, CarFuelType, CarModel, ECommerceFutureProject, Testimonial } from './content-types';
+import { Article, ArticleCategory, CarBrand, CarFuelType, CarModel, ECommerceFutureProject, Project, Testimonial } from './content-types';
 import { StrapiEntity, StrapiMedia } from './strapi';
 
 // Component Types
@@ -54,15 +54,14 @@ export interface ECommerceService {
 }
 
 export interface ITService {
+    id: number;
     name: string;
     icon: StrapiMedia;
 
 }
 
 export interface ProjectComponent {
-    project: {
-        data: StrapiEntity;
-    };
+    project: Project;
 }
 
 // Form Components
@@ -148,7 +147,7 @@ export interface ContactSection {
 export interface CTA {
     title: string;
     description: string;
-    link: Link[];
+    link: Link;
 }
 
 export interface Video {

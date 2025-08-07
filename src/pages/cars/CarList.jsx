@@ -6,8 +6,12 @@ import './CarListPage.css';
 import Footer from '../../components/Footer';
 import Navbar_bar from './Nav';
 import Features from './Features';
+import { useCars } from '../../api/hooks';
+import { buildStrapiPopulateParams, carsPagePopulation } from '../../api/const/populations';
+import Loading from '../../components/Loading';
 
 const CarList = () => {
+    const res = useCars(buildStrapiPopulateParams(carsPagePopulation));
     const [cars, setCars] = useState([]);
     const [filteredCars, setFilteredCars] = useState([]);
     const [selectedBrand, setSelectedBrand] = useState('all');
@@ -151,6 +155,11 @@ const CarList = () => {
         setSelectedModel('all');
         setSelectedFuelType('all');
     };
+
+    if (res.isLoading) return <Loading />;
+
+    const data = res.data?.data;
+    if (!data) return;
 
     return (
         <>

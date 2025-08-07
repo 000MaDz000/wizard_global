@@ -18,8 +18,14 @@ import {
     FaCommentAlt
 } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import { useECommerce } from '../../api/hooks';
+import { buildStrapiPopulateParams, eCommercePopulation } from '../../api/const/populations';
+import Loading from '../../components/Loading';
+import ClientImage from '../../components/ClientImage';
+import ClientLink from '../../components/ClientLink';
 
 const ECommerce = () => {
+    const res = useECommerce(buildStrapiPopulateParams(eCommercePopulation));
     const { i18n } = useTranslation();
     const currentLang = i18n.language;
 
@@ -59,6 +65,8 @@ const ECommerce = () => {
     const handleProjectClick = (projectId) => {
         navigate(`/ecommerc_projects/${projectId}`);
     };
+
+    if (res.isLoading) return <Loading />;
 
     const eCommerceData = {
         e_commerce_intro: "نساعد عملاءنا على الدخول إلى عالم التجارة الإلكترونية من خلال حلول متكاملة تشمل إنشاء المتاجر، التسويق الرقمي، وخدمات لوجستية احترافية.",
@@ -148,6 +156,9 @@ const ECommerce = () => {
         }
     };
 
+    const data = res.data.data;
+    if (!data) return;
+
     return (
         <>
             <Helmet>
@@ -169,7 +180,7 @@ const ECommerce = () => {
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
                             <a href="/contact" className="contact-link">
-                                تواصل معنا
+                                {data.hero_contact_button_text}
                             </a>
                         </div>
                         <div className="navbar_bar-links">
@@ -180,17 +191,20 @@ const ECommerce = () => {
                     </div>
                 </nav>
                 <div className="e-commerce-hero">
-                    <h1>حلول التجارة الإلكترونية</h1>
-                    <p>{eCommerceData.e_commerce_intro}</p>
+                    <h1>{data.hero_title}</h1>
+                    <p>{data.intro}</p>
                 </div>
 
                 {/* الخدمات */}
                 <div className="e-commerce-section">
-                    <h2>خدماتنا في التجارة الإلكترونية</h2>
+                    <h2>{data.services_section_title}</h2>
                     <div className="e-commerce-services-grid">
-                        {eCommerceData.e_commerce_services.map((service) => (
+                        {data.services.map((service) => (
                             <div key={service.id} className="e-commerce-service-card">
-                                <div className="e-commerce-service-icon">{service.service_icon}</div>
+                                <div className="e-commerce-service-icon">
+                                    <ClientImage src={service.service_icon} />
+                                </div>
+
                                 <h3>{service.service_name}</h3>
                                 {service.service_details && <p>{service.service_details}</p>}
                             </div>
@@ -201,19 +215,19 @@ const ECommerce = () => {
                 {/* المنصة */}
                 <div className="e-commerce-platform">
                     <div className="e-commerce-platform-content">
-                        <h2>{eCommerceData.e_commerce_platform.platform_name}</h2>
-                        <p>{eCommerceData.e_commerce_platform.platform_description}</p>
-                        <a href={eCommerceData.e_commerce_platform.platform_form_link} className="e-commerce-platform-button">
-                            ابدأ الآن
-                        </a>
+                        <h2>{data.cta.title}</h2>
+                        <p>{data.cta.description}</p>
+                        <ClientLink href={data.cta.link} className="e-commerce-platform-button">
+                            {data.cta.link.text}
+                        </ClientLink>
                     </div>
                 </div>
 
                 {/* المشاريع المستقبلية */}
                 <div className="e-commerce-section">
-                    <h2>مشاريعنا المستقبلية</h2>
+                    <h2>{data.future_projects_section.title}</h2>
                     <div className="e-commerce-projects-grid">
-                        {eCommerceData.e_commerce_future_projects.map((project) => (
+                        {data.future_projects_section?.projects?.map((project) => (
                             <div
                                 key={project.id}
                                 className="e-commerce-project-card"
@@ -221,20 +235,20 @@ const ECommerce = () => {
                             >
                                 <h3>{project.project_name}</h3>
                                 <p>{project.project_description}</p>
-                                <div className="project-more-info">اضغط للمزيد من التفاصيل</div>
+                                <div className="project-more-info">{data.click_for_more_details_button_text}</div>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 <div className="e-commerce-video-section">
-                    <h2 className='proje_h2'>{eCommerceData.e_commerce_video.video_title}</h2>
+                    <h2 className='proje_h2'>{data.video_section.video_title}</h2>
                     <div className="e-commerce-video-container">
                         <iframe
                             width="100%"
                             height="500"
-                            src={eCommerceData.e_commerce_video.video_url}
-                            title={eCommerceData.e_commerce_video.video_title}
+                            src={`${data.video_section.video.url}`}
+                            title={data.video_section.video_title}
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
@@ -244,14 +258,15 @@ const ECommerce = () => {
 
                 {/* النموذج */}
                 <div className="e-commerce-form-section" id="contact-form">
-                    <h2>اطلب متجرك الإلكتروني الآن</h2>
+                    <h2>{data.contact_section.title}</h2>
                     <form onSubmit={handleSubmit} className="e-commerce-form">
                         <div className="form-group">
-                            <label htmlFor="name"><FaUser className="input-icon" /> الاسم بالكامل:</label>
+                            <label htmlFor="name"><FaUser className="input-icon" /> {data.contact_section.form.name.label}</label>
                             <input
                                 type="text"
                                 id="name"
                                 name="name"
+                                placeholder={data.contact_section.form.name.placeholder}
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
@@ -259,11 +274,12 @@ const ECommerce = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="email"><FaEnvelope className="input-icon" /> البريد الإلكتروني:</label>
+                            <label htmlFor="email"><FaEnvelope className="input-icon" /> {data.contact_section.form.email.label}</label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
+                                placeholder={data.contact_section.form.email.placeholder}
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
@@ -300,7 +316,7 @@ const ECommerce = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="budget"><FaMoneyBillWave className="input-icon" /> الميزانية المتوقعة:</label>
+                            <label htmlFor="budget"><FaMoneyBillWave className="input-icon" /> {data.contact_section.form.budget.title}</label>
                             <select
                                 id="budget"
                                 name="budget"
@@ -308,10 +324,12 @@ const ECommerce = () => {
                                 onChange={handleChange}
                                 required
                             >
-                                <option value="">اختر الميزانية</option>
-                                <option value="5000-10000">5,000 - 10,000 جنيه</option>
-                                <option value="10000-20000">10,000 - 20,000 جنيه</option>
-                                <option value="20000+">أكثر من 20,000 جنيه</option>
+                                <option value="">{data.contact_section.form.budget.title}</option>
+                                {
+                                    data.contact_section.form.budget.chooices.map(choice => (
+                                        <option value={choice.text}>{choice.text}</option>
+                                    ))
+                                }
                             </select>
                         </div>
 
@@ -327,7 +345,7 @@ const ECommerce = () => {
                         </div>
 
                         <button type="submit" className="form-submit-btn">
-                            أرسل الطلب
+                            {data.contact_section.form.submit_button_text}
                         </button>
                     </form>
                 </div>
