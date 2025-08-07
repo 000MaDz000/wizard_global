@@ -36,13 +36,13 @@ const CarDetails = () => {
                 <Link to="/cars" className="back-link">← العودة إلى قائمة السيارات</Link>
 
                 <h1>{car.brand.name} {car.model.name} - {car.year}</h1>
-                {/* <p>{car.description}</p> */}
+                <p>{car.description}</p>
 
                 <div className="car-gallery">
                     <div className="main-image">
                         <ClientImage src={car.images[activeImage]} alt={car.images[0]?.alternativeText || `${car.brand} ${car.model}`} />
                         <button className="nav-button prev-button" onClick={prevImage}>❮</button>
-                        {/* <button className="nav-button next-button" onClick={nextImage}>❯</button> */}
+                        <button className="nav-button next-button" onClick={nextImage}>❯</button>
                     </div>
                     <div className="thumbnails">
                         {car.images?.map((img, index) => (
