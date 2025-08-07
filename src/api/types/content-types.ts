@@ -192,8 +192,10 @@ export interface IT {
 
 export interface Term {
     id: number;
+    page_title: string;
+    back_to_home_text: string;
     terms_of_service: TermsOfService;
-    privacy_policy: TermsOfService[];
+    privacy_policy: TermsOfService;
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;

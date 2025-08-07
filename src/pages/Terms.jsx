@@ -2,6 +2,9 @@ import React from 'react';
 import '../styles/Terms.css';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { useTerm } from '../api/hooks';
+import { buildStrapiPopulateParams, termPopulation } from '../api/const/populations';
+import Loading from '../components/Loading';
 
 // بيانات وهمية - يمكن استبدالها بطلب API من الباكند لاحقًا
 const dummyData = {
@@ -52,21 +55,28 @@ const dummyData = {
 };
 
 const Terms = () => {
+    const res = useTerm(buildStrapiPopulateParams(termPopulation));
+    if (res.isLoading) return <Loading />;
+
+    const data = res.data.data;
+    if (!data) return null;
+
+
     return (
         <>
             <div className="terms-container">
-                <Link to="/" className="back-link">← العودة إلى الصفحة الرئيسية </Link>
+                <Link to="/" className="back-link">{data.back_to_home_text}</Link>
                 <div className="terms-header">
-                    <h1>شروط الخدمة وسياسة الخصوصية</h1>
+                    <h1>{data.page_title}</h1>
                 </div>
 
                 <div className="terms-content">
                     <section className="terms-section">
-                        <h2>{dummyData.termsOfService.title}</h2>
-                        <p className="last-updated">آخر تحديث: {dummyData.termsOfService.lastUpdated}</p>
+                        <h2>{data.terms_of_service?.title}</h2>
+                        <p className="last-updated">{data.terms_of_service?.last_updated_text}: {data.terms_of_service?.last_updated}</p>
 
-                        {dummyData.termsOfService.sections.map((section, index) => (
-                            <div key={`terms-${index}`} className="section-item">
+                        {data.terms_of_service?.sections.map((section, index) => (
+                            <div key={`terms-${section.id}`} className="section-item">
                                 <h3>{section.title}</h3>
                                 <p>{section.content}</p>
                             </div>
@@ -74,10 +84,10 @@ const Terms = () => {
                     </section>
 
                     <section className="privacy-section">
-                        <h2>{dummyData.privacyPolicy.title}</h2>
-                        <p className="last-updated">آخر تحديث: {dummyData.privacyPolicy.lastUpdated}</p>
+                        <h2>{data.privacy_policy?.title}</h2>
+                        <p className="last-updated">{data.privacy_policy?.last_updated_text}: {data.privacy_policy?.last_updated}</p>
 
-                        {dummyData.privacyPolicy.sections.map((section, index) => (
+                        {data.privacy_policy?.sections?.map((section, index) => (
                             <div key={`privacy-${index}`} className="section-item">
                                 <h3>{section.title}</h3>
                                 <p>{section.content}</p>

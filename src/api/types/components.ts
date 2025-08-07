@@ -19,6 +19,7 @@ export interface TextArray {
 }
 
 export interface TitleContent {
+    id: number;
     title: string;
     content: string;
 }
@@ -172,4 +173,6 @@ export interface Filters {
 export interface TermsOfService {
     title: string;
     sections: TitleContent[];
+    last_updated: string;
+    last_updated_text: string;
 }
