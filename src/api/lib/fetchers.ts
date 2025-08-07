@@ -16,7 +16,7 @@ import {
     IT,
     Term
 } from '../types/content-types';
-import { carsPopulation } from '../const/populations';
+import { articlePopulation, carsPopulation } from '../const/populations';
 
 // Helper function to build query string
 const buildQueryString = (params: PaginationParams = {}): string => {
@@ -54,10 +54,24 @@ export const fetchArticles = async (params?: PaginationParams): Promise<StrapiRe
     return response.data;
 };
 
-export const fetchArticle = async (id: number, populate?: string | string[]): Promise<StrapiResponse<Article>> => {
-    const queryString = populate ? buildQueryString({ populate }) : '';
-    const response = await axios.get(`/articles/${id}?${queryString}`);
-    return response.data;
+export const fetchArticle = async (id: number): Promise<StrapiResponse<Article>> => {
+    // const queryString = populate ? buildQueryString({ populate }) : '';
+    const response = await axios.get(`/articles`, {
+        params: {
+            filter: {
+                id: {
+                    $eq: id
+                }
+            },
+            populate: articlePopulation
+        }
+    });
+
+    if (response.data?.data?.[0]) {
+        response.data.data = response.data.data[0];
+    }
+
+    return response.data
 };
 
 export const fetchArticleCategories = async (params?: PaginationParams): Promise<StrapiResponse<ArticleCategory[]>> => {
