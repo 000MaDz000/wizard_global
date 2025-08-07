@@ -3,13 +3,11 @@ import { useParams, NavLink, useNavigate } from 'react-router-dom'; import AOS f
 import "aos/dist/aos.css";
 import "./About_Details.css";
 // import aboutImage from "../assets/pexels-pixabay-269077.jpg";
-import cars from "../assets/pexels-mikebirdy-120049.jpg";
-import ecom from "../assets/pexels-karolina-grabowska-5632402.jpg";
-import it from "../assets/pexels-luckysam-50614.jpg";
+
 import Footer from "../components/Footer";
-import logo from '../assets/wazir.png'
+import logo from '../assets/red_logo.png'
 import OurServices from '../components/Services';
-import video from '../assets/video.mp4'
+// import video from '../assets/video.mp4'
 
 const About = () => {
     const navigate = useNavigate();
@@ -48,12 +46,9 @@ const About = () => {
                 {/* <img src={aboutImage} alt="مقر الشركة" /> */}
             </section>
             <section className="intro" data-aos="fade-up">
-                <video autoPlay muted loop playsInline className="background-video">
-                    <source src={video} type="video/mp4" />
-                    متصفحك لا يدعم تشغيل الفيديو.
-                </video>
                 <div className="text">
-                    <h1> Wazir <span style={{ color: "#4a6ad5ff" }}>GlobalX FZCO</span></h1>
+                    <h1> Wazir GlobalX</h1>
+                    <h2>IFZA DIGITAL PARK - A2</h2>
                     <p className="intro-subtext">
                         تأسست شركتنا في منطقة IFZA - دبي لتكون بوابتك لحلول عالمية في مجالات السيارات، وتكنولوجيا المعلومات، والتجارة الإلكترونية...
                     </p>
@@ -65,50 +60,14 @@ const About = () => {
 
             <section className="about-story" data-aos="fade-up">
                 <div className="about-text">
-                    <h2>رحلتنا نحو التميز</h2>
+                    {/* <h2>رحلتنا نحو التميز</h2> */}
                     <p>
                         Wazir GlobalX FZCO هي منصة تجارية وتقنية تأسست في دبي - الإمارات، وتعمل من خلال موقعها الاستراتيجي في منطقة IFZA لتقدم حلولًا متكاملة في استيراد وتصدير السيارات، تطوير البرمجيات، والتجارة الإلكترونية. نلتزم بأعلى معايير الجودة ونركز على الابتكار والشراكة لخلق تأثير حقيقي في المنطقة وخارجها.
                     </p>
                 </div>
             </section>
 
-            {/* <section className="core-services">
-                <h2 data-aos="fade-up"><span style={{ color: "#1141D8" }}>خدماتنا</span></h2>
-                <div className="services-grid">
-                    <div className="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src={cars} alt="السيارات" />
-                        <div className="overlay">
-                            <div className="overlay-content">
-                                <p>نقدّم خدمات متكاملة تشمل الشحن، التخليص الجمركي...</p>
-                                <button>اعرف المزيد</button>
-                            </div>
-                        </div>
-                        <h3>استيراد وتصدير السيارات</h3>
-                    </div>
 
-                    <div className="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src={it} alt="التقنية" />
-                        <div className="overlay">
-                            <div className="overlay-content">
-                                <p>نُطوّر تطبيقات ذكية، منصات رقمية، وأنظمة...</p>
-                                <button>اعرف المزيد</button>
-                            </div>
-                        </div>
-                        <h3>تطوير البرمجيات والتقنية</h3>
-                    </div>
-
-                    <div className="service-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src={ecom} alt="التجارة الإلكترونية" />
-                        <div className="overlay">
-                            <div className="overlay-content">
-                                <p>ندير متاجر B2B وB2C، ونوفر حلول دفع...</p>
-                                <button>اعرف المزيد</button>
-                            </div>
-                        </div>
-                        <h3>حلول التجارة الإلكترونية</h3>
-                    </div>
-                </div>
-            </section> */}
             <OurServices />
 
             <section className="vision-section" data-aos="fade-up">
@@ -130,12 +89,18 @@ const About = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="chart_section">
-                        الخريطه هنا
-                    </div>
                 </div>
             </section>
-
+            <div className="chart_section">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.909401653805!2d31.318069924610537!3d30.012030574939967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458393e3a91dda7%3A0xb257dd9ed39be432!2z2KzZhdi52YrYqSDZgdi22KfYoSDZhNix2LnYp9mK2Kkg2KfZhNi32YTYp9ioINin2YTZiNin2YHYr9mK2YY!5e1!3m2!1sar!2seg!4v1742359849366!5m2!1sar!2seg" width="100%"
+                            height="400"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            title="خريطة الموقع"
+                        ></iframe>
+                    </div>
             <Footer />
         </div>
     );
