@@ -20,7 +20,8 @@ npm install @tanstack/react-query axios
 
 1. Set your Strapi base URL in environment variables:
 \`\`\`env
-NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+PUBLIC_STRAPI_URL=http://localhost:1337
+STRAPI_TOKEN=your-token
 \`\`\`
 
 2. Wrap your app with React Query provider:
@@ -186,7 +187,8 @@ interface PaginationParams {
 Make sure to set your Strapi URL:
 
 \`\`\`env
-NEXT_PUBLIC_STRAPI_URL=https://your-strapi-instance.com
+PUBLIC_STRAPI_URL=https://your-strapi-instance.com
+STRAPI_TOKEN=your-token
 \`\`\`
 
 ## Type Safety
