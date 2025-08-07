@@ -33,7 +33,8 @@ const Home = () => {
         return <Loading />
     }
 
-    const data = response.data.data;
+    const data = response.data?.data;
+
 
     return (
         <div>

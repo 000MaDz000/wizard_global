@@ -55,7 +55,7 @@ export interface Car extends StrapiEntity {
     thumbnail: StrapiMedia;
     year: number;
     price: number;
-    overview
+    currency_sign: string;
     features: TextArray[]
     mileage: string;
     color: string;
@@ -64,6 +64,24 @@ export interface Car extends StrapiEntity {
     horsepower: string;
     seating_capacity: string;
     condition: 'used' | 'new';
+    back_to_previous_page_text?: string;
+    car_specifications_title: string;
+    price_field_text: string;
+    condition_field_text: string;
+    model_field_text: string;
+    year_field_text: string;
+    covered_distances_field_text: string;
+    color_field_text: string;
+    fuel_type_field_text: string;
+    transmission_field_text: string;
+    features_title: string;
+    safety_features_title: string;
+    overview_section_title: string;
+    engine_field_text: string;
+    horsepower_field_text: string;
+    capacity_field_text: string;
+    cta_button_text: string;
+    details_button_text: string;
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;

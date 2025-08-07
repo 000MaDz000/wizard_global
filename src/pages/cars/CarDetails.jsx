@@ -33,7 +33,7 @@ const CarDetails = () => {
     return (
         <>
             <div className="car-details-page">
-                <Link to="/cars" className="back-link">← العودة إلى قائمة السيارات</Link>
+                <Link to="/cars" className="back-link">{car.back_to_previous_page_text}</Link>
 
                 <h1>{car.brand.name} {car.model.name} - {car.year}</h1>
                 <p>{car.description}</p>
@@ -61,38 +61,38 @@ const CarDetails = () => {
 
 
                     <div className="car-specs">
-                        <h2>مواصفات السيارة</h2>
+                        <h2>{car.car_specifications_title}</h2>
                         <div className="specs-grid">
                             <div className="spec-item">
-                                <span className="spec-label">السعر:</span>
-                                <span className="spec-value">{car.price.toLocaleString()} جنيه</span>
+                                <span className="spec-label">{car.price_field_text}</span>
+                                <span className="spec-value">{car.price} {car.currency_sign}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">الحالة:</span>
+                                <span className="spec-label">{car.condition_field_text}</span>
                                 <span className="spec-value">{car.condition === 'new' ? 'جديدة' : 'مستعملة'}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">الموديل:</span>
+                                <span className="spec-label">{car.model_field_text}</span>
                                 <span className="spec-value">{car.model.name}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">السنة:</span>
+                                <span className="spec-label">{car.year_field_text}</span>
                                 <span className="spec-value">{car.year}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">المسافة المقطوعة:</span>
+                                <span className="spec-label">{car.covered_distances_field_text}</span>
                                 <span className="spec-value">{car.mileage}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">اللون:</span>
+                                <span className="spec-label">{car.color_field_text}</span>
                                 <span className="spec-value">{car.color}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">نوع الوقود:</span>
+                                <span className="spec-label">{car.fuel_type_field_text}</span>
                                 <span className="spec-value">{car.fuel_type.name}</span>
                             </div>
                             <div className="spec-item">
-                                <span className="spec-label">ناقل الحركة:</span>
+                                <span className="spec-label">{car.transmission_field_text}</span>
                                 <span className="spec-value">{car.transmission}</span>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ const CarDetails = () => {
                     {
                         car.safety_features ? (
                             <div className="car-safety">
-                                <h2>ميزات الأمان</h2>
+                                <h2>{car.safety_features_title}</h2>
                                 <ul>
                                     {car.safety_features?.map((feature, index) => (
                                         <li key={index}>{feature.text}</li>
@@ -125,26 +125,26 @@ const CarDetails = () => {
                     <p>{car.description}</p>
                 </div> */}
                     <div className="car-overview">
-                        <h2>نظرة عامة</h2>
+                        <h2>{car.overview_section_title}</h2>
                         <p>{car.overview}</p>
 
                         <div className="quick-specs">
                             <div className="quick-spec-item">
-                                <span className="quick-spec-label">المحرك:</span>
+                                <span className="quick-spec-label">{car.engine_field_text}</span>
                                 <span className="quick-spec-value">{car.engine}</span>
                             </div>
                             <div className="quick-spec-item">
-                                <span className="quick-spec-label">القوة:</span>
+                                <span className="quick-spec-label">{car.horsepower_field_text}</span>
                                 <span className="quick-spec-value">{car.horsepower}</span>
                             </div>
                             <div className="quick-spec-item">
-                                <span className="quick-spec-label">السعة:</span>
-                                <span className="quick-spec-value">{car.seating_capacity} ركاب</span>
+                                <span className="quick-spec-label">{car.capacity_field_text}</span>
+                                <span className="quick-spec-value">{car.seating_capacity}</span>
                             </div>
                         </div>
                     </div>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <button className="contact-btn">اتصل بنا للاستفسار</button>
+                    <button className="contact-btn">{car.cta_button_text}</button>
                 </div>
             </div>
             <Footer />

@@ -133,40 +133,40 @@ const ContactForm = ({ data }) => {
             <div className="contact-info">
                 {/* قسم التواصل المباشر */}
                 <div className="direct-contact">
-                    <h3>تواصل مباشر</h3>
+                    <h3>{data.direct_contact_title}</h3>
                     <div className="contact-icons">
                         <a
-                            href="https://wa.me/201118069683"
+                            href={`https://wa.me/${data.contact_info?.whatsapp_number}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon whatsapp"
-                            title="واتساب"
+                        // title="واتساب"
                         >
                             <FaWhatsapp size={28} />
                         </a>
 
                         <a
-                            href="https://t.me/username"
+                            href={`https://t.me/${data.contact_info?.telegram_number}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon telegram"
-                            title="تيليجرام"
+                        // title="تيليجرام"
                         >
                             <FaTelegram size={28} />
                         </a>
 
                         <a
-                            href="mailto:info@example.com"
+                            href={`mailto:${data.contact_info?.email}`}
                             className="contact-icon email"
-                            title="البريد الإلكتروني"
+                        // title="البريد الإلكتروني"
                         >
                             <FaEnvelope size={28} />
                         </a>
 
                         <a
-                            href="tel:+201118069683"
+                            href={`tel:+${data.contact_info?.phone}`}
                             className="contact-icon phone"
-                            title="اتصال هاتفي"
+                        // title="اتصال هاتفي"
                         >
                             <FaPhone size={28} />
                         </a>
@@ -175,41 +175,41 @@ const ContactForm = ({ data }) => {
 
                 {/* وسائل التواصل الاجتماعي */}
                 <div className="social-media">
-                    <h3>تابعنا على وسائل التواصل الاجتماعي</h3>
+                    <h3>{data.social_media_contact_title}</h3>
                     <div className="social-links">
                         <a
-                            href="https://linkedin.com/in/username"
+                            href={`https://linkedin.com/in/${data.contact_info?.linkedin_username}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon linkedin"
-                            title="لينكد إن"
+                        // title="لينكد إن"
                         >
                             <FaLinkedin size={28} />
                         </a>
                         <a
-                            href="https://facebook.com/username"
+                            href={`https://facebook.com/${data.contact_info?.facebook_username}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon facebook"
-                            title="فيسبوك"
+                        // title="فيسبوك"
                         >
                             <FaFacebook size={28} />
                         </a>
                         <a
-                            href="https://instagram.com/username"
+                            href={`https://instagram.com/${data.contact_info?.instagram_username}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon instagram"
-                            title="إنستجرام"
+                        // title="إنستجرام"
                         >
                             <FaInstagram size={28} />
                         </a>
                         <a
-                            href="https://twitter.com/username"
+                            href={`https://twitter.com/${data.contact_info?.twitter_username}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon twitter"
-                            title="تويتر"
+                        // title="تويتر"
                         >
                             <FaTwitter size={28} />
                         </a>

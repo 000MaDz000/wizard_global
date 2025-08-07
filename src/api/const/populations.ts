@@ -52,24 +52,20 @@ export const homepagePopulation = {
     contact: {
         populate: {
             title: true,
+            contact_info: true,
             form: {
                 populate: {
                     name: true,
                     email: true,
                     country: true,
                     message: true,
-                    budget: {
-                        populate: {
-                            chooices: true
-                        }
-                    },
                     service: {
                         populate: {
                             chooices: true
                         }
                     },
                 }
-            }
+            },
         }
     }
 };

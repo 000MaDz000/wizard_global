@@ -151,9 +151,25 @@ export interface Articles {
     show_more_text: string;
 }
 
+export interface ContactInfo {
+    instagram_username?: string;
+    facebook_username?: string;
+    twitter_username?: string;
+    linkedin_username?: string;
+
+    whatsapp_number?: string;
+    telegram_number?: string;
+    email?: string;
+    phone?: string;
+
+}
+
 export interface ContactSection {
     title: Title;
     form?: ContactForm;
+    social_media_contact_title: string;
+    direct_contact_title: string;
+    contact_info: ContactInfo;
 }
 
 export interface ECommerceContactSection {
