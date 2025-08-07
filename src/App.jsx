@@ -17,11 +17,21 @@ import ProjectDetails_ecommerce from './pages/e_commerce/ProjectDetails_ecommerc
 import Terms from './pages/Terms';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const queyrClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false, // لا تجلب البيانات عند التركيز على النافذة
+            refetchOnMount: false,       // لا تجلب البيانات عند تركيب المكون
+            refetchOnReconnect: false,   // لا تجلب البيانات عند العودة من عدم الاتصال
+            retry: false,                // لا تعيد المحاولة تلقائيًا عند الفشل
+            staleTime: Infinity,         // اعتبر البيانات حديثة إلى الأبد
+        },
+    },
+});
 
 function App() {
     return (
-        <QueryClientProvider client={queyrClient}>
+        <QueryClientProvider client={queryClient}>
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
