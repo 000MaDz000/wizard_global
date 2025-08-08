@@ -4,11 +4,17 @@ import '../styles/Auth.css';
 import logo from '../assets/wazir.png';
 import { Link } from 'react-router-dom';
 import { useAuth, useLogin } from '../api/hooks/useAuth';
+import Loading from '../components/Loading';
+import { useLoginPage } from '../api/hooks/useLoginPage';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { data: user, isLoading } = useAuth();
+    const loginpageRes = useLoginPage();
+    const { data: user, isLoading: isAuthLoading } = useAuth();
     const { mutate, isPending, error: loginError } = useLogin();
+
+    const isLoading = isAuthLoading || loginpageRes.isLoading;
+    const data = loginpageRes.data?.data;
 
     const formRef = useRef({
         email: '',
@@ -17,7 +23,6 @@ const Login = () => {
 
     const [error, setError] = useState('');
 
-    // ✅ إعادة التوجيه إذا كان هناك مستخدم
     useEffect(() => {
         if (user) {
             navigate('/');
@@ -37,7 +42,7 @@ const Login = () => {
             const { email, password } = formRef.current;
 
             if (!email || !password) {
-                setError('البريد الإلكتروني وكلمة المرور مطلوبان');
+                setError(data.email_and_password_required_text);
                 return;
             }
 
@@ -48,15 +53,18 @@ const Login = () => {
                         navigate('/');
                     },
                     onError: () => {
-                        setError('بيانات الدخول غير صحيحة');
+                        setError(data.invalid_data_provided_text);
                     },
                 }
             );
         },
-        [mutate, navigate]
+        [mutate, navigate, data, formRef]
     );
 
-    if (isLoading) return <p>جاري التحقق من الجلسة...</p>;
+
+    if (isLoading) return <Loading />;
+
+    if (!data) return;
 
     return (
         <div className="auth-container">
@@ -66,39 +74,41 @@ const Login = () => {
                         <img src={logo} alt="Logo" />
                     </h1>
                 </Link>
-                <h2>تسجيل الدخول</h2>
+                <h2>{data.title}</h2>
                 {error && <div className="error-message">{error}</div>}
 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>البريد الإلكتروني</label>
+                        <label>{data.email.label}</label>
                         <input
                             type="email"
                             name="email"
                             onChange={handleInputChange}
+                            placeholder={data.email.placeholder}
                             required
                         />
                     </div>
 
                     <div className="form-group">
-                        <label>كلمة المرور</label>
+                        <label>{data.password.label}</label>
                         <input
                             type="password"
                             name="password"
+                            placeholder={data.password.placeholder}
                             onChange={handleInputChange}
                             required
                         />
                     </div>
 
                     <button type="submit" className="auth-button" disabled={isPending}>
-                        {isPending ? 'جارٍ تسجيل الدخول...' : 'تسجيل الدخول'}
+                        {isPending ? data.loading_submit_button_text : data.submit_button_text}
                     </button>
                 </form>
 
                 <div className="auth-footer">
                     <p>
-                        ليس لديك حساب؟{' '}
-                        <span onClick={() => navigate('/register')}>سجل الآن</span>
+                        {data.dont_have_account_text}{' '}
+                        <span onClick={() => navigate('/register')}>{data.register_now_text}</span>
                     </p>
                 </div>
             </div>

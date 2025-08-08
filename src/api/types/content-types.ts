@@ -19,7 +19,8 @@ import {
     TermsOfService,
     CarService,
     ECommerceContactSection,
-    ContactInfo
+    ContactInfo,
+    FormItemGroup
 } from './components';
 
 // Content Type Interfaces
@@ -272,7 +273,6 @@ export interface TestimonialInput {
     feedback: string;
 }
 
-// types/AboutPageTexts.ts
 
 export interface AboutDetails {
     navbar_contact_link_text: string;
@@ -297,4 +297,34 @@ export interface AboutDetails {
         lat: number;
         lng: number;
     }[];
+}
+
+
+export interface LoginPage {
+    title: string;
+    email: FormItemGroup;
+    password: FormItemGroup;
+    submit_button_text: string;
+    loading_submit_button_text: string;
+    dont_have_account_text: string;
+    register_now_text: string;
+    email_and_password_required_text: string;
+    invalid_data_provided_text: string;
+}
+
+export interface RegisterPage {
+    title: string;
+    full_name: FormItemGroup;
+    email: FormItemGroup;
+    password: FormItemGroup;
+    password_confirmation: FormItemGroup;
+
+    submit_button_text: string;
+    loading_submit_button_text: string;
+    already_have_account_text: string;
+    login_now_text: string;
+    all_fields_required_text: string;
+    password_mismatch_text: string;
+    unexpected_error_text: string;
+
 }

@@ -18,7 +18,9 @@ import {
     IT,
     Term,
     Footer,
-    AboutDetails
+    AboutDetails,
+    LoginPage,
+    RegisterPage
 } from '../types/content-types';
 
 // Helper function to build query string
@@ -274,6 +276,33 @@ export const fetchAboutDetails = async (): Promise<StrapiResponse<AboutDetails>>
             ]
         }
     });
+    return response.data;
+};
+
+export const fetchLoginPage = async (): Promise<StrapiResponse<LoginPage>> => {
+    const response = await axios.get(`/login`, {
+        params: {
+            populate: [
+                "email",
+                "password",
+            ]
+        }
+    });
+    return response.data;
+};
+
+export const fetchRegisterPage = async (): Promise<StrapiResponse<RegisterPage>> => {
+    const response = await axios.get(`/register`, {
+        params: {
+            populate: [
+                "full_name",
+                "email",
+                "password",
+                "password_confirmation",
+            ]
+        }
+    });
+
     return response.data;
 };
 

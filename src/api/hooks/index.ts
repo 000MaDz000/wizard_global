@@ -9,8 +9,11 @@ export * from './useItProjects';
 export * from './useECommerceFutureProjects';
 export * from './useTestimonials';
 
+
 // Single Types
 export * from './useHomepage';
+export * from './useAboutDetails';
+export * from './useLoginPage';
 export * from './useCarsPage';
 export * from './useECommerce';
 export * from './useIT';
