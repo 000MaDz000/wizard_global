@@ -17,7 +17,8 @@ import {
     ECommerce,
     IT,
     Term,
-    Footer
+    Footer,
+    AboutDetails
 } from '../types/content-types';
 
 // Helper function to build query string
@@ -258,6 +259,21 @@ export const fetchIT = async (populate?: string | string[]): Promise<StrapiRespo
 export const fetchTerm = async (populate?: string | string[]): Promise<StrapiResponse<Term>> => {
     const queryString = populate ? buildQueryString({ populate }) : '';
     const response = await axios.get(`/term?${queryString}`);
+    return response.data;
+};
+
+export const fetchAboutDetails = async (): Promise<StrapiResponse<AboutDetails>> => {
+    const response = await axios.get(`/about`, {
+        params: {
+            populate: [
+                "intro",
+                "story",
+                "vision",
+                "mission",
+                "map_coordinates",
+            ]
+        }
+    });
     return response.data;
 };
 

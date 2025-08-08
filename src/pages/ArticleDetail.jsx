@@ -6,11 +6,6 @@ import { useTranslation } from 'react-i18next';
 import '../styles/Articles.css';
 import Footer from '../components/Footer';
 
-import car from '../assets/neil-mark-thomas-vCX0NQeXWiY-unsplash.jpg';
-import car1 from '../assets/colin-lloyd-titfVBWn_hc-unsplash.jpg';
-import car2 from '../assets/pexels-egeardaphotos-2148533277-30149547.jpg';
-import tech1 from '../assets/b6.webp';
-import ecommerce1 from '../assets/b6.webp';
 import logo from '../assets/red_logo.png';
 import { useArticle } from '../api/hooks';
 import Loading from '../components/Loading';

@@ -271,3 +271,30 @@ export interface TestimonialInput {
     rating: number;
     feedback: string;
 }
+
+// types/AboutPageTexts.ts
+
+export interface AboutDetails {
+    navbar_contact_link_text: string;
+
+    intro: {
+        heading: string;
+        subheading: string;
+        description: string;
+    };
+    story: {
+        paragraph: string;
+    };
+    vision: {
+        title: string;
+        description: string;
+    };
+    mission: {
+        title: string;
+        description: string;
+    };
+    map_coordinates?: {
+        lat: number;
+        lng: number;
+    }[];
+}

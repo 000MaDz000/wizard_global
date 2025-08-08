@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, NavLink, useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./About_Details.css";
@@ -7,16 +7,20 @@ import "./About_Details.css";
 import Footer from "../components/Footer";
 import logo from '../assets/red_logo.png';
 import OurServices from '../components/Services';
+import { useAboutDetails } from '../api/hooks/useAboutDetails';
+import Loading from '../components/Loading';
+
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const About = () => {
     const navigate = useNavigate();
-    const [mapUrl, setMapUrl] = useState('');
+    const pageRes = useAboutDetails();
+    const mapRef = useRef(null);
+    const leafletMapRef = useRef(null); // To prevent multiple maps
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
         AOS.init({ duration: 1000, once: true });
     }, []);
 
@@ -24,16 +28,43 @@ const About = () => {
         navigate('/', { state: { scrollToContact: true } });
     };
 
-    // 🗺️ محاكاة لجلب رابط الخريطة من API (مثلاً Strapi لاحقًا)
-    useEffect(() => {
-        // رابط خريطة IFZA - دبي (موقع منطقي)
-        const dummyApiCall = () => {
-            const dummyMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.2764815067795!2d55.41553737594537!3d25.161227932492056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f5483f24d3b1%3A0x6f61a477b8e9947b!2sIFZA%20Business%20Park!5e0!3m2!1sen!2sae!4v1690818983220!5m2!1sen!2sae";
-            setMapUrl(dummyMapUrl);
-        };
+    const data = pageRes.data?.data;
 
-        dummyApiCall(); // وكأنك بتجيب الرابط من API
-    }, []);
+    useEffect(() => {
+        if (!data || !Array.isArray(data.map_coordinates) || data.map_coordinates.length === 0 || leafletMapRef.current) return;
+
+        // Initialize map
+        const initial = data.map_coordinates[0];
+        const map = L.map(mapRef.current).setView([initial.lat, initial.lng], 6);
+        leafletMapRef.current = map;
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors',
+        }).addTo(map);
+
+        const bounds = [];
+
+        data.map_coordinates.forEach((coord) => {
+            const marker = L.marker([coord.lat, coord.lng]).addTo(map);
+            marker.bindPopup(`
+                <div style="font-family:'Cairo'; text-align:right;">
+                    <strong>Latitude:</strong> ${coord.lat}<br/>
+                    <strong>Longitude:</strong> ${coord.lng}
+                </div>
+            `);
+            marker.on('mouseover', function () { this.openPopup(); });
+            marker.on('mouseout', function () { this.closePopup(); });
+            bounds.push([coord.lat, coord.lng]);
+        });
+
+        if (bounds.length > 1) {
+            map.fitBounds(bounds, { padding: [50, 50] });
+        }
+
+    }, [data]);
+
+    if (pageRes.isLoading) return <Loading />;
+    if (!data) return null;
 
     return (
         <div className="about-page">
@@ -42,7 +73,7 @@ const About = () => {
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
-                                تواصل معنا
+                                {data.navbar_contact_link_text}
                             </a>
                         </div>
                         <div className="navbar_bar-links">
@@ -55,24 +86,20 @@ const About = () => {
             </div>
 
             <section className="about-image" data-aos="zoom-in">
-                {/* <img src={aboutImage} alt="مقر الشركة" /> */}
+                {/* Optional image */}
             </section>
 
             <section className="intro" data-aos="fade-up">
                 <div className="text">
-                    <h1> Wazir GlobalX</h1>
-                    <h2>IFZA DIGITAL PARK - A2</h2>
-                    <p className="intro-subtext">
-                        تأسست شركتنا في منطقة IFZA - دبي لتكون بوابتك لحلول عالمية في مجالات السيارات، وتكنولوجيا المعلومات، والتجارة الإلكترونية...
-                    </p>
+                    <h1>{data.intro.heading}</h1>
+                    <h2>{data.intro.subheading}</h2>
+                    <p className="intro-subtext">{data.intro.description}</p>
                 </div>
             </section>
 
             <section className="about-story" data-aos="fade-up">
                 <div className="about-text">
-                    <p>
-                        Wazir GlobalX FZCO هي منصة تجارية وتقنية تأسست في دبي - الإمارات، وتعمل من خلال موقعها الاستراتيجي في منطقة IFZA لتقدم حلولًا متكاملة في استيراد وتصدير السيارات، تطوير البرمجيات، والتجارة الإلكترونية. نلتزم بأعلى معايير الجودة ونركز على الابتكار والشراكة لخلق تأثير حقيقي في المنطقة وخارجها.
-                    </p>
+                    <p>{data.story.paragraph}</p>
                 </div>
             </section>
 
@@ -85,34 +112,25 @@ const About = () => {
                     </div>
                     <div className="vision-content" data-aos="fade-left">
                         <div className="vision-block">
-                            <h2 className="vision-title">رؤيتنا</h2>
-                            <p className="vision-text">
-                                أن نكون الشريك المفضل إقليميًا وعالميًا في الحلول الذكية للتجارة والخدمات الرقمية...
-                            </p>
+                            <h2 className="vision-title">{data.vision.title}</h2>
+                            <p className="vision-text">{data.vision.description}</p>
                         </div>
                         <div className="vision-block">
-                            <h2 className="vision-title">رسالتنا</h2>
-                            <p className="vision-text">
-                                نهدف إلى تمكين الأفراد والشركات عبر تقديم خدمات موثوقة وسريعة...
-                            </p>
+                            <h2 className="vision-title">{data.mission.title}</h2>
+                            <p className="vision-text">{data.mission.description}</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 🗺️ خريطة موقع IFZA - دبي من API وهمي */}
-            {mapUrl && (
-                <div className="chart_section">
-                    <iframe
-                        src={mapUrl}
-                        width="100%"
-                        height="400"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        title="خريطة الموقع"
-                    ></iframe>
-                </div>
+            {Array.isArray(data.map_coordinates) && data.map_coordinates.length > 0 && (
+                <section className="chart_section" data-aos="fade-up" style={{ marginTop: "2rem" }}>
+                    <div
+                        ref={mapRef}
+                        className="map-container"
+                        style={{ height: "400px", width: "100%" }}
+                    />
+                </section>
             )}
 
             <Footer />
