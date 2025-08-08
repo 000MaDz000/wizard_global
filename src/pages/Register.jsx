@@ -5,6 +5,7 @@ import logo from '../assets/wazir.png';
 import { useAuth, useSignup } from '../api/hooks/useAuth';
 import Loading from '../components/Loading';
 import { useRegisterPage } from '../api/hooks/useRegisterPage';
+import LanguageSelector from '../components/LanguageSelector';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -81,7 +82,7 @@ const Register = () => {
                     </h1>
                 </Link>
 
-                <h2>{data.title}</h2>
+                <h2>{data.title} <LanguageSelector /></h2>
                 {error && <div className="error-message">{error}</div>}
 
                 <form onSubmit={handleSubmit}>

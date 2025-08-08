@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAuth, useLogin } from '../api/hooks/useAuth';
 import Loading from '../components/Loading';
 import { useLoginPage } from '../api/hooks/useLoginPage';
+import LanguageSelector from '../components/LanguageSelector';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -74,7 +75,7 @@ const Login = () => {
                         <img src={logo} alt="Logo" />
                     </h1>
                 </Link>
-                <h2>{data.title}</h2>
+                <h2>{data.title} <LanguageSelector /></h2>
                 {error && <div className="error-message">{error}</div>}
 
                 <form onSubmit={handleSubmit}>

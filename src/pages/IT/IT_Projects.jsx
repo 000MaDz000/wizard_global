@@ -8,6 +8,7 @@ import './ProjectDetails.css';
 import { useItProject } from '../../api/hooks';
 import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
+import LanguageSelector from '../../components/LanguageSelector';
 
 
 const ProjectDetails = () => {
@@ -88,6 +89,7 @@ const ProjectDetails = () => {
             <nav className="navbar_bar" style={{ background: "#0a1f3d" }}>
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact" >
+                        <LanguageSelector />
                         <Link to="/it" className="back-button">
                             <BsArrowLeft /> {project.back_to_previous_page_text}
                         </Link>

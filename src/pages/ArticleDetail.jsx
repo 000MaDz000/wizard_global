@@ -10,6 +10,7 @@ import logo from '../assets/red_logo.png';
 import { useArticle } from '../api/hooks';
 import Loading from '../components/Loading';
 import ClientImage from '../components/ClientImage';
+import LanguageSelector from '../components/LanguageSelector';
 
 const ArticleDetail = () => {
     const navigate = useNavigate();
@@ -55,6 +56,7 @@ const ArticleDetail = () => {
             </Helmet>
 
             <div className="article-detail-page">
+                <LanguageSelector />
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">

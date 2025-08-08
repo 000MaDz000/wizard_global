@@ -16,6 +16,7 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { useIT } from '../../api/hooks';
 import { buildStrapiPopulateParams, itPopulation } from '../../api/const/populations';
 import ClientImage from '../../components/ClientImage';
+import LanguageSelector from '../../components/LanguageSelector';
 
 const ITSolutions = () => {
     const res = useIT(buildStrapiPopulateParams(itPopulation));
@@ -102,6 +103,7 @@ const ITSolutions = () => {
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 {data.hero_contact_text}
                             </a>
+                            <LanguageSelector />
                         </div>
                         <div className="navbar_bar-links">
                             <NavLink to="/">

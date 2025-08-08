@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './Nav.css';
 import { CiSearch } from "react-icons/ci";
 import logo from '../../assets/red_logo.png'
+import LanguageSelector from '../../components/LanguageSelector';
 
 const Navbar_bar = ({ onSearch }) => {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ const Navbar_bar = ({ onSearch }) => {
         <nav className="navbar_bar">
             <div className="navbar_bar-container">
                 <div className="navbar_bar-contact">
+                    <LanguageSelector />
                     <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                         تواصل معنا
                     </a>

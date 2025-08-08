@@ -5,6 +5,7 @@ import logo from '../assets/wazir.png';
 
 // 👇 استدعاء الأيقونات
 import { FaBars, FaTimes } from 'react-icons/fa';
+import LanguageSelector from './LanguageSelector';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
+            <LanguageSelector />
             <div className="container">
                 <div className="logo">
                     <Link to="/">

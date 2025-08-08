@@ -24,6 +24,7 @@ import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
 import ClientLink from '../../components/ClientLink';
 import { submitEcommerceContact } from '../../api/contact/senders';
+import LanguageSelector from '../../components/LanguageSelector';
 
 const ECommerce = () => {
     const res = useECommerce(buildStrapiPopulateParams(eCommercePopulation));
@@ -120,6 +121,7 @@ const ECommerce = () => {
                             <a href="/contact" className="contact-link">
                                 {data.hero_contact_button_text}
                             </a>
+                            <LanguageSelector />
                         </div>
                         <div className="navbar_bar-links">
                             <NavLink to="/">
