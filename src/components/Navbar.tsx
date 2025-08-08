@@ -6,13 +6,19 @@ import logo from '../assets/wazir.png';
 // 👇 استدعاء الأيقونات
 import { FaBars, FaTimes } from 'react-icons/fa';
 import LanguageSelector from './LanguageSelector';
+import { useNavbar } from '../api/hooks/useNavbar';
+import Loading from './Loading';
+import ClientLink from './ClientLink';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navbar = useNavbar();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    if (navbar.isLoading) return <Loading />;
 
     return (
         <nav className="navbar">
@@ -26,14 +32,14 @@ const Navbar = () => {
 
                 <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
                     {/* <li><a href="/">الرئيسية</a></li> */}
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                    <li><a href="#clients">عملائنا</a></li>
-                    <li><a href="#clients">شركائنا</a></li>
-                    <li><a href="#artical"> المقالات</a></li>
+                    {
+                        navbar.data?.data?.links.map(link => (
+                            <li><ClientLink href={link} key={link.text + link.href}>{link.text}</ClientLink></li>
+                        ))
+                    }
                 </ul>
 
-                <button className='cta'>  <a style={{ textDecoration: 'none', color: 'black' }} href="#contact">تواصل معنا</a></button>
+                <button className='cta'>  <a style={{ textDecoration: 'none', color: 'black' }} href="#contact">{navbar.data?.data?.contact_cta_text}</a></button>
 
                 {/* زر فتح/غلق القائمة */}
                 <button className="menu-toggle" onClick={toggleMenu}>

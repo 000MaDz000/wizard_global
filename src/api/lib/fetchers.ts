@@ -23,7 +23,8 @@ import {
     AboutDetails,
     LoginPage,
     RegisterPage,
-    TestimonialInput
+    TestimonialInput,
+    Navbar
 } from '../types/content-types';
 
 
@@ -243,6 +244,17 @@ export const fetchAboutDetails = async (): Promise<StrapiResponse<AboutDetails>>
             populate: ["intro", "story", "vision", "mission", "map_coordinates"]
         }
     });
+    return response.data;
+};
+
+export const fetchNavbar = async (): Promise<StrapiResponse<Navbar>> => {
+    const response = await axios.get(`/navbar`, {
+        params: {
+            ...withLocale(),
+            populate: ["links"]
+        }
+    });
+
     return response.data;
 };
 

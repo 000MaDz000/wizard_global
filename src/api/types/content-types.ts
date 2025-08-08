@@ -20,7 +20,8 @@ import {
     CarService,
     ECommerceContactSection,
     ContactInfo,
-    FormItemGroup
+    FormItemGroup,
+    Link
 } from './components';
 
 // Content Type Interfaces
@@ -327,4 +328,9 @@ export interface RegisterPage {
     password_mismatch_text: string;
     unexpected_error_text: string;
 
+}
+
+export interface Navbar {
+    links: Link[];
+    contact_cta_text: string;
 }

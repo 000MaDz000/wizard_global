@@ -2,7 +2,7 @@
 import React from 'react';
 import { CopperLoading } from 'respinner';
 
-const Loading = ({ children }) => {
+const Loading = ({ children }: { children?: any }) => {
     return (
         <div
             style={{

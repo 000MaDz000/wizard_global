@@ -138,9 +138,7 @@ const ArticlesList = ({ data }) => {
                                 <div className="article-meta">
                                     <span className="article-date">{article.date}</span>
                                     <span className="article-category">
-                                        {article.category === 'cars' ? 'سيارات' :
-                                            article.category === 'technology' ? 'تكنولوجيا' :
-                                                'تجارة إلكترونية'}
+                                        {article.article_category?.name}
                                     </span>
                                     <span className="read-more">{data.readmore_text}</span>
                                 </div>
