@@ -22,7 +22,7 @@ const WhyChooseUs = ({ data }) => {
             <h2 className="section-title" data-aos="fade-up">{data.title.title_start} {data.title.title_end}</h2>
             <div className="details">
                 {/* <div className="first_p">شريكك الموثوق دائما</div> */}
-                <div className="second_p">
+                <div  style={{textAlign:"center"}} className="second_p">
                     {data.description}
                 </div>
             </div>
