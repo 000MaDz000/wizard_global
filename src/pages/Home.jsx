@@ -14,6 +14,7 @@ import { useHomepage } from '../api/hooks/useHomepage';
 import { buildStrapiPopulateParams, homepagePopulation } from '../api/const/populations';
 import Loading from '../components/Loading';
 import { useAuth } from '../api/hooks/useAuth';
+import AIChatBot from '../components/AIchatbot';
 
 const Home = () => {
     const auth = useAuth();
@@ -85,7 +86,7 @@ const Home = () => {
             <div id="artical">
                 <ArticlesList data={data.newest_articles} />
             </div>
-
+            <AIChatBot/>
             <div style={{ background: "linear-gradient( #113fd8b8,rgb(255, 255, 255))" }} id="contact">
                 <br />
                 <ContactForm data={data.contact} />
