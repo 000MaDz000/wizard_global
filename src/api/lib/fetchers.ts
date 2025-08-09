@@ -319,6 +319,7 @@ export const sendTestimonial = async (data: TestimonialInput, token: string) => 
 export const fetchAiChatbot = async () => {
     const response = await axios.get("/ai-chatbot", {
         params: {
+            ...withLocale(),
             populate: AiChatbotPopulation
         }
     });
