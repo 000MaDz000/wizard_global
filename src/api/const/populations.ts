@@ -134,6 +134,7 @@ export const eCommercePopulation = {
 
 // IT Page populations
 export const itPopulation = {
+    footer_cta_link: true,
     services: {
         populate: ["icon"]
     },

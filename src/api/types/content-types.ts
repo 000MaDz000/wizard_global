@@ -246,8 +246,7 @@ export interface IT {
     learn_more_text: string;
     footer_cta_title: string;
     footer_cta_text: string;
-    footer_cta_link_text: string;
-
+    footer_cta_link: Link;
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;

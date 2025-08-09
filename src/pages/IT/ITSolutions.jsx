@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ITSolutions.css';
 import Footer from '../../components/Footer';
@@ -17,6 +17,7 @@ import { useIT } from '../../api/hooks';
 import { buildStrapiPopulateParams, itPopulation } from '../../api/const/populations';
 import ClientImage from '../../components/ClientImage';
 import LanguageSelector from '../../components/LanguageSelector';
+import ClientLink from '../../components/ClientLink';
 
 const ITSolutions = () => {
     const res = useIT(buildStrapiPopulateParams(itPopulation));
@@ -27,9 +28,9 @@ const ITSolutions = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const handleContactClick = () => {
+    const handleContactClick = useCallback(() => {
         navigate('/', { state: { scrollToContact: true } });
-    };
+    }, [navigate]);
 
     if (res.isLoading) return;
     const data = res.data?.data;
@@ -180,7 +181,7 @@ const ITSolutions = () => {
                     <h2>{data.footer_cta_title}</h2>
                     <p>{data.footer_cta_text}</p>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <button className="cta-button" onClick={handleContactClick}>{data.footer_cta_link_text}</button>
+                    <ClientLink href={data.footer_cta_link} className="cta-button">{data.footer_cta_link.text}</ClientLink>
                 </div>
             </div>
             <Footer />
