@@ -21,7 +21,8 @@ import {
     ECommerceContactSection,
     ContactInfo,
     FormItemGroup,
-    Link
+    Link,
+    Budget
 } from './components';
 
 // Content Type Interfaces
@@ -206,6 +207,22 @@ export interface CarsPage {
         title: string;
         description?: string;
         services?: CarService[];
+        contact_section: {
+            title: string;
+            form: {
+                submit_button_text: string;
+                whatsapp_contact_chooice_text: string;
+                phone_contact_chooice_text: string;
+                email_contact_chooice_text: string;
+                contact_method_title: string;
+                destination: FormItemGroup,
+                budget: Budget,
+                car_type: Budget;
+                whatsapp: FormItemGroup;
+                phone: FormItemGroup;
+                email: FormItemGroup;
+            }
+        }
     }
     createdAt: string;
     updatedAt: string;

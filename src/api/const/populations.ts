@@ -84,6 +84,24 @@ export const carsPagePopulation = {
         populate: {
             services: {
                 populate: ["service_icon"]
+            },
+            contact_section: {
+                populate: {
+                    form: {
+                        populate: {
+                            destination: true,
+                            phone: true,
+                            email: true,
+                            whatsapp: true,
+                            budget: {
+                                populate: ['chooices']
+                            },
+                            car_type: {
+                                populate: ['chooices']
+                            },
+                        }
+                    }
+                }
             }
         },
     }

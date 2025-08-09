@@ -2,7 +2,7 @@ import { getCurrentLocale } from "../../providers/LocaleContext";
 
 import { axios } from './axios';
 import { StrapiResponse, PaginationParams } from '../types/strapi';
-import { articlePopulation, carPopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
+import { articlePopulation, carPopulation, carsPagePopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
 import { AuthCredentials, AuthSignupData, AuthResponse, AuthUser } from '../types/auth';
 import {
     Article,
@@ -213,9 +213,13 @@ export const fetchHomepage = async (populate?: string | string[]): Promise<Strap
     return response.data;
 };
 
-export const fetchCarsPage = async (populate?: string | string[]): Promise<StrapiResponse<CarsPage>> => {
-    const queryString = populate ? buildQueryString({ populate }) : '';
-    const response = await axios.get(`/cars-page?${queryString}`, { params: withLocale() });
+export const fetchCarsPage = async (): Promise<StrapiResponse<CarsPage>> => {
+    const response = await axios.get(`/cars-page`, {
+        params: {
+            ...withLocale(),
+            populate: carsPagePopulation
+        }
+    });
     return response.data;
 };
 

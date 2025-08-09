@@ -152,6 +152,8 @@ const CarServicesSection = ({ data }) => {
         }
     };
 
+    console.log(data);
+
     return (
         <div className="car-services-container">
             {/* قسم الخدمات */}
@@ -185,10 +187,10 @@ const CarServicesSection = ({ data }) => {
 
             {/* نموذج طلب السيارة */}
             <section className="car-request-form">
-                <h2>طلب سيارة خاصة</h2>
+                <h2>{data.contact_section.title}</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="car_type">نوع السيارة:</label>
+                        <label htmlFor="car_type">{data.contact_section.form.car_type.title}</label>
                         <select
                             id="car_type"
                             name="car_type"
@@ -196,15 +198,15 @@ const CarServicesSection = ({ data }) => {
                             onChange={handleInputChange}
                             required
                         >
-                            <option value="">اختر نوع السيارة</option>
-                            {carServicesData.car_available_types.map((type, index) => (
-                                <option key={index} value={type.value}>{type.label}</option>
+                            <option value="">{data.contact_section.form.car_type.placeholder || data.contact_section.form.car_type.title}</option>
+                            {data.contact_section.form.car_type.chooices.map((type, index) => (
+                                <option key={type.text} value={type.text}>{type.text}</option>
                             ))}
                         </select>
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="destination">البلد المستهدف:</label>
+                        <label htmlFor="destination">{data.contact_section.form.destination.label}</label>
                         <input
                             type="text"
                             id="destination"
@@ -212,12 +214,12 @@ const CarServicesSection = ({ data }) => {
                             value={requestForm.destination}
                             onChange={handleInputChange}
                             required
-                            placeholder="أدخل اسم البلد"
+                            placeholder={data.contact_section.form.destination.placeholder}
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="budget">الميزانية:</label>
+                        <label htmlFor="budget">{data.contact_section.form.budget.title}</label>
                         <select
                             id="budget"
                             name="budget"
@@ -225,35 +227,61 @@ const CarServicesSection = ({ data }) => {
                             onChange={handleInputChange}
                             required
                         >
-                            <option value="">اختر الميزانية</option>
-                            {carServicesData.car_budget_ranges.map((range, index) => (
-                                <option key={index} value={range.value}>{range.label}</option>
+                            <option value="">{data.contact_section.form.budget.placeholder || data.contact_section.form.budget.title}</option>
+                            {data.contact_section.form.budget.chooices.map((range) => (
+                                <option key={range} value={range.text}>{range.text}</option>
                             ))}
                         </select>
                     </div>
 
                     <div className="form-group">
-                        <label>طريقة التواصل:</label>
+                        <label>{data.contact_section.form.contact_method_title}</label>
                         <div className="contact-methods">
-                            {carServicesData.car_contact_methods.map((method, index) => (
-                                <label key={index} className="method-option">
-                                    <input
-                                        type="radio"
-                                        name="contact_method"
-                                        value={method.value}
-                                        checked={requestForm.contact_method === method.value}
-                                        onChange={handleInputChange}
-                                        required
-                                    />
-                                    {method.label}
-                                </label>
-                            ))}
+                            <label className="method-option">
+                                <input
+                                    type="radio"
+                                    name="contact_method"
+                                    value={"whatsapp"}
+                                    checked={requestForm.contact_method === "whatsapp"}
+                                    onChange={handleInputChange}
+                                    placeholder={data.contact_section.form.whatsapp.placeholder}
+                                    required
+                                />
+                                {data.contact_section.form.whatsapp_contact_chooice_text}
+                            </label>
+
+                            <label className="method-option">
+                                <input
+                                    type="radio"
+                                    name="contact_method"
+                                    value={"email"}
+                                    checked={requestForm.contact_method === "email"}
+                                    onChange={handleInputChange}
+                                    placeholder={data.contact_section.form.email.placeholder}
+                                    required
+                                />
+                                {data.contact_section.form.email_contact_chooice_text}
+                            </label>
+
+                            <label className="method-option">
+                                <input
+                                    type="radio"
+                                    name="contact_method"
+                                    value={"phone"}
+                                    checked={requestForm.contact_method === "phone"}
+                                    onChange={handleInputChange}
+                                    placeholder={data.contact_section.form.phone.placeholder}
+                                    required
+                                />
+                                {data.contact_section.form.phone_contact_chooice_text}
+                            </label>
+
                         </div>
 
                         {/* حقول التواصل الديناميكية */}
                         {requestForm.contact_method === 'email' && (
                             <div className="contact-detail-field">
-                                <label htmlFor="contact_email">البريد الإلكتروني:</label>
+                                <label htmlFor="contact_email">{data.contact_section.form.email.label}</label>
                                 <input
                                     type="email"
                                     id="contact_email"
@@ -261,14 +289,14 @@ const CarServicesSection = ({ data }) => {
                                     value={requestForm.contact_email}
                                     onChange={handleInputChange}
                                     required
-                                    placeholder="example@domain.com"
+                                    placeholder={data.contact_section.form.email.placeholder}
                                 />
                             </div>
                         )}
 
                         {requestForm.contact_method === 'phone' && (
                             <div className="contact-detail-field">
-                                <label htmlFor="contact_phone">رقم الهاتف:</label>
+                                <label htmlFor="contact_phone">{data.contact_section.form.phone.label}</label>
                                 <input
                                     type="tel"
                                     id="contact_phone"
@@ -276,14 +304,14 @@ const CarServicesSection = ({ data }) => {
                                     value={requestForm.contact_phone}
                                     onChange={handleInputChange}
                                     required
-                                    placeholder="01XXXXXXXXX"
+                                    placeholder={data.contact_section.form.phone.placeholder}
                                 />
                             </div>
                         )}
 
                         {requestForm.contact_method === 'whatsapp' && (
                             <div className="contact-detail-field">
-                                <label htmlFor="contact_whatsapp">رقم الواتساب:</label>
+                                <label htmlFor="contact_whatsapp">{data.contact_section.form.whatsapp.label}</label>
                                 <input
                                     type="tel"
                                     id="contact_whatsapp"
@@ -291,13 +319,13 @@ const CarServicesSection = ({ data }) => {
                                     value={requestForm.contact_whatsapp}
                                     onChange={handleInputChange}
                                     required
-                                    placeholder="01XXXXXXXXX"
+                                    placeholder={data.contact_section.form.whatsapp.placeholder}
                                 />
                             </div>
                         )}
                     </div>
 
-                    <button type="submit" className="submit-btn">إرسال الطلب</button>
+                    <button type="submit" className="submit-btn">{data.contact_section.form.submit_button_text}</button>
                 </form>
             </section>
         </div>

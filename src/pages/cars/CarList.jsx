@@ -291,7 +291,7 @@ const CarList = () => {
 
                     {
                         page.filters.map(filter => (
-                            <div className='filter-group'>
+                            <div className='filter-group' key={filter.id}>
                                 <h3 className='filter-title'>{filter.title}</h3>
                                 <div className='filter-options'>
                                     {

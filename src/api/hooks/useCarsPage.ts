@@ -4,12 +4,11 @@ import { StrapiResponse } from '../types/strapi';
 import { CarsPage } from '../types/content-types';
 
 export const useCarsPage = (
-  populate?: string | string[],
-  options?: UseQueryOptions<StrapiResponse<CarsPage>>
+    options?: UseQueryOptions<StrapiResponse<CarsPage>>
 ) => {
-  return useQuery({
-    queryKey: ['cars-page', populate],
-    queryFn: () => fetchCarsPage(populate),
-    ...options,
-  });
+    return useQuery({
+        queryKey: ['cars-page'],
+        queryFn: () => fetchCarsPage(),
+        ...options,
+    });
 };

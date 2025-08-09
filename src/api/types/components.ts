@@ -31,6 +31,7 @@ export interface FormItemGroup {
 
 export interface Budget {
     title: string;
+    placeholder?: string;
     chooices: TextArray[];
 }
 
@@ -195,6 +196,7 @@ export interface ECommerceFutureProjects {
 }
 
 export interface Filters {
+    id: number;
     title: string;
     type: 'brand' | 'fuel' | 'model' | "condition";
     brands?: CarBrand[];
