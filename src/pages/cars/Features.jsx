@@ -11,68 +11,6 @@ import { submitCarContact } from '../../api/contact/senders';
  */
 const CarServicesSection = ({ data }) => {
     if (!data) return;
-    // بيانات الخدمات والأنواع
-    const carServicesData = {
-        car_services_description: "تقدم شركتنا خدمات استيراد وتصدير السيارات الجديدة والمستعملة من أسواق متعددة، مع التركيز على الجودة، التوثيق الكامل، والشحن الآمن إلى الأسواق العالمية.",
-
-        car_services_list: [
-            {
-                car_service_id: 1,
-                car_service_title: "شحن السيارات عالمياً",
-                car_service_description: "خدمات شحن آمنة وسريعة لجميع الوجهات العالمية",
-                car_service_icon: "shipping"
-            },
-            {
-                car_service_id: 2,
-                car_service_title: "فحص ومعاينة دقيقة",
-                car_service_description: "فحص شامل لكل سيارة قبل عملية الشحن",
-                car_service_icon: "inspection"
-            },
-            {
-                car_service_id: 3,
-                car_service_title: "توثيق جمركي كامل",
-                car_service_description: "جميع الأوراق والمستندات القانونية المطلوبة",
-                car_service_icon: "documents"
-            },
-            {
-                car_service_id: 4,
-                car_service_title: "سيارات حسب الطلب",
-                car_service_description: "نجد لك السيارة التي تناسب احتياجاتك بالضبط",
-                car_service_icon: "custom"
-            }
-        ],
-
-        car_available_categories: [
-            "سيارات كهربائية",
-            "سيارات تجارية",
-            "سيارات دفع رباعي",
-            "سيارات أوروبية",
-            "سيارات صينية",
-            "سيارات يابانية"
-        ],
-
-        car_available_types: [
-            { value: "electric", label: "سيارات كهربائية" },
-            { value: "commercial", label: "سيارات تجارية" },
-            { value: "suv", label: "سيارات دفع رباعي" },
-            { value: "european", label: "سيارات أوروبية" },
-            { value: "chinese", label: "سيارات صينية" },
-            { value: "japanese", label: "سيارات يابانية" }
-        ],
-
-        car_budget_ranges: [
-            { value: "10-20", label: "10,000 - 20,000 دولار" },
-            { value: "20-30", label: "20,000 - 30,000 دولار" },
-            { value: "30-50", label: "30,000 - 50,000 دولار" },
-            { value: "50+", label: "أكثر من 50,000 دولار" }
-        ],
-
-        car_contact_methods: [
-            { value: "whatsapp", label: "واتساب" },
-            { value: "email", label: "بريد إلكتروني" },
-            { value: "phone", label: "مكالمة هاتفية" }
-        ]
-    };
 
     const [requestForm, setRequestForm] = useState({
         car_type: '',
@@ -141,18 +79,6 @@ const CarServicesSection = ({ data }) => {
     };
 
 
-    // عرض أيقونة الخدمة
-    const renderServiceIcon = (icon) => {
-        switch (icon) {
-            case 'shipping': return <FaShippingFast />;
-            case 'inspection': return <FaSearch />;
-            case 'documents': return <FaFileAlt />;
-            case 'custom': return <FaCarSide />;
-            default: return <FaCarSide />;
-        }
-    };
-
-    console.log(data);
 
     return (
         <div className="car-services-container">

@@ -350,3 +350,14 @@ export interface Navbar {
     links: Link[];
     contact_cta_text: string;
 }
+
+export interface AiChatbot {
+    suggested_questions: {
+        question: string;
+    }[];
+    system_prompt: string;
+    submit_button_text: string;
+    form_title: string;
+    suggested_questions_title: string;
+    input_placeholder: string;
+}

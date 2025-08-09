@@ -564,6 +564,11 @@ export const minimalPopulations = {
     }
 };
 
+export const AiChatbotPopulation = {
+    suggested_questions: true
+}
+
+
 // Export all populations as a single object for easy access
 export const populations = {
     // Single types

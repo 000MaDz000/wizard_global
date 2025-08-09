@@ -12,9 +12,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.84.1",
     "aos": "^2.3.4",
-    "lucide-react": "^0.539.0",
     "axios": "^1.11.0",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.539.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-helmet": "^6.1.0",

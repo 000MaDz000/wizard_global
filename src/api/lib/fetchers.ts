@@ -2,7 +2,7 @@ import { getCurrentLocale } from "../../providers/LocaleContext";
 
 import { axios } from './axios';
 import { StrapiResponse, PaginationParams } from '../types/strapi';
-import { articlePopulation, carPopulation, carsPagePopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
+import { AiChatbotPopulation, articlePopulation, carPopulation, carsPagePopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
 import { AuthCredentials, AuthSignupData, AuthResponse, AuthUser } from '../types/auth';
 import {
     Article,
@@ -24,7 +24,8 @@ import {
     LoginPage,
     RegisterPage,
     TestimonialInput,
-    Navbar
+    Navbar,
+    AiChatbot
 } from '../types/content-types';
 
 
@@ -312,4 +313,15 @@ export const sendTestimonial = async (data: TestimonialInput, token: string) => 
         }
     });
     return response.data;
+};
+
+
+export const fetchAiChatbot = async () => {
+    const response = await axios.get("/ai-chatbot", {
+        params: {
+            populate: AiChatbotPopulation
+        }
+    });
+
+    return response.data
 };

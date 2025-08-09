@@ -2,14 +2,9 @@
 const GEMINI_API_KEY = 'AIzaSyDnSJvoT-R2wWFEZ82wp4KvLt9MbNTW8ks';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
 
-export const sendMessageToGemini = async (message) => {
-    const systemPrompt = `
-أنت مساعد ذكي لموقع شركة العربية للاستثمار.
-الشركة تضم مجموعة كبيرة من الشركات والخدمات.
-رد باختصار، وكن ودودًا وواضحًا:
+export const sendMessageToGemini = async (message, systemPrompt) => {
+    const willSend = `${systemPrompt}\n\nuser message: ${message}`;
 
-السؤال: ${message}
-`.trim();
 
     try {
         const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
@@ -20,7 +15,7 @@ export const sendMessageToGemini = async (message) => {
             body: JSON.stringify({
                 contents: [
                     {
-                        parts: [{ text: systemPrompt }],
+                        parts: [{ text: willSend }],
                     },
                 ],
                 generationConfig: {
