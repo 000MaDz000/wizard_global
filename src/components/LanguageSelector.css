@@ -18,3 +18,10 @@
 .language-dropdown:hover {
     border-color: #888;
 }
+@media (max-width: 768px) {
+.language-dropdown {
+    width: 40px;
+    margin-right: -71px;
+    padding: 3px 0px;
+}
+}
