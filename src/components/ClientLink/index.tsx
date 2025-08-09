@@ -1,6 +1,6 @@
-import { Link, LinkProps } from 'react-router-dom';
+import { LinkProps } from 'react-router-dom';
 import { ClientLinkProps as ILink, NativeLinkEnumeration, Links } from '../../types/components/ClientLink';
-import React, { HTMLAttributes } from 'react'
+import { HashLink } from "react-router-hash-link";
 
 function ClientLink({ href, ...rest }: { href: ILink } & Omit<LinkProps, "to"> & HTMLAttributes<HTMLAnchorElement>) {
     let proccessedLink = href.custom_href;
@@ -47,7 +47,7 @@ function ClientLink({ href, ...rest }: { href: ILink } & Omit<LinkProps, "to"> &
     }
 
     return (
-        <Link {...rest} to={proccessedLink || ""} />
+        <HashLink {...rest} to={proccessedLink || ""} />
     )
 }
 
