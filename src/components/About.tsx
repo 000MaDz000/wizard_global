@@ -34,7 +34,7 @@ const AboutUs = ({ data }: { data?: About }) => {
                     <p className="about-p">
                         {data.description}
                     </p>
-                    <Link className='know' to="/about" data-aos="zoom-in" data-aos-delay="600">اعرف المزيد</Link>
+                    <Link className='know' to="/about" data-aos="zoom-in" data-aos-delay="600">{data.learn_more_cta_text}</Link>
                 </div>
                 <br />
                 <div className="section-with-text-image">

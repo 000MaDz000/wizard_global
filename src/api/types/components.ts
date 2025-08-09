@@ -109,7 +109,7 @@ export interface About {
     title?: Title;
     description: string;
     image: StrapiMedia;
-
+    learn_more_cta_text: string;
 }
 
 export interface ServicesSection {
