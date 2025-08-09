@@ -7,7 +7,7 @@ import { CiSearch } from "react-icons/ci";
 import logo from '../../assets/red_logo.png'
 import LanguageSelector from '../../components/LanguageSelector';
 
-const Navbar_bar = ({ onSearch }) => {
+const Navbar_bar = ({ onSearch, navbar_contact_link_text }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const Navbar_bar = ({ onSearch }) => {
                 <div className="navbar_bar-contact">
                     <LanguageSelector />
                     <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
-                        تواصل معنا
+                        {navbar_contact_link_text}
                     </a>
                 </div>
 

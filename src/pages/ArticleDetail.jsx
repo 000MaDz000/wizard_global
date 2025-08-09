@@ -61,7 +61,7 @@ const ArticleDetail = () => {
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
-                                تواصل معنا
+                                {article.navbar_contact_link_text}
                             </a>
                         </div>
                         <div className="navbar_bar-links">

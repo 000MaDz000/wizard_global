@@ -278,7 +278,7 @@ const CarList = () => {
                 />
             </Helmet>
 
-            <Navbar_bar onSearch={handleSearch} />
+            <Navbar_bar onSearch={handleSearch} navbar_contact_link_text={page.navbar_contact_link_text} />
             <div className="car-list-page">
                 <div className="hero-section">
                     <div className="data_car">

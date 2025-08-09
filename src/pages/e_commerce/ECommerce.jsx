@@ -260,6 +260,7 @@ const ECommerce = () => {
                                 onChange={handleChange}
                                 required
                             >
+                                <option value="" disabled selected>{data.contact_section.form.business_type.placeholder || data.contact_section.form.business_type.title}</option>
                                 {data.contact_section.form.business_type.chooices.map(chooice => (
                                     <option value={chooice.text} key={chooice.text}>{chooice.text}</option>
                                 ))}
@@ -275,7 +276,7 @@ const ECommerce = () => {
                                 onChange={handleChange}
                                 required
                             >
-                                <option value="">{data.contact_section.form.budget.title}</option>
+                                <option value="">{data.contact_section.form.budget.placeholder || data.contact_section.form.budget.title}</option>
                                 {
                                     data.contact_section.form.budget.chooices.map(choice => (
                                         <option key={choice} value={choice.text}>{choice.text}</option>

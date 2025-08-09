@@ -99,7 +99,7 @@ const CarDetails = () => {
                     </div>
 
                     <div className="car-features">
-                        <h2>المميزات</h2>
+                        <h2>{car.features_title}</h2>
                         <ul>
                             {car.features?.map((feature, index) => (
                                 <li key={index}>{feature.text}</li>

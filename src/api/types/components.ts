@@ -86,7 +86,6 @@ export interface ECommerceContactForm {
     budget?: Budget;
     business_type: Budget;
     submit_button_text: string;
-    choose_service_text: string;
 }
 
 export interface AddTestimonialForm {

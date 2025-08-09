@@ -32,6 +32,7 @@ export interface Article extends StrapiEntity {
     image: StrapiMedia;
     article_category?: ArticleCategory;
     content: string;
+    navbar_contact_link_text: string;
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;
