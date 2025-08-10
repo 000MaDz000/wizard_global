@@ -1,12 +1,12 @@
 export const Locales = [
     {
         code: "ar",
-        name: "العربية",
+        name: "ع",
         dir: "rtl"
     },
     {
         code: "en",
-        name: "english",
+        name: "en",
         dir: "ltr"
     },
     {
@@ -16,7 +16,7 @@ export const Locales = [
     },
     {
         code: "ms",
-        name: "Bahasa Melayu",
+        name: "ms",
         dir: "ltr"
     }
 ]
