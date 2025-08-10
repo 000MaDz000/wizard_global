@@ -69,6 +69,7 @@ export interface Car extends StrapiEntity {
     horsepower: string;
     seating_capacity: string;
     condition: 'used' | 'new';
+    condition_display_text: string;
     back_to_previous_page_text?: string;
     car_specifications_title: string;
     price_field_text: string;

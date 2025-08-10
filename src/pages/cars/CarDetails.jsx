@@ -69,7 +69,7 @@ const CarDetails = () => {
                             </div>
                             <div className="spec-item">
                                 <span className="spec-label">{car.condition_field_text}</span>
-                                <span className="spec-value">{car.condition === 'new' ? 'جديدة' : 'مستعملة'}</span>
+                                <span className="spec-value">{car.condition_display_text}</span>
                             </div>
                             <div className="spec-item">
                                 <span className="spec-label">{car.model_field_text}</span>

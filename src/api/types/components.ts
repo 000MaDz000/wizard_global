@@ -146,6 +146,7 @@ export interface Articles {
     title: Title;
     categories?: ArticleCategory[];
     articles?: Article[];
+    all_categories_text: string;
     readmore_text: string;
     show_less_text: string;
     show_more_text: string;
