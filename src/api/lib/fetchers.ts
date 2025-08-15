@@ -294,7 +294,7 @@ export const fetchRegisterPage = async (): Promise<StrapiResponse<RegisterPage>>
     const response = await axios.get(`/register`, {
         params: {
             ...withLocale(),
-            populate: ["full_name", "email", "password", "password_confirmation"]
+            populate: ["full_name", "email", "password", "phone", "country", "password_confirmation"]
         }
     });
     return response.data;
@@ -310,7 +310,7 @@ export const login = async (data: AuthCredentials): Promise<AuthResponse> => {
 };
 
 export const signup = async (data: AuthSignupData): Promise<AuthResponse> => {
-    const res = await axios.post(`${API}/auth/local/register`, data, { headers: { Authorization: null } });
+    const res = await axios.post(`${API}/custom-user-action/register`, data, { headers: { Authorization: null } });
     return res.data;
 };
 

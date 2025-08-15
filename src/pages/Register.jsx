@@ -20,13 +20,15 @@ const Register = () => {
         name: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        phone: '',
+        country: ''
     });
 
     const [error, setError] = useState('');
     const data = registerPageRes.data?.data;
 
-    // ✅ إعادة التوجيه إذا كان هناك مستخدم بالفعل
+    // ✅ redirect if user already logged in
     useEffect(() => {
         if (user) {
             navigate('/');
@@ -43,9 +45,9 @@ const Register = () => {
             e.preventDefault();
             setError('');
 
-            const { name, email, password, confirmPassword } = formRef.current;
+            const { name, email, password, confirmPassword, phone, country } = formRef.current;
 
-            if (!name || !email || !password || !confirmPassword) {
+            if (!name || !email || !password || !confirmPassword || !phone || !country) {
                 setError(data.all_fields_required_text);
                 return;
             }
@@ -56,7 +58,14 @@ const Register = () => {
             }
 
             mutate(
-                { username: name, email, password },
+                {
+                    full_name: name,
+                    username: email, // ⚡ using email as username
+                    email,
+                    password,
+                    phone,
+                    country
+                },
                 {
                     onSuccess: () => {
                         navigate('/');
@@ -67,11 +76,11 @@ const Register = () => {
                 }
             );
         },
-        [mutate, navigate, formRef, data]
+        [mutate, navigate, data]
     );
 
     if (isLoading) return <Loading />;
-    if (!data) return;
+    if (!data) return null;
 
     return (
         <div className="auth-container">
@@ -103,6 +112,28 @@ const Register = () => {
                             type="email"
                             name="email"
                             placeholder={data.email.placeholder}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>{data.phone.label ?? "Phone"}</label>
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder={data.phone.placeholder ?? "Enter phone"}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>{data.country.label ?? "Country"}</label>
+                        <input
+                            type="text"
+                            name="country"
+                            placeholder={data.country.placeholder ?? "Enter country"}
                             onChange={handleInputChange}
                             required
                         />

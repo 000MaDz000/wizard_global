@@ -4,6 +4,9 @@ export interface AuthCredentials {
 }
 
 export interface AuthSignupData {
+    full_name: string;
+    phone: string;
+    country: string;
     username: string;
     email: string;
     password: string;
