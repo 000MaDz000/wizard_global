@@ -50,12 +50,12 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/terms" element={<Terms />} />
-                                      <Route path="/company/:id" element={<CompanyDetails />} />
 
-                              <Route path="/why" element={<WhyDetails />} />
 
-                        <Route path="/about/vision" element={<VisionDetails />} />
-          <Route path="/about/message" element={<MessageDetails />} />
+                    <Route path="/company/:id" element={<CompanyDetails />} />
+                    <Route path="/why" element={<WhyDetails />} />
+                    <Route path="/about/vision" element={<VisionDetails />} />
+                    <Route path="/about/message" element={<MessageDetails />} />
                 </Routes>
             </Router>
         </QueryClientProvider>

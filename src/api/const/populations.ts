@@ -305,6 +305,25 @@ export const testimonialsPopulation = {
     user: true
 };
 
+export const messagePagePopulation = {
+    points: true,
+}
+
+export const visionPagePopulation = {
+    goals_section: {
+        populate: ['texts']
+    },
+    values: {
+        populate: ['texts']
+    }
+}
+
+export const whyUsPagePopulation = undefined;
+
+// export const companyPopulation = {
+//     company_translation: true,
+// }
+
 // Common component populations for reuse
 export const commonPopulations = {
     // Hero section

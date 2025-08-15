@@ -7,41 +7,30 @@ import { useParams, NavLink } from 'react-router-dom';
 import Footer from "../components/Footer";
 import '../styles/vision_message.css'; // استيراد ملف CSS المنفصل
 import logo from '../assets/red_logo.png';
+import { useVisionPage } from '../api/hooks/useVisionPage';
+import Loading from '../components/Loading';
 const VisionDetails = () => {
     const navigate = useNavigate();
+    const pageRes = useVisionPage();
 
     useEffect(() => {
         window.scrollTo(0, 0);
         AOS.init({ duration: 1000, once: true });
     }, []);
 
-    // بيانات وهمية للرؤية
-    const visionDetails = {
-        title: "رؤيتنا",
-        description: "تتطلع Wazir GlobalX إلى أن تصبح رائدة في مجال الحلول المتكاملة للتجارة والتكنولوجيا على مستوى المنطقة والعالم. نطمح إلى إحداث تغيير جذري في طريقة عمل الشركات من خلال تقديم حلول ذكية ومبتكرة.",
-        goals: [
-            "الريادة في مجال الحلول الرقمية المتكاملة",
-            "التوسع إلى 10 دول جديدة خلال السنوات الخمس القادمة",
-            "تحقيق أعلى معدلات رضا العملاء في القطاع",
-            "الابتكار المستمر في المنتجات والخدمات"
-        ],
-        values: [
-            "التميز في الأداء",
-            "التركيز على العميل",
-            "الشفافية والنزاهة",
-            "العمل بروح الفريق"
-        ],
-        conclusion: "نسعى جاهدين لتحقيق هذه الرؤية من خلال فريق عمل متميز وشراكات استراتيجية قوية."
-    };
+    if (pageRes.isLoading) return <Loading />;
+    const data = pageRes.data?.data;
+
+    if (!data) return;
 
     return (
         <div className="details-page vision-page">
- <nav className="navbar_bar">
+            <nav className="navbar_bar">
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact">
                         <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
                             className="contact-link">
-                            العودة للصفحة السابقة
+                            {data.back_to_previous_page_text}
                         </a>
                     </div>
                     <div className="navbar_bar-links">
@@ -50,37 +39,37 @@ const VisionDetails = () => {
                         </NavLink>
                     </div>
                 </div>
-            </nav>            
+            </nav>
             <section className="details-intro" data-aos="fade-up">
                 <div className="details-container">
-                    <h1>{visionDetails.title}</h1>
+                    <h1>{data.title}</h1>
                 </div>
             </section>
 
             <section className="details-content" data-aos="fade-up">
-                <p>{visionDetails.description}</p>
-                
-                <h3 className="details-section-title">أهدافنا</h3>
+                <p>{data.description}</p>
+
+                <h3 className="details-section-title">{data.goals_section.title}</h3>
                 <ul className="details-list">
-                    {visionDetails.goals.map((goal, index) => (
+                    {data.goals_section.texts.map(({ text: goal }, index) => (
                         <li key={index} data-aos="fade-up" data-aos-delay={(index + 1) * 100}>
                             {goal}
                         </li>
                     ))}
                 </ul>
-                
-                <h3 className="details-section-title">قيمنا</h3>
+
+                <h3 className="details-section-title">{data.values.title}</h3>
                 <ul className="details-list">
-                    {visionDetails.values.map((value, index) => (
+                    {data.values.texts.map(({ text: value }, index) => (
                         <li key={index} data-aos="fade-up" data-aos-delay={(index + 1) * 100}>
                             {value}
                         </li>
                     ))}
                 </ul>
-                
-                <p data-aos="fade-up">{visionDetails.conclusion}</p>
 
-               
+                <p data-aos="fade-up">{data.conclusion}</p>
+
+
             </section>
 
             <Footer />

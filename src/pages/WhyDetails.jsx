@@ -7,10 +7,18 @@ import { useParams, NavLink } from 'react-router-dom';
 import Footer from "../components/Footer";
 import logo from '../assets/red_logo.png';
 import "../styles/whyDetails.css";
+import { useWhyUsPage } from '../api/hooks/useWhyUsPage';
+import Loading from '../components/Loading';
 
 const WhyDetails = () => {
-        const navigate = useNavigate();
-    
+    const navigate = useNavigate();
+    const pageRes = useWhyUsPage();
+
+    if (pageRes.isLoading) return <Loading />;
+    const data = pageRes.data.data;
+    if (!data) return null;
+
+
     return (
         <>
             <nav className="navbar_bar">
@@ -18,7 +26,7 @@ const WhyDetails = () => {
                     <div className="navbar_bar-contact">
                         <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
                             className="contact-link">
-                            العودة للصفحة السابقة
+                            {data.back_to_previous_page_text}
                         </a>
                     </div>
                     <div className="navbar_bar-links">
@@ -29,29 +37,12 @@ const WhyDetails = () => {
                 </div>
             </nav>
             <div className="why-container">
-                <h1 className="why-title">لماذا تختار شركتنا؟</h1>
+                <h1 className="why-title">{data.title}</h1>
                 <p className="why-text">
-                    نحن نقدم أفضل الخدمات بأعلى معايير الجودة، مع فريق عمل محترف يلتزم بتلبية
-                    احتياجاتك وتحقيق أهدافك. نحرص دائماً على الابتكار وتقديم حلول فعّالة
-                    تساعدك على النجاح.
-                    نحن نقدم أفضل الخدمات بأعلى معايير الجودة، مع فريق عمل محترف يلتزم بتلبية
-                    احتياجاتك وتحقيق أهدافك. نحرص دائماً على الابتكار وتقديم حلول فعّالة
-                    تساعدك على النجاح.
-                    نحن نقدم أفضل الخدمات بأعلى معايير الجودة، مع فريق عمل محترف يلتزم بتلبية
-                    احتياجاتك وتحقيق أهدافك. نحرص دائماً على الابتكار وتقديم حلول فعّالة
-                    تساعدك على النجاح.
-                    نحن نقدم أفضل الخدمات بأعلى معايير الجودة، مع فريق عمل محترف يلتزم بتلبية
-                    احتياجاتك وتحقيق أهدافك. نحرص دائماً على الابتكار وتقديم حلول فعّالة
-                    تساعدك على النجاح.
-                    نحن نقدم أفضل الخدمات بأعلى معايير الجودة، مع فريق عمل محترف يلتزم بتلبية
-                    احتياجاتك وتحقيق أهدافك. نحرص دائماً على الابتكار وتقديم حلول فعّالة
-                    تساعدك على النجاح.
-                    نحن نقدم أفضل الخدمات بأعلى معايير الجودة، مع فريق عمل محترف يلتزم بتلبية
-                    احتياجاتك وتحقيق أهدافك. نحرص دائماً على الابتكار وتقديم حلول فعّالة
-                    تساعدك على النجاح.
+                    {data.text}
                 </p>
             </div>
-            <Footer/>
+            <Footer />
         </>
 
     );

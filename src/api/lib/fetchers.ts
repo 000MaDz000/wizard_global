@@ -2,7 +2,7 @@ import { getCurrentLocale } from "../../providers/LocaleContext";
 
 import { axios } from './axios';
 import { StrapiResponse, PaginationParams } from '../types/strapi';
-import { AiChatbotPopulation, articlePopulation, carPopulation, carsPagePopulation, carsPopulation, eCommerceFutureProjectPopulation, projectPopulation } from '../const/populations';
+import { AiChatbotPopulation, articlePopulation, carPopulation, carsPagePopulation, carsPopulation, eCommerceFutureProjectPopulation, messagePagePopulation, projectPopulation, visionPagePopulation, whyUsPagePopulation } from '../const/populations';
 import { AuthCredentials, AuthSignupData, AuthResponse, AuthUser } from '../types/auth';
 import {
     Article,
@@ -25,7 +25,10 @@ import {
     RegisterPage,
     TestimonialInput,
     Navbar,
-    AiChatbot
+    AiChatbot,
+    VisionPage,
+    MessagePage,
+    WhyUsPage
 } from '../types/content-types';
 
 
@@ -339,4 +342,36 @@ export const fetchAiChatbot = async () => {
     });
 
     return response.data
+};
+
+export const fetchVisionPage = async (): Promise<StrapiResponse<VisionPage>> => {
+    const response = await axios.get(`/vision-page`, {
+        params: {
+            ...withLocale(),
+            populate: visionPagePopulation,
+        },
+    });
+    return response.data;
+};
+
+export const fetchMessagePage = async (): Promise<
+    StrapiResponse<MessagePage>
+> => {
+    const response = await axios.get(`/message-page`, {
+        params: {
+            ...withLocale(),
+            populate: messagePagePopulation,
+        },
+    });
+    return response.data;
+};
+
+export const fetchWhyUsPage = async (): Promise<StrapiResponse<WhyUsPage>> => {
+    const response = await axios.get(`/why-us`, {
+        params: {
+            ...withLocale(),
+            populate: whyUsPagePopulation,
+        },
+    });
+    return response.data;
 };

@@ -214,3 +214,11 @@ export interface TermsOfService {
     last_updated: string;
     last_updated_text: string;
 }
+
+// ==============================
+// Component: sections.text-array-with-title
+// ==============================
+export interface TextArrayWithTitle {
+    title: string;
+    texts: TextArray[];
+}

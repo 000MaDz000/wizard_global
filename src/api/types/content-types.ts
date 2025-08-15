@@ -22,7 +22,8 @@ import {
     ContactInfo,
     FormItemGroup,
     Link,
-    Budget
+    Budget,
+    TextArrayWithTitle
 } from './components';
 
 // Content Type Interfaces
@@ -362,4 +363,71 @@ export interface AiChatbot {
     form_title: string;
     suggested_questions_title: string;
     input_placeholder: string;
+}
+
+// ==============================
+// Single Type: why-us
+// ==============================
+export interface WhyUsPage {
+    id: number;
+    title: string;
+    text: string;
+    back_to_previous_page_text: string;
+    createdAt?: string;
+    updatedAt?: string;
+    locale?: string;
+}
+
+// ==============================
+// Collection Type: company
+// ==============================
+// export interface Company {
+//     id: number;
+//     name: string;
+//     description: string;
+//     company_translation?: CompanyTranslation | null;
+//     createdAt?: string;
+//     updatedAt?: string;
+//     locale?: string;
+// }
+
+// // ==============================
+// // Collection Type: company-translation
+// // ==============================
+// export interface CompanyTranslation {
+//     id: number;
+//     back_to_previous_page_text: string;
+//     createdAt?: string;
+//     updatedAt?: string;
+// }
+
+// ==============================
+// Single Type: message-page
+// ==============================
+export interface MessagePage {
+    id: number;
+    title: string;
+    description: string;
+    points: TextArray[];
+    conclusion: string;
+    back_to_previous_page_text: string;
+    createdAt?: string;
+    updatedAt?: string;
+    locale?: string;
+}
+
+// ==============================
+// Single Type: vision-page
+// ==============================
+export interface VisionPage {
+    id: number;
+    back_to_previous_page_text: string;
+    title: string;
+    description: string;
+    goals_section: TextArrayWithTitle;
+    conclusion?: string | null;
+    values: TextArrayWithTitle;
+    createdAt?: string;
+    updatedAt?: string;
+    locale?: string;
 }
