@@ -30,82 +30,46 @@ const CarList = () => {
         setSearchTerm(query.toLowerCase());
     };
 
+    useEffect(() => {
+        if (!carsRes.data?.data) return;
 
-    // useEffect(() => {
-    // const dummyCars = [
-    //     {
-    //         id: 1,
-    //         brand: 'Mercedes',
-    //         model: 'C-Class',
-    //         year: 2022,
-    //         price: 1200000,
-    //         condition: 'new',
-    //         fuelType: 'بنزين',
-    //         image: 'https://www.topgear.com/sites/default/files/2023/12/6%20Mercedes%20E-Class%20review.jpg?w=1784&h=1004',
-    //         description: 'سيارة مرسيدس C-Class موديل 2022 بحالة ممتازة'
-    //     },
-    //     {
-    //         id: 2,
-    //         brand: 'BMW',
-    //         model: 'X5',
-    //         year: 2021,
-    //         price: 1500000,
-    //         condition: 'used',
-    //         fuelType: 'ديزل',
-    //         image: 'https://www.topgear.com/sites/default/files/2023/02/1-BMW-M3-Touring.jpg?w=1784&h=1004',
-    //         description: 'بي ام دبليو X5 موديل 2021 بحالة جيدة'
-    //     },
-    //     {
-    //         id: 3,
-    //         brand: 'Audi',
-    //         model: 'A4',
-    //         year: 2023,
-    //         price: 1100000,
-    //         condition: 'new',
-    //         fuelType: 'كهرباء',
-    //         image: 'https://www.topgear.com/sites/default/files/2025/07/1-Hyundai-Ioniq-9-review-UK-2025.jpg?w=1784&h=1004',
-    //         description: 'أودي A4 موديل 2023 جديدة تماماً'
-    //     },
-    //     {
-    //         id: 4,
-    //         brand: 'Mercedes',
-    //         model: 'E-Class',
-    //         year: 2020,
-    //         price: 900000,
-    //         condition: 'used',
-    //         fuelType: 'بنزين',
-    //         image: 'https://www.topgear.com/sites/default/files/2023/02/1-BMW-M3-Touring.jpg?w=1784&h=1004',
-    //         description: 'مرسيدس E-Class موديل 2020 بحالة ممتازة'
-    //     },
-    //     {
-    //         id: 5,
-    //         brand: 'BMW',
-    //         model: '3 Series',
-    //         year: 2023,
-    //         price: 1300000,
-    //         condition: 'new',
-    //         fuelType: 'ديزل',
-    //         image: 'https://www.topgear.com/sites/default/files/2023/02/1-BMW-M3-Touring.jpg?w=1784&h=1004',
-    //         description: 'بي ام دبليو 3 Series موديل 2023 جديدة'
-    //     },
-    //     {
-    //         id: 6,
-    //         brand: 'Toyota',
-    //         model: 'Camry',
-    //         year: 2022,
-    //         price: 800000,
-    //         condition: 'used',
-    //         fuelType: 'بنزين',
-    //         image: 'https://www.topgear.com/sites/default/files/2023/02/1-BMW-M3-Touring.jpg?w=1784&h=1004',
-    //         description: 'تويوتا كامري موديل 2022 بحالة جيدة جداً'
-    //     }
-    // ];
+        const lowerSearch = searchTerm.toLowerCase();
 
-    // setCars(dummyCars);
-    // setFilteredCars(dummyCars);
-    // setIsLoading(false);
-    // }, []);
+        const results = carsRes.data.data.filter(car => {
+            // Brand filter
+            if (selectedBrand !== 'all' && car.brand?.name !== selectedBrand) return false;
 
+            // Condition filter
+            if (selectedCondition !== 'all' && car.condition !== selectedCondition) return false;
+
+            // Model filter
+            if (selectedModel !== 'all' && car.model?.name !== selectedModel) return false;
+
+            // Fuel type filter
+            if (selectedFuelType !== 'all' && car.fuel_type?.name !== selectedFuelType) return false;
+
+            // Search filter
+            if (lowerSearch) {
+                const matchesSearch =
+                    car.brand?.name?.toLowerCase().includes(lowerSearch) ||
+                    car.model?.name?.toLowerCase().includes(lowerSearch) ||
+                    car.year?.toString().includes(lowerSearch) ||
+                    car.description?.toLowerCase().includes(lowerSearch);
+                if (!matchesSearch) return false;
+            }
+
+            return true; // Passed all filters
+        });
+
+        setFilteredCars(results);
+    }, [
+        searchTerm,
+        selectedBrand,
+        selectedCondition,
+        selectedFuelType,
+        selectedModel,
+        carsRes.data?.data
+    ]);
 
     const resetFilters = () => {
         setSelectedBrand('all');
@@ -121,56 +85,52 @@ const CarList = () => {
     const renderFilterOptions = (filter) => {
         switch (filter.type) {
             case "brand":
-                return filter.brands.map(brand => (
+                return filter.brands.map((brand) => (
                     <label
                         key={brand.id}
-                        className={`filter-option ${selectedBrand === brand.name ? 'active' : ''}`}
+                        className={`filter-option ${selectedBrand === brand.name ? "active" : ""}`}
                     >
                         <input
                             type="radio"
                             name="brand"
-                            value={brand.name}
                             checked={selectedBrand === brand.name}
                             onChange={() => setSelectedBrand(brand.name)}
                         />
                         {brand.name}
                     </label>
                 ))
-                break;
-            case "fuel":
-                return filter.fuel_types.map(fuel => (
+
+            case "model":
+                return filter.models.map((model) => (
                     <label
-                        key={fuel.id}
-                        className={`filter-option ${selectedBrand === fuel.name ? 'active' : ''}`}
+                        key={model.id}
+                        className={`filter-option ${selectedModel === model.name ? "active" : ""}`}
                     >
                         <input
                             type="radio"
-                            name="brand"
-                            value={fuel.name}
+                            name="model"
+                            checked={selectedModel === model.name}
+                            onChange={() => setSelectedModel(model.name)}
+                        />
+                        {model.name}
+                    </label>
+                ))
+
+            case "fuel":
+                return filter.fuel_types.map((fuel) => (
+                    <label
+                        key={fuel.id}
+                        className={`filter-option ${selectedFuelType === fuel.name ? "active" : ""}`}
+                    >
+                        <input
+                            type="radio"
+                            name="fuel"
                             checked={selectedFuelType === fuel.name}
                             onChange={() => setSelectedFuelType(fuel.name)}
                         />
                         {fuel.name}
                     </label>
                 ))
-                break;
-            case "model":
-                return filter.models.map(model => (
-                    <label
-                        key={model.id}
-                        className={`filter-option ${selectedModel === model.name ? 'active' : ''}`}
-                    >
-                        <input
-                            type="radio"
-                            name="brand"
-                            value={model.name}
-                            checked={selectedBrand === model.name}
-                            onChange={() => setSelectedModel(model.name)}
-                        />
-                        {model.name}
-                    </label>
-                ))
-                break;
             case "condition":
                 return (
                     <>
@@ -217,39 +177,9 @@ const CarList = () => {
 
     const isLoading = carsRes.isLoading;
     const page = pageRes.data.data;
-    const cars = carsRes.data?.data || [];
 
-
-    // useEffect(() => {
-    //     let results = cars;
-
-    //     if (selectedBrand !== 'all') {
-    //         results = results.filter(car => car.brand === selectedBrand);
-    //     }
-
-    //     if (selectedCondition !== 'all') {
-    //         results = results.filter(car => car.condition === selectedCondition);
-    //     }
-
-    //     if (selectedModel !== 'all') {
-    //         results = results.filter(car => car.model === selectedModel);
-    //     }
-
-    //     if (selectedFuelType !== 'all') {
-    //         results = results.filter(car => car.fuelType === selectedFuelType);
-    //     }
-
-    //     if (searchTerm) {
-    //         results = results.filter(car =>
-    //             car.brand.toLowerCase().includes(searchTerm) ||
-    //             car.model.toLowerCase().includes(searchTerm) ||
-    //             car.year.toString().includes(searchTerm) ||
-    //             car.description.toLowerCase().includes(searchTerm)
-    //         );
-    //     }
-
-    //     setFilteredCars(results);
-    // }, [selectedBrand, selectedCondition, selectedModel, selectedFuelType, searchTerm, cars]);
+    /** * @type {import('../../api/types/content-types').Car[]} */
+    const cars = filteredCars || carsRes.data?.data || [];
 
     return (
         <>
