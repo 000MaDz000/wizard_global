@@ -217,6 +217,7 @@ export const carPopulation = {
     thumbnail: true,
     safety_features: true,
     features: true,
+    car_translation: true,
 };
 
 export const carsPopulation = {
@@ -224,7 +225,8 @@ export const carsPopulation = {
     fuel_type: true,
     model: true,
     images: true,
-    thumbnail: true
+    thumbnail: true,
+    car_translation: true,
 };
 
 // Car Brand populations

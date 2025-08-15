@@ -97,6 +97,11 @@ export const fetchCars = async (): Promise<StrapiResponse<Car[]>> => {
             populate: carsPopulation
         }
     });
+
+    response.data.data.forEach(item => {
+        Object.assign(item, item.car_translation || {});
+        delete item.car_translation;
+    })
     return response.data;
 };
 
@@ -109,6 +114,15 @@ export const fetchCar = async (id: number): Promise<StrapiResponse<Car>> => {
         }
     });
     if (response.data?.data?.[0]) response.data.data = response.data.data[0];
+
+    response.data.data = {
+        ...(response.data.data || {}),
+        ...(response.data.data.car_translation || {})
+    };
+
+    delete response.data.data.car_translation
+
+
     return response.data;
 };
 
