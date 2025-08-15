@@ -50,6 +50,24 @@ const WhyChooseUs = ({ data }) => {
                     <p>فريقنا جاهز لمساعدتك في أي وقت</p>
                 </div>
             </div> */}
+             <a
+                href="/why"
+                style={{
+                    display: "inline-block",
+                    padding: "10px 20px",
+                    backgroundColor: "#007bff",
+                    color: "#fff",
+                    textDecoration: "none",
+                    borderRadius: "6px",
+                    fontWeight: "bold",
+                    transition: "background-color 0.3s",
+                    marginTop:"23px"
+                }}
+                onMouseOver={e => e.currentTarget.style.backgroundColor = "#0056b3"}
+                onMouseOut={e => e.currentTarget.style.backgroundColor = "#007bff"}
+            >
+                اعرف المزيد
+            </a>
         </section>
     );
 };
