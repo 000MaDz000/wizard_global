@@ -25,10 +25,10 @@
     bottom: 20px;
     right: 20px;
     width: 509px;
-    height: 680px;
+    height: 575px;
     max-height: 99vh;
     background: white;
-    border: 2px solid #007bff;
+    border: 1px solid #007bff;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     font-family: 'Cairo', sans-serif;
@@ -77,6 +77,7 @@
   overflow-y: auto;
   flex-grow: 1;
   font-size: 16px;
+  background: #134c7dcf;
 }
 
 .msg {
@@ -88,9 +89,10 @@
 }
 
 .msg.user {
-  background: #e0f7fa;
-  text-align: right;
-  margin-left: auto;
+ background: #0d3358;
+    text-align: right;
+    color: white;
+    margin-left: auto;
 }
 
 .msg.ai {
@@ -114,10 +116,12 @@
 }
 
 .chat-input button {
-  background: #007bff;
+      background: #007bff;
     color: white;
     border: none;
-    padding: 2px 57px;
+    padding: 2px 52px;
+    border-radius: 14px;
+    /* width: 104%; */
     font-size: 20px;
     cursor: pointer;
     /* border-bottom-right-radius: 14px; */
@@ -131,9 +135,9 @@
 .suggested-questions {
   padding: 10px 14px;
     background: #f4f7fa;
-    border-bottom: 3px solid #007bff;
+    border-bottom: 1px solid #007bff98;
     font-size: 14px;
-    max-height: 176px;
+        max-height: 147px;
     overflow-y: auto;
 }
 
@@ -160,6 +164,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
+  border: .5px solid #007bff7e;
 }
 
 .suggested-questions li:hover {
