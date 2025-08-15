@@ -114,10 +114,48 @@ const About = () => {
                         <div className="vision-block">
                             <h2 className="vision-title">{data.vision.title}</h2>
                             <p className="vision-text">{data.vision.description}</p>
+                             <button
+                                style={{
+                                    backgroundColor: "#3c56e7c6",
+                                    color: "white",
+                                    border: "none",
+                                    padding: "10px 20px",
+                                    marginTop: "15px",
+                                    borderRadius: "5px",
+                                    cursor: "pointer",
+                                    fontSize: "18px",
+                                    transition: "all 0.3s ease",
+                                    width: "100%"
+                                }}
+                                onClick={() => navigate('/about/vision')}
+                                onMouseOver={(e) => e.target.style.backgroundColor = "#302bc0ff"}
+                                onMouseOut={(e) => e.target.style.backgroundColor = "#3c64e7ff"}
+                            >
+                                اعرف المزيد عن رؤيتنا
+                            </button>
                         </div>
                         <div className="vision-block">
                             <h2 className="vision-title">{data.mission.title}</h2>
                             <p className="vision-text">{data.mission.description}</p>
+                             <button
+                                style={{
+                                    backgroundColor: "#3c56e7c6",
+                                    color: "white",
+                                    border: "none",
+                                    padding: "10px 20px",
+                                    marginTop: "15px",
+                                    borderRadius: "5px",
+                                    cursor: "pointer",
+                                    fontSize: "18px",
+                                    transition: "all 0.3s ease",
+                                    width: "100%"
+                                }}
+                                onClick={() => navigate('/about/vision')}
+                                onMouseOver={(e) => e.target.style.backgroundColor = "#302bc0ff"}
+                                onMouseOut={(e) => e.target.style.backgroundColor = "#3c64e7ff"}
+                            >
+                                اعرف المزيد عن رسالتنا
+                            </button>
                         </div>
                     </div>
                 </div>
