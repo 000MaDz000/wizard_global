@@ -18,6 +18,7 @@ import Terms from './pages/Terms';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import VisionDetails from './pages/VisionDetails';
 import MessageDetails from './pages/MessageDetails';
+import WhyDetails from './pages/WhyDetails';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -48,6 +49,8 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/terms" element={<Terms />} />
+                              <Route path="/why" element={<WhyDetails />} />
+
                         <Route path="/about/vision" element={<VisionDetails />} />
           <Route path="/about/message" element={<MessageDetails />} />
                 </Routes>
