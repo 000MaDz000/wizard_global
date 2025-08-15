@@ -273,7 +273,7 @@ max-width: 220px;
 }
 
 .add-testimonial-btn {
-  background: #3a5bc7;
+  background: rgb(0 123 255);
     color: white;
     font-family: "Cairo", sans-serif;
     border: none;
@@ -288,7 +288,11 @@ max-width: 220px;
    .add-testimonial-btn {
     font-size: 13px;
    }
+   .partners-logos{
+    column-gap: 60px;
 }
+   }
+
 
 .add-testimonial-btn:hover {
     background: #f0f0f0;
@@ -393,10 +397,7 @@ max-width: 220px;
 
 /* +++++++++++++++++++++++++++ */
 
-.partners-logos {
-  display: flex;
-  gap: 20px;
-}
+
 
 .partner-item {
   position: relative;

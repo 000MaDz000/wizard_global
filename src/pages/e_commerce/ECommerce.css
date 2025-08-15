@@ -5,7 +5,8 @@
 }
 
 .e-commerce-hero {
-  background: linear-gradient(rgb(16 76 241 / 65%), #474c5e47), url(/src/assets/pexels-karolina-grabowska-5632402.png.jpg);
+background: linear-gradient(rgb(11 74 246 / 99%), #00000047), url(/src/assets/pexels-karolina-grabowska-5632402.png.jpg);  background-size: cover;
+
   background-size: cover;
   background-position: center;
   color: white;

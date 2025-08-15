@@ -142,7 +142,7 @@ const ECommerce = () => {
                         {data.services.map((service) => (
                             <div key={service.id} className="e-commerce-service-card">
                                 <div className="e-commerce-service-icon">
-                                    <ClientImage src={service.service_icon} style={{ width: '8rem', height: '8rem' }} />
+                                    <ClientImage src={service.service_icon} style={{ width: '5rem', height: '5rem' }} />
                                 </div>
 
                                 <h3>{service.service_name}</h3>

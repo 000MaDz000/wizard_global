@@ -124,7 +124,7 @@ const ITSolutions = () => {
                     <div className="it_services-grid">
                         {data.services.map((service, index) => (
                             <div key={service.id} className="it_service-card">
-                                <ClientImage className="it_service-icon" src={service.icon} style={{ width: "8rem", height: "8rem" }} />
+                                <ClientImage className="it_service-icon" src={service.icon} style={{ width: "6rem", height: "6rem" }} />
                                 <h3>{service.name}</h3>
                             </div>
                         ))}
@@ -137,7 +137,7 @@ const ITSolutions = () => {
                     <div className="tech-grid">
                         {data.technologies.map((tech, index) => (
                             <div key={tech.id} className="tech-card">
-                                <ClientImage className="tech-icon" src={tech.icon} style={{ width: "8rem", height: "8rem" }} />
+                                <ClientImage className="tech-icon" src={tech.icon} style={{ width: "7rem", height: "7rem" }} />
                                 <span>{tech.name}</span>
                             </div>
                         ))}
