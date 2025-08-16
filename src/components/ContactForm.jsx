@@ -9,7 +9,8 @@ import {
     FaTwitter,
     FaTelegram,
     FaEnvelope,
-    FaPhone
+    FaPhone,
+    FaPhoneAlt
 } from "react-icons/fa";
 import "../styles/ContactForm.css";
 import { submitHomeContact } from "../api/contact/senders";
@@ -140,7 +141,6 @@ const ContactForm = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon whatsapp"
-                        // title="واتساب"
                         >
                             <FaWhatsapp size={28} />
                         </a>
@@ -150,15 +150,22 @@ const ContactForm = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-icon telegram"
-                        // title="تيليجرام"
                         >
                             <FaTelegram size={28} />
                         </a>
 
                         <a
+                            href={`https://botim.me/${data.contact_info?.botim_number}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-icon botim"
+                        >
+                            <FaPhoneAlt size={28} />
+                        </a>
+
+                        <a
                             href={`mailto:${data.contact_info?.email}`}
                             className="contact-icon email"
-                        // title="البريد الإلكتروني"
                         >
                             <FaEnvelope size={28} />
                         </a>
@@ -166,7 +173,6 @@ const ContactForm = ({ data }) => {
                         <a
                             href={`tel:+${data.contact_info?.phone}`}
                             className="contact-icon phone"
-                        // title="اتصال هاتفي"
                         >
                             <FaPhone size={28} />
                         </a>
@@ -182,7 +188,6 @@ const ContactForm = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon linkedin"
-                        // title="لينكد إن"
                         >
                             <FaLinkedin size={28} />
                         </a>
@@ -191,7 +196,6 @@ const ContactForm = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon facebook"
-                        // title="فيسبوك"
                         >
                             <FaFacebook size={28} />
                         </a>
@@ -200,7 +204,6 @@ const ContactForm = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon instagram"
-                        // title="إنستجرام"
                         >
                             <FaInstagram size={28} />
                         </a>
@@ -209,7 +212,6 @@ const ContactForm = ({ data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="social-icon twitter"
-                        // title="تويتر"
                         >
                             <FaTwitter size={28} />
                         </a>
@@ -221,3 +223,4 @@ const ContactForm = ({ data }) => {
 };
 
 export default ContactForm;
+            
