@@ -2,7 +2,7 @@ import { getCurrentLocale } from "../../providers/LocaleContext";
 
 import { axios } from './axios';
 import { StrapiResponse, PaginationParams } from '../types/strapi';
-import { AiChatbotPopulation, articlePopulation, carPopulation, carsPagePopulation, carsPopulation, eCommerceFutureProjectPopulation, messagePagePopulation, projectPopulation, visionPagePopulation, whyUsPagePopulation } from '../const/populations';
+import { AiChatbotPopulation, articlePopulation, carPopulation, carsPagePopulation, carsPopulation, companyPopulation, eCommerceFutureProjectPopulation, messagePagePopulation, projectPopulation, visionPagePopulation, whyUsPagePopulation } from '../const/populations';
 import { AuthCredentials, AuthSignupData, AuthResponse, AuthUser } from '../types/auth';
 import {
     Article,
@@ -28,7 +28,8 @@ import {
     AiChatbot,
     VisionPage,
     MessagePage,
-    WhyUsPage
+    WhyUsPage,
+    Company
 } from '../types/content-types';
 
 
@@ -375,3 +376,23 @@ export const fetchWhyUsPage = async (): Promise<StrapiResponse<WhyUsPage>> => {
     });
     return response.data;
 };
+
+export const fetchCompany = async (slug: string): Promise<StrapiResponse<Company>> => {
+    const response = await axios.get(`/companies`, {
+        params: {
+            ...withLocale(),
+            populate: companyPopulation,
+            filters: {
+                slug: {
+                    $eq: slug
+                }
+            }
+        },
+    });
+
+    if (response.data.data) {
+        response.data.data = response.data.data[0];
+    }
+
+    return response.data;
+}

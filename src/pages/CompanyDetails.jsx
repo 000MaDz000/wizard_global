@@ -7,9 +7,13 @@ import { useParams, NavLink } from 'react-router-dom';
 import Footer from "../components/Footer";
 import '../styles/vision_message.css'; // استيراد ملف CSS المنفصل
 import logo from '../assets/red_logo.png';
+import { useCompany } from '../api/hooks/useCompany';
+import Loading from '../components/Loading';
 
 const CompanyDetails = () => {
     const navigate = useNavigate();
+    const { slug } = useParams();
+    const dataRes = useCompany(slug);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -17,35 +21,7 @@ const CompanyDetails = () => {
     }, []);
     // dummy data
 
-    const companies = [
-        {
-            id: 1,
-            name: "شركة المستقبل",
-            description:
-                "شركة متخصصة في تقديم حلول تكنولوجية مبتكرة لدعم الأعمال وتحقيق التطوير المستدام."
-        },
-        {
-            id: 2,
-            name: "شركة الرؤية",
-            description:
-                "تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة."
-        },
-        {
-            id: 3,
-            name: "شركة البناء",
-            description:
-                "متخصصة في مشاريع البنية التحتية وتطوير العقارات بأحدث المعايير العالمية.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة."
-        },
-        {
-            id: 4,
-            name: "شركة الاتصالات المتقدمة",
-            description:
-                "تقدم خدمات اتصالات وإنترنت عالية السرعة وحلول ذكية للشركات والأفراد."
-        }
-    ];
 
-    const { id } = useParams();
-    const company = companies.find((c) => c.id === Number(id));
 
     // ستايلات الصفحة
     const containerStyle = {
@@ -70,6 +46,10 @@ const CompanyDetails = () => {
         color: "#555"
     };
 
+    if (dataRes.isLoading) return <Loading />;
+
+    const company = dataRes.data?.data;
+
     if (!company) {
         return (
             <h2 style={{ textAlign: "center", marginTop: "50px" }}>
@@ -85,7 +65,7 @@ const CompanyDetails = () => {
                     <div className="navbar_bar-contact">
                         <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
                             className="contact-link">
-                            العودة للصفحة السابقة
+                            {company.company_translation.back_to_previous_page_text}
                         </a>
                     </div>
                     <div className="navbar_bar-links">
