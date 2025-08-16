@@ -2,7 +2,7 @@
 .footer {
     background-color: #0a1f3d; /* Dark blue/black background */
     color: white;
-    padding: 3rem 0 1rem;
+    padding: 1rem 0 1rem;
     border-top: 1px solid #1e5ba6;
 }
 
@@ -22,7 +22,6 @@
     grid-area: logo;
     text-align: center;
     border-bottom: 1px solid #1e5ba6;
-    padding-bottom: 2rem;
 }
 
 .navs_links img {
@@ -74,7 +73,7 @@
     grid-area: social;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 5px;
 }
 
 .footer-right a {
@@ -116,7 +115,7 @@
             "legal"
             "info";
         text-align: center;
-        gap: 1.5rem;
+                gap: 10px;
     }
     
     .navs_ul {
@@ -132,7 +131,7 @@
     .footer-right {
         margin: 1rem 0;
         display: grid;
-        grid-template-columns: repeat(4,1fr);
-        row-gap: 21px;
+        grid-template-columns: repeat(6,1fr);
+        row-gap: 14px;
     }
 }
