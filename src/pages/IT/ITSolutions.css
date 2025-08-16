@@ -152,7 +152,7 @@
 /* تنسيقات CTA */
 .it-cta {
       margin: 18px auto;
-    width: 50%;
+        width: 69%;
 
     text-align: center;
     padding: 28px;
@@ -189,7 +189,7 @@ background: linear-gradient(rgba(17, 63, 216, 0.72), #a5b7c7);
 
 @media (max-width: 768px) {
   .it_services-grid {
-    grid-template-columns: 1fr;
+       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
   
   .projects-grid {
@@ -199,7 +199,15 @@ background: linear-gradient(rgba(17, 63, 216, 0.72), #a5b7c7);
   .it-hero h1 {
     font-size: 27px;
   }
+  .it-cta h2 {
+    font-size: 16px;
+  }
+  .cta-button {
+    padding: 5px 15px;
   
+    font-size: 12px;
+  
+}
   .it-hero p {
     font-size: 13px;
   }
