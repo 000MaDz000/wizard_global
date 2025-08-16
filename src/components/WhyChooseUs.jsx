@@ -66,7 +66,7 @@ const WhyChooseUs = ({ data }) => {
                 onMouseOver={e => e.currentTarget.style.backgroundColor = "#0056b3"}
                 onMouseOut={e => e.currentTarget.style.backgroundColor = "#007bff"}
             >
-                اعرف المزيد
+                ←
             </a>
         </section>
     );
