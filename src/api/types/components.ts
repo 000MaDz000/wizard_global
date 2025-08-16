@@ -1,5 +1,5 @@
 import { NativeLinkEnumeration } from '../../types/components/ClientLink';
-import { Article, ArticleCategory, CarBrand, CarFuelType, CarModel, ECommerceFutureProject, Project, Testimonial } from './content-types';
+import { Article, ArticleCategory, CarBrand, CarFuelType, CarModel, Company, ECommerceFutureProject, Project, Testimonial } from './content-types';
 import { StrapiEntity, StrapiMedia } from './strapi';
 
 // Component Types
@@ -33,11 +33,6 @@ export interface Budget {
     title: string;
     placeholder?: string;
     chooices: TextArray[];
-}
-
-export interface Partner {
-    id: number;
-    image: StrapiMedia;
 }
 
 export interface Service {
@@ -125,7 +120,7 @@ export interface WhyUs {
 export interface PartnersSection {
     title?: Title;
     description: string;
-    partners?: Partner[];
+    partners?: Company[];
 }
 
 export interface Testimonials {

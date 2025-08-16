@@ -308,10 +308,12 @@ export interface AboutDetails {
     vision: {
         title: string;
         description: string;
+        link_text: string;
     };
     mission: {
         title: string;
         description: string;
+        link_text: string;
     };
     map_coordinates?: {
         lat: number;
@@ -381,25 +383,28 @@ export interface WhyUsPage {
 // ==============================
 // Collection Type: company
 // ==============================
-// export interface Company {
-//     id: number;
-//     name: string;
-//     description: string;
-//     company_translation?: CompanyTranslation | null;
-//     createdAt?: string;
-//     updatedAt?: string;
-//     locale?: string;
-// }
+export interface Company {
+    id: number;
+    name: string;
+    description: string;
+    company_translation?: CompanyTranslation | null;
+    image: StrapiMedia;
+    slug: string;
+    createdAt?: string;
+    updatedAt?: string;
+    locale?: string;
+}
 
 // // ==============================
 // // Collection Type: company-translation
 // // ==============================
-// export interface CompanyTranslation {
-//     id: number;
-//     back_to_previous_page_text: string;
-//     createdAt?: string;
-//     updatedAt?: string;
-// }
+export interface CompanyTranslation {
+    id: number;
+    back_to_previous_page_text: string;
+    learn_more_button_text: string;
+    createdAt?: string;
+    updatedAt?: string;
+}
 
 // ==============================
 // Single Type: message-page

@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/ClientsPartners.css";
 import { FaStar } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ClientImage from "./ClientImage";
 import { useJWT } from "../api/hooks/useAuth";
 import { sendTestimonial } from "../api/lib/fetchers";
@@ -132,21 +132,24 @@ const ClientsPartners = ({ isAuthenticated, data }) => {
     return (
         <section className="clients-section">
             {/* شركاؤنا */}
-            {
-                data.partners_section ? (
-                    <div className="partners-section" data-aos="fade-up">
-                        <h4>{data.partners_section.title.title_start} {data.partners_section.title.title_end}</h4>
-                        <p>{data.partners_section.description}</p>
-                        <div className="partners-logos" data-aos="zoom-in">
-                            {
-                                data.partners_section.partners?.map(partner => (
-                                    <ClientImage src={partner.image} key={partner.id} />
-                                ))
-                            }
+            <div className="partners-section" data-aos="fade-up">
+                <h4>{data.partners_section.title.title_start} {data.partners_section.title.title_end}</h4>
+                <p>
+                    {data.partners_section.description}
+                </p>
+                <div className="partners-logos" data-aos="zoom-in">
+                    {data.partners_section.partners.map((partner, index) => (
+                        <div className="partner-item" key={index}>
+                            <Link to={`/company/${partner.slug}`}>
+                                <ClientImage src={partner.image} alt={`شريك ${index + 1}`} />
+                                <div className="overlay_logos">
+                                    <span>{partner.company_translation.learn_more_button_text}</span>
+                                </div>
+                            </Link>
                         </div>
-                    </div>
-                ) : null
-            }
+                    ))}
+                </div>
+            </div>
 
             {/* آراء العملاء */}
             {

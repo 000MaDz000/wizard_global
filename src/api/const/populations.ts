@@ -1,4 +1,11 @@
 // Homepage populations
+
+export const companyPopulation = {
+    company_translation: true,
+    image: true,
+}
+
+
 export const homepagePopulation = {
     hero: {
         populate: ["cta"],
@@ -23,7 +30,7 @@ export const homepagePopulation = {
                 populate: {
                     title: true,
                     partners: {
-                        populate: ["image"]
+                        populate: companyPopulation
                     }
                 }
             },
@@ -319,10 +326,6 @@ export const visionPagePopulation = {
 }
 
 export const whyUsPagePopulation = undefined;
-
-// export const companyPopulation = {
-//     company_translation: true,
-// }
 
 // Common component populations for reuse
 export const commonPopulations = {

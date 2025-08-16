@@ -114,7 +114,7 @@ const About = () => {
                         <div className="vision-block">
                             <h2 className="vision-title">{data.vision.title}</h2>
                             <p className="vision-text">{data.vision.description}</p>
-                             <button
+                            <button
                                 style={{
                                     backgroundColor: "#3c56e7c6",
                                     color: "white",
@@ -131,13 +131,13 @@ const About = () => {
                                 onMouseOver={(e) => e.target.style.backgroundColor = "#302bc0ff"}
                                 onMouseOut={(e) => e.target.style.backgroundColor = "#3c64e7ff"}
                             >
-                                اعرف المزيد عن رؤيتنا
+                                {data.vision.link_text}
                             </button>
                         </div>
                         <div className="vision-block">
                             <h2 className="vision-title">{data.mission.title}</h2>
                             <p className="vision-text">{data.mission.description}</p>
-                             <button
+                            <button
                                 style={{
                                     backgroundColor: "#3c56e7c6",
                                     color: "white",
@@ -154,7 +154,7 @@ const About = () => {
                                 onMouseOver={(e) => e.target.style.backgroundColor = "#302bc0ff"}
                                 onMouseOut={(e) => e.target.style.backgroundColor = "#3c64e7ff"}
                             >
-                                اعرف المزيد عن رسالتنا
+                                {data.mission.link_text}
                             </button>
                         </div>
                     </div>
