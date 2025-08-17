@@ -173,7 +173,7 @@ const ContactForm = ({ data }) => {
                                     fontSize: "16px"
                                 }}
                             >
-                                Botim
+                                B
                             </span>
                         </a>
 
