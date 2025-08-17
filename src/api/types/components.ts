@@ -156,6 +156,8 @@ export interface ContactInfo {
 
     whatsapp_number?: string;
     telegram_number?: string;
+
+    botim_number?: string;
     email?: string;
     phone?: string;
 
