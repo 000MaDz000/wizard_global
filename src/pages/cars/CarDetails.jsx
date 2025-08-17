@@ -144,7 +144,7 @@ const CarDetails = () => {
                         </div>
                     </div>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <button className="contact-btn">{car.cta_button_text}</button>
+                    <Link className="contact-btn" to={car.car_supplier?.contact_link}>{car.cta_button_text}</Link>
                 </div>
             </div>
             <Footer />

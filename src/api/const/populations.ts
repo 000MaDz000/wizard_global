@@ -225,6 +225,7 @@ export const carPopulation = {
     safety_features: true,
     features: true,
     car_translation: true,
+    car_supplier: true,
 };
 
 export const carsPopulation = {

@@ -55,6 +55,7 @@ export interface Car extends StrapiEntity {
     brand?: CarBrand;
     fuel_type?: CarFuelType;
     safety_features?: TextArray[];
+    car_supplier?: CarSupplier;
     model?: CarModel;
     description: string;
     images: StrapiMedia[];
@@ -93,6 +94,10 @@ export interface Car extends StrapiEntity {
     updatedAt: string;
     publishedAt?: string;
     locale?: string;
+}
+
+export interface CarSupplier {
+    contact_link: string;
 }
 
 export interface CarBrand extends StrapiEntity {
