@@ -10,7 +10,6 @@ import {
     FaTelegram,
     FaEnvelope,
     FaPhone,
-    FaPhoneAlt
 } from "react-icons/fa";
 import "../styles/ContactForm.css";
 import { submitHomeContact } from "../api/contact/senders";
@@ -160,7 +159,22 @@ const ContactForm = ({ data }) => {
                             rel="noopener noreferrer"
                             className="contact-icon botim"
                         >
-                            <FaPhoneAlt size={28} />
+                            <span
+                                style={{
+                                    display: "inline-flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    width: "28px",
+                                    height: "28px",
+                                    borderRadius: "50%",
+                                    backgroundColor: "#007bff",
+                                    color: "#fff",
+                                    fontWeight: "bold",
+                                    fontSize: "16px"
+                                }}
+                            >
+                                Botim
+                            </span>
                         </a>
 
                         <a
