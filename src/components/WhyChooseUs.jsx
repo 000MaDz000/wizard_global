@@ -22,7 +22,7 @@ const WhyChooseUs = ({ data }) => {
             <h2 className="section-title" data-aos="fade-up">{data.title.title_start} {data.title.title_end}</h2>
             <div className="details">
                 {/* <div className="first_p">شريكك الموثوق دائما</div> */}
-                <div  style={{textAlign:"center"}} className="second_p">
+                <div style={{ textAlign: "center" }} className="second_p">
                     {data.description}
                 </div>
             </div>
@@ -50,7 +50,7 @@ const WhyChooseUs = ({ data }) => {
                     <p>فريقنا جاهز لمساعدتك في أي وقت</p>
                 </div>
             </div> */}
-             <a
+            <a
                 href="/why"
                 style={{
                     display: "inline-block",
@@ -61,12 +61,12 @@ const WhyChooseUs = ({ data }) => {
                     borderRadius: "6px",
                     fontWeight: "bold",
                     transition: "background-color 0.3s",
-                    marginTop:"23px"
+                    marginTop: "23px"
                 }}
                 onMouseOver={e => e.currentTarget.style.backgroundColor = "#0056b3"}
                 onMouseOut={e => e.currentTarget.style.backgroundColor = "#007bff"}
             >
-                ←
+                {data.learn_more_cta_text}
             </a>
         </section>
     );

@@ -115,6 +115,7 @@ export interface ServicesSection {
 export interface WhyUs {
     title?: Title;
     description: string;
+    learn_more_cta_text: string;
 }
 
 export interface PartnersSection {
