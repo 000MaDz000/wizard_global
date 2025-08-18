@@ -1,21 +1,41 @@
 .why-container {
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 1100px;
+  margin: 0px auto;
   padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #faf8f8;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.085);
   text-align: center;
+ 
+}
+.hero_why{
+  height: 30vh;
+    background-image: linear-gradient(#2a6496, #0c0d19a6), url(/src/assets/b6.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .why-title {
-  font-size: 2rem;
-  color: #222;
+  font-size: 3rem;
+  color: #ffffff;
   margin-bottom: 15px;
+  text-align: center;
+      margin-block-start: 0;
+   
 }
 
 .why-text {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.8;
-  color: #555;
+  color: #1e4363;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .why-title{
+    font-size: 2.4rem;
+  }
+  .why-text{
+    padding: 0 40px;
+  }
 }
