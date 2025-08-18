@@ -20,6 +20,7 @@ import VisionDetails from './pages/VisionDetails';
 import MessageDetails from './pages/MessageDetails';
 import WhyDetails from './pages/WhyDetails';
 import CompanyDetails from './pages/CompanyDetails';
+ import CarServiceDetails from'./pages/cars/car_services_Details';
 
 const queryClient = new QueryClient({
     defaultOptions: {
