@@ -26,24 +26,26 @@ const CompanyDetails = () => {
     // ستايلات الصفحة
     const containerStyle = {
         maxWidth: "800px",
-        margin: "50px auto",
-        padding: "20px",
+        margin: "5px auto",
+        padding: "15px",
         backgroundColor: "#f8f9fa",
-        borderRadius: "12px",
+        
         boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
         textAlign: "center"
     };
 
     const titleStyle = {
-        fontSize: "2rem",
-        color: "#222",
-        marginBottom: "15px"
+        fontSize: "2.7rem",
+        color: "#ffffffff",
+        marginBottom: "15px",
+        textAlign: "center"
     };
 
     const textStyle = {
-        fontSize: "1.4rem",
+        fontSize: "1.2rem",
         lineHeight: "1.8",
-        color: "#555"
+        color: "#000000555",
+        textAlign: "center"
     };
 
     if (dataRes.isLoading) return <Loading />;
@@ -75,8 +77,14 @@ const CompanyDetails = () => {
                     </div>
                 </div>
             </nav>
-            <div style={containerStyle}>
+            <div className="hero_comp">
+                <br />
+                <br />
+                <br />
                 <h1 style={titleStyle}>{company.name}</h1>
+            </div>
+            <div style={containerStyle}>
+                
                 <p style={textStyle}>{company.description}</p>
             </div>
             <Footer />
@@ -86,3 +94,4 @@ const CompanyDetails = () => {
 };
 
 export default CompanyDetails;
+
