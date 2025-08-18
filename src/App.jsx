@@ -57,6 +57,8 @@ function App() {
                     <Route path="/why" element={<WhyDetails />} />
                     <Route path="/about/vision" element={<VisionDetails />} />
                     <Route path="/about/message" element={<MessageDetails />} />
+                    <Route path="/service/:id" element={<CarServiceDetails/>}/>
+                 
                 </Routes>
             </Router>
         </QueryClientProvider>
