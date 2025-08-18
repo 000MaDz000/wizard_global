@@ -96,7 +96,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  min-width: 120px;
+  min-width: 88px;
   transition: all 0.3s;
 }
 
@@ -213,7 +213,7 @@ background: linear-gradient(rgba(17, 63, 216, 0.72), #a5b7c7);
   }
   .it_service-card h3 {
   
-    font-size: 1rem;
+    font-size: 14px;
 }
   .it-hero{
        
