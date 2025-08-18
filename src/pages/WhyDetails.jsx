@@ -36,8 +36,14 @@ const WhyDetails = () => {
                     </div>
                 </div>
             </nav>
-            <div className="why-container">
+            <div className="hero_why">
+                <br />
+                <br />
+                <br />
                 <h1 className="why-title">{data.title}</h1>
+            </div>
+            <div className="why-container">
+                
                 <p className="why-text">
                     {data.text}
                 </p>
@@ -49,3 +55,4 @@ const WhyDetails = () => {
 };
 
 export default WhyDetails;
+
