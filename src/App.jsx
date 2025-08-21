@@ -20,7 +20,7 @@ import VisionDetails from './pages/VisionDetails';
 import MessageDetails from './pages/MessageDetails';
 import WhyDetails from './pages/WhyDetails';
 import CompanyDetails from './pages/CompanyDetails';
- import CarServiceDetails from'./pages/cars/car_services_Details';
+import CarServiceDetails from './pages/cars/car_services_Details';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -57,8 +57,8 @@ function App() {
                     <Route path="/why" element={<WhyDetails />} />
                     <Route path="/about/vision" element={<VisionDetails />} />
                     <Route path="/about/message" element={<MessageDetails />} />
-                    <Route path="/service/:id" element={<CarServiceDetails/>}/>
-                 
+                    <Route path="/service/:id" element={<CarServiceDetails />} />
+
                 </Routes>
             </Router>
         </QueryClientProvider>

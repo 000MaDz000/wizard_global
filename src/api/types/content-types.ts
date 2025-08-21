@@ -127,6 +127,29 @@ export interface CarModel extends StrapiEntity {
     locale?: string;
 }
 
+export interface ServiceDetailTranslation {
+    id: string;
+    documentId: string;
+    back_to_previous_page_text: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt?: string;
+    locale?: string;
+}
+
+export interface ServiceDetail {
+    id: string;
+    documentId: string;
+    name: string;
+    description: string;
+    service_translation: ServiceDetailTranslation;
+
+    createdAt: string;
+    updatedAt: string;
+    publishedAt?: string;
+    locale?: string;
+}
+
 export interface Project extends StrapiEntity {
     name: string;
     description: string;

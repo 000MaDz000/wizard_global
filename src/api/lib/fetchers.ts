@@ -29,7 +29,8 @@ import {
     VisionPage,
     MessagePage,
     WhyUsPage,
-    Company
+    Company,
+    ServiceDetail
 } from '../types/content-types';
 
 
@@ -126,6 +127,20 @@ export const fetchCar = async (id: number): Promise<StrapiResponse<Car>> => {
 
     delete response.data.data.car_translation
 
+
+    return response.data;
+};
+
+export const fetchService = async (id: number): Promise<StrapiResponse<ServiceDetail>> => {
+    const response = await axios.get(`/service-details`, {
+        params: {
+            ...withLocale(),
+            populate: ['service_translation'],
+            filter: { id: { $eq: id } }
+        }
+    });
+
+    if (response.data?.data?.[0]) response.data.data = response.data.data[0];
 
     return response.data;
 };

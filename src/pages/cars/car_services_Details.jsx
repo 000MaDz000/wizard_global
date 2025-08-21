@@ -7,9 +7,13 @@ import { useParams, NavLink } from 'react-router-dom';
 import Footer from "../../components/Footer";
 import '../../styles/vision_message.css';
 import logo from '../../assets/red_logo.png';
+import { useServiceDetail } from '../../api/hooks/useServiceDetail';
+import Loading from '../../components/Loading';
 
 const CarServiceDetails = () => {
     const navigate = useNavigate();
+    const { id } = useParams();
+    const pageRes = useServiceDetail(id);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -17,35 +21,10 @@ const CarServiceDetails = () => {
     }, []);
     // dummy data
 
-    const services = [
-        {
-            id: 1,
-            name: "خدمه 1 ",
-            description:
-                "شركة متخصصة في تقديم حلول تكنولوجية مبتكرة لدعم الأعمال وتحقيق التطوير المستدام."
-        },
-        {
-            id: 2,
-            name: "خدمه 1 ",
-            description:
-                "تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة."
-        },
-        {
-            id: 3,
-            name: "خدمه 1 ",
-            description:
-                "متخصصة في مشاريع البنية التحتية وتطوير العقارات بأحدث المعايير العالمية.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة.تركز على تقديم استشارات واستراتيجيات أعمال متكاملة للشركات الناشئة."
-        },
-        {
-            id: 4,
-            name: "خدمه 1 ",
-            description:
-                "تقدم خدمات اتصالات وإنترنت عالية السرعة وحلول ذكية للشركات والأفراد."
-        }
-    ];
+    if (pageRes.isLoading) return <Loading />;
+    const service = pageRes.data?.data;
+    if (!service) return null;
 
-    const { id } = useParams();
-    const service = services.find((c) => c.id === Number(id));
 
     // ستايلات الصفحة
     const containerStyle = {
@@ -68,7 +47,7 @@ const CarServiceDetails = () => {
         fontSize: "1.2rem",
         lineHeight: "1.8",
         color: "#000000ff",
-        textAlign:"center"
+        textAlign: "center"
     };
     if (!service) {
         return (
@@ -85,7 +64,7 @@ const CarServiceDetails = () => {
                     <div className="navbar_bar-contact">
                         <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
                             className="contact-link">
-                            العودة للصفحة السابقة
+                            {service.service_translation.back_to_previous_page_text}
                         </a>
                     </div>
                     <div className="navbar_bar-links">
