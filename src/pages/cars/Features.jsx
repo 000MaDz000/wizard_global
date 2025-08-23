@@ -92,7 +92,7 @@ const CarServicesSection = ({ data }) => {
 
                 <div className="car-services-grid">
                     {data.services?.map(service => (
-                        <div to={service.service_detail ? `/service/${service.service_detail.id}` : "#"} key={service.id} className="car-service-card">
+                        <div key={service.id} className="car-service-card">
                             <div className="car-service-icon">
                                 <ClientImage src={service.service_icon} style={{ width: "8rem", height: "8rem" }} />
                             </div>
