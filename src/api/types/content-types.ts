@@ -131,6 +131,8 @@ export interface ServiceDetailTranslation {
     id: string;
     documentId: string;
     back_to_previous_page_text: string;
+    learn_more_text: string;
+
     createdAt: string;
     updatedAt: string;
     publishedAt?: string;
