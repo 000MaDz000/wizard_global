@@ -90,7 +90,12 @@ export const carsPagePopulation = {
     services_section: {
         populate: {
             services: {
-                populate: ["service_icon"]
+                populate: {
+                    service_icon: true,
+                    service_detail: {
+                        populate: ['service_translation']
+                    }
+                }
             },
             contact_section: {
                 populate: {

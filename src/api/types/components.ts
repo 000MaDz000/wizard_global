@@ -1,5 +1,5 @@
 import { NativeLinkEnumeration } from '../../types/components/ClientLink';
-import { Article, ArticleCategory, CarBrand, CarFuelType, CarModel, Company, ECommerceFutureProject, Project, Testimonial } from './content-types';
+import { Article, ArticleCategory, CarBrand, CarFuelType, CarModel, Company, ECommerceFutureProject, Project, ServiceDetail, Testimonial } from './content-types';
 import { StrapiEntity, StrapiMedia } from './strapi';
 
 // Component Types
@@ -47,7 +47,7 @@ export interface ECommerceService {
     service_name: string;
     service_details?: string;
     service_icon: StrapiMedia;
-
+    service_detail?: ServiceDetail;
 }
 
 export interface ITService {

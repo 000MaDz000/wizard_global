@@ -3,6 +3,7 @@ import { FaShippingFast, FaSearch, FaFileAlt, FaCarSide } from 'react-icons/fa';
 import './Features.css';
 import ClientImage from '../../components/ClientImage';
 import { submitCarContact } from '../../api/contact/senders';
+import { Link } from 'react-router-dom';
 
 /**
  * 
@@ -91,13 +92,13 @@ const CarServicesSection = ({ data }) => {
 
                 <div className="car-services-grid">
                     {data.services?.map(service => (
-                        <div key={service.id} className="car-service-card">
+                        <Link to={service.service_detail ? `/service/${service.service_detail.id}` : "#"} key={service.id} className="car-service-card">
                             <div className="car-service-icon">
                                 <ClientImage src={service.service_icon} style={{ width: "8rem", height: "8rem" }} />
                             </div>
                             <h3>{service.service_name}</h3>
                             <p>{service.service_details}</p>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 

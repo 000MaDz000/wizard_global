@@ -64,7 +64,7 @@ const CarServiceDetails = () => {
                     <div className="navbar_bar-contact">
                         <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
                             className="contact-link">
-                            {service.service_translation.back_to_previous_page_text}
+                            {service.service_translation?.back_to_previous_page_text}
                         </a>
                     </div>
                     <div className="navbar_bar-links">
