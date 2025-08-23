@@ -247,10 +247,10 @@ const CarList = () => {
                             <div key={car.id} className="car-card">
                                 <ClientImage src={car.thumbnail} alt={car.brand?.name + ': ' + car.model?.name} />
                                 <div className="car-info">
-                                    <h3>{car.brand.name}: {car.model.name}</h3>
+                                    <h3>{car.brand?.name}: {car.model?.name}</h3>
                                     <p>{car.year_field_text}: {car.year}</p>
                                     <p>{car.condition_field_text}: {car.condition_display_text}</p>
-                                    <p>{car.fuel_type_field_text}: {car.fuel_type.name}</p>
+                                    <p>{car.fuel_type_field_text}: {car.fuel_type?.name}</p>
                                     <p className="price">{car.price.toLocaleString()} {car.currency_sign}</p>
                                     <a href={`/cars/${car.id}`} className="details-btn">{car.details_button_text}</a>
                                 </div>
