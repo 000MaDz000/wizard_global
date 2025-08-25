@@ -18,7 +18,9 @@
   /* border-radius: 8px; */
   margin-bottom: 30px;
 }
-
+.data_car{
+  width: 40%;
+}
 
 .hero-section h1 {
   font-size: 2.5rem;
@@ -43,16 +45,16 @@
  
 } */
 .filters-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin: 30px auto;
-  background: #f8fafc;
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  max-width: 1200px;
-   margin: 0 150px;
+     display: flex
+;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    /* max-width: 1200px; */
+    margin: 0 15px;
 }
 
 .filter-group {
@@ -75,19 +77,19 @@
 .filter-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 3px;
 }
 
 .filter-option {
   display: flex;
-  align-items: center;
-  padding: 8px 15px;
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 0.95rem;
+    align-items: center;
+    padding: 5px 9px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .3s;
+    font-size: .90rem;
 }
 
 .filter-option:hover {
@@ -107,14 +109,14 @@
 
 .reset-btn {
   align-self: flex-end;
-  padding: 10px 20px;
-  background: #8cb1d6;
+  padding: 5px 10px;
+  background: #f77979;
   border: 1px solid #e2e8f0;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 500;
-  margin-top: auto;
+
 }
 
 .reset-btn:hover {
@@ -210,16 +212,22 @@
   }
   
   .filter-options {
-    gap: 8px;
+            gap: 4px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-y: hidden;
+        height: 41px;
   }
   
   .filter-option {
-    padding: 6px 12px;
-    font-size: 0.9rem;
+           padding: 2px 5px;
+        font-size: 0.6rem; 
+    
   }
   
   .reset-btn {
     align-self: flex-start;
+    font-size: 9px;
   }
   
   .cars-grid {
