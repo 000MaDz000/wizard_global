@@ -10,6 +10,8 @@ import { useCars, useCarsPage } from '../../api/hooks';
 import { buildStrapiPopulateParams, carsPagePopulation, carsPopulation } from '../../api/const/populations';
 import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
+import CarNavbar from '../../components/CarNavbar';
+
 
 const CarList = () => {
     const carsRes = useCars(buildStrapiPopulateParams(carsPopulation));
@@ -208,8 +210,9 @@ const CarList = () => {
                 />
             </Helmet>
 
-            <Navbar_bar onSearch={handleSearch} navbar_contact_link_text={page.navbar_contact_link_text} />
-            <div className="car-list-page">
+ <div className="carr" style={{background:"white"}}>
+                     <CarNavbar/>
+            </div>            <div className="car-list-page">
                 <div className="hero-section">
                     <div className="data_car">
                         <h1>{page.hero_title}</h1>
