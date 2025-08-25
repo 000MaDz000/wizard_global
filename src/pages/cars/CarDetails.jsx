@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './CarDetailsPage.css';
 import Footer from '../../components/Footer';
@@ -35,12 +35,12 @@ const CarDetails = () => {
             <div className="car-details-page">
                 <Link to="/cars" className="back-link">{car.back_to_previous_page_text}</Link>
 
-                <h1>{car.brand.name} {car.model.name} - {car.year}</h1>
+                <h1>{car.brand?.name} {car.model?.name} - {car.year}</h1>
                 <p>{car.description}</p>
 
                 <div className="car-gallery">
                     <div className="main-image">
-                        <ClientImage src={car.images[activeImage]} alt={car.images[0]?.alternativeText || `${car.brand} ${car.model}`} />
+                        <ClientImage src={car.images[activeImage]} alt={car.images[0]?.alternativeText || `${car.brand?.name} ${car.model?.name}`} />
                         <button className="nav-button prev-button" onClick={prevImage}>❮</button>
                         <button className="nav-button next-button" onClick={nextImage}>❯</button>
                     </div>
@@ -49,7 +49,7 @@ const CarDetails = () => {
                             <ClientImage
                                 key={index}
                                 src={img}
-                                alt={img?.alternativeText || `${car.brand} ${car.model} ${index + 1}`}
+                                alt={img?.alternativeText || `${car.brand?.name} ${car.model?.name} ${index + 1}`}
                                 className={index === activeImage ? 'active' : ''}
                                 onClick={() => setActiveImage(index)}
                             />
@@ -73,7 +73,7 @@ const CarDetails = () => {
                             </div>
                             <div className="spec-item">
                                 <span className="spec-label">{car.model_field_text}</span>
-                                <span className="spec-value">{car.model.name}</span>
+                                <span className="spec-value">{car.model?.name}</span>
                             </div>
                             <div className="spec-item">
                                 <span className="spec-label">{car.year_field_text}</span>
@@ -89,7 +89,7 @@ const CarDetails = () => {
                             </div>
                             <div className="spec-item">
                                 <span className="spec-label">{car.fuel_type_field_text}</span>
-                                <span className="spec-value">{car.fuel_type.name}</span>
+                                <span className="spec-value">{car.fuel_type?.name}</span>
                             </div>
                             <div className="spec-item">
                                 <span className="spec-label">{car.transmission_field_text}</span>
