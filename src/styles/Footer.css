@@ -77,15 +77,15 @@
 }
 
 .footer-right a {
-    color: white;
+    color: #fff;
     background-color: #1e5ba6;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: all .3s;
 }
 
 .footer-right a:hover {
@@ -129,9 +129,9 @@
     }
     
     .footer-right {
-        margin: 1rem 0;
+        margin: 1rem 44px;
         display: grid;
-        grid-template-columns: repeat(6,1fr);
-        row-gap: 14px;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 18px;
     }
 }
