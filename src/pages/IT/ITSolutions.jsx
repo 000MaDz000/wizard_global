@@ -124,7 +124,7 @@ const ITSolutions = () => {
                     <div className="it_services-grid">
                         {data.services.map((service, index) => (
                             <div key={service.id} className="it_service-card">
-                                <ClientImage className="it_service-icon" src={service.icon} style={{ width: "6rem", height: "6rem" }} />
+                                <ClientImage className="it_service-icon" src={service.icon} style={{ width: "5rem", height: "5rem" }} />
                                 <h3>{service.name}</h3>
                             </div>
                         ))}
