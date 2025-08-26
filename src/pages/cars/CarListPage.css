@@ -83,13 +83,13 @@
 .filter-option {
   display: flex;
     align-items: center;
-    padding: 5px 9px;
+    padding: 3px 11px;
     background: #fff;
     border: 1px solid #e2e8f0;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all .3s;
-    font-size: .90rem;
+    font-size: .9rem;
 }
 
 .filter-option:hover {
