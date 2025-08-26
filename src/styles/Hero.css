@@ -392,7 +392,7 @@ padding: 10px 29px;
   
   .hero-content {
     padding: 0px 0px;
-    top: 27%;
+    top: 1%;
     text-align: center;
         width: 83%;
     margin: 0 auto;
@@ -450,6 +450,6 @@ padding: 10px 29px;
   
   .images .cartoon_imag {
     width: 321px;
-    margin-top: 95px;
+    margin-top: 15px;
   }
 }
