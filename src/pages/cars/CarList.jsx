@@ -242,7 +242,7 @@ const CarList = () => {
                 </div>
 
                 {/* عرض السيارات */}
-                <div className="cars-grid">
+                <div id="cars-section" className="cars-grid">
                     {isLoading ? (
                         <div className="loading">{page.loading_text}</div>
                     ) : cars.length === 0 ? (
