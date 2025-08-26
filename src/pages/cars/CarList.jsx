@@ -11,6 +11,7 @@ import { buildStrapiPopulateParams, carsPagePopulation, carsPopulation } from '.
 import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
 import CarNavbar from '../../components/CarNavbar';
+import { CiSearch } from "react-icons/ci";
 
 
 const CarList = () => {
@@ -27,10 +28,18 @@ const CarList = () => {
 
     const { i18n } = useTranslation();
     const currentLang = i18n.language;
+      const [searchQuery, setSearchQuery] = useState('');
+    
+    const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(searchQuery.toLowerCase());
 
-    const handleSearch = (query) => {
-        setSearchTerm(query.toLowerCase());
-    };
+    // نزّل الصفحة مباشرة على قسم السيارات
+    const carsSection = document.getElementById('cars-section');
+    if (carsSection) {
+        carsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 
     useEffect(() => {
         if (!carsRes.data?.data) return;
@@ -218,6 +227,29 @@ const CarList = () => {
                 <div className="hero-section">
                     <div className="data_car">
                         <h1>{page.hero_title}</h1>
+                    </div>
+                     <br />
+
+                    <div className="car-navbar_bar-search">
+                        <div className="d">
+                            <form onSubmit={handleSearch}>
+
+                                <input
+                                    className='search-input'
+                                    type="text"
+                                    placeholder="🚗..................................."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+
+                                />
+                                <button className='search-button' type="submit">
+
+                                    <CiSearch className="search-car-icon" />
+                                </button>
+
+
+                            </form>
+                        </div>
                     </div>
                 </div>
 
