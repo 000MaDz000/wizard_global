@@ -70,7 +70,7 @@
     position: fixed;
     top: -100%; /* Start off-screen from top */
     left: 0;
-    background: linear-gradient(135deg, #ffffff 0%, #2465c7 100%); /* White to light blue gradient */
+    background: linear-gradient(135deg, #fff, #ffffff);
     flex-direction: column;
     width: 100%;
     height: auto; /* Auto height based on content */
