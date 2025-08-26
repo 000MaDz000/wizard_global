@@ -181,7 +181,14 @@ const ITSolutions = () => {
                     <h2>{data.footer_cta_title}</h2>
                     <p>{data.footer_cta_text}</p>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <ClientLink href={data.footer_cta_link} className="cta-button">{data.footer_cta_link.text}</ClientLink>
+                    <ClientLink 
+  href={data.footer_cta_link} 
+  className="cta-button" 
+  style={{ textDecoration: "none" }}
+>
+  {data.footer_cta_link.text}
+</ClientLink>
+
                 </div>
             </div>
             <Footer />
