@@ -40,9 +40,9 @@ const CarDetails = () => {
 
                 <div className="car-gallery">
                     <div className="main-image">
-                        <ClientImage src={car.images[activeImage]} alt={car.images[0]?.alternativeText || `${car.brand?.name} ${car.model?.name}`} />
+                        <ClientImage src={car.images?.[activeImage]} alt={car.images?.[0]?.alternativeText || `${car.brand?.name} ${car.model?.name}`} />
                         <button className="nav-button prev-button" onClick={prevImage}>❮</button>
-{/*                         <button className="nav-button next-button" onClick={nextImage}>❯</button> */}
+                        {/*                         <button className="nav-button next-button" onClick={nextImage}>❯</button> */}
                     </div>
                     <div className="thumbnails">
                         {car.images?.map((img, index) => (

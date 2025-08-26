@@ -104,7 +104,11 @@ export const fetchCars = async (): Promise<StrapiResponse<Car[]>> => {
     });
 
     response.data.data.forEach(item => {
+        const id = item.id;
+
         Object.assign(item, item.car_translation || {});
+
+        item.id = id;
         delete item.car_translation;
     })
     return response.data;
