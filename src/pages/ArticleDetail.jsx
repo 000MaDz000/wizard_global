@@ -56,7 +56,7 @@ const ArticleDetail = () => {
             </Helmet>
 
             <div className="article-detail-page">
-                <LanguageSelector />
+{/*                 <LanguageSelector /> */}
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
