@@ -108,14 +108,14 @@
 }
 
 .reset-btn {
-  align-self: flex-end;
-  padding: 5px 10px;
-  background: #f77979;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: 500;
+      align-self: flex-end;
+    padding: 7px 7px;
+    background: #ff2222e0;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s;
+    font-weight: 500;
 
 }
 
@@ -204,8 +204,8 @@
   }
   
    .filters-section {
-        gap: 20px;
-        margin: 2px 15px;
+               gap: 6px;
+        margin: 2px 5px;
         flex-wrap: nowrap;
         flex-direction: row;
         overflow: auto;
