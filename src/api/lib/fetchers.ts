@@ -75,7 +75,7 @@ export const fetchArticle = async (id: number): Promise<StrapiResponse<Article>>
     const response = await axios.get(`/articles`, {
         params: {
             ...withLocale(),
-            filter: { id: { $eq: id } },
+            filters: { id: { $eq: id } },
             populate: articlePopulation
         }
     });
@@ -115,7 +115,7 @@ export const fetchCar = async (id: number): Promise<StrapiResponse<Car>> => {
         params: {
             ...withLocale(),
             populate: carPopulation,
-            filter: { id: { $eq: id } }
+            filters: { id: { $eq: id } }
         }
     });
     if (response.data?.data?.[0]) response.data.data = response.data.data[0];
@@ -136,7 +136,7 @@ export const fetchService = async (id: number): Promise<StrapiResponse<ServiceDe
         params: {
             ...withLocale(),
             populate: ['service_translation'],
-            filter: { id: { $eq: id } }
+            filters: { id: { $eq: id } }
         }
     });
 
@@ -192,7 +192,7 @@ export const fetchItProject = async (id: number): Promise<StrapiResponse<Project
         params: {
             ...withLocale(),
             populate: projectPopulation,
-            filter: { id: { $eq: id } }
+            filters: { id: { $eq: id } }
         }
     });
     if (response.data?.data?.[0]) response.data.data = response.data.data[0];
@@ -219,7 +219,7 @@ export const fetchECommerceFutureProject = async (id: number): Promise<StrapiRes
     const response = await axios.get(`/e-commerce-future-projects`, {
         params: {
             ...withLocale(),
-            filter: { id: { $eq: id } },
+            filters: { id: { $eq: id } },
             populate: eCommerceFutureProjectPopulation
         }
     });
