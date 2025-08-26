@@ -223,7 +223,7 @@ const CarList = () => {
 
                 {/* الفلاتر */}
                 <div className="filters-section">
-
+                     <button className="reset-btn" onClick={resetFilters}>{page.reset_filters_text}</button>
                     {
                         page.filters.map(filter => (
                             <div className='filter-group' key={filter.id}>
@@ -238,7 +238,7 @@ const CarList = () => {
                         ))
                     }
 
-                    <button className="reset-btn" onClick={resetFilters}>{page.reset_filters_text}</button>
+                   
                 </div>
 
                 {/* عرض السيارات */}
