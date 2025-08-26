@@ -9,25 +9,67 @@
 }
 
 /* قسم الهيرو */
+/* قسم الهيرو */
 .hero-section {
-    background: linear-gradient(rgba(16, 76, 241, 0), #474c5e47), url(/src/assets/cars/n.jpg);  background-size: cover;
+  position: relative;
+  background-size: cover;
   background-position: center;
   color: white;
   text-align: center;
   padding: 150px 20px;
-  /* border-radius: 8px; */
-  /* margin-bottom: 30px; */
   height: 25vh;
+
+  animation: bgSlider 60s infinite ease-in-out;
 }
+
+@keyframes bgSlider {
+  0%   { background-image: url(/src/assets/b.jpg); }
+  12%  { background-image: url(/src/assets/b.jpg); }
+
+  13%  { background-image: url(/src/assets/a.jpg); }
+  25%  { background-image: url(/src/assets/a.jpg); }
+
+  26%  { background-image: url(/src/assets/c.jpg); }
+  38%  { background-image: url(/src/assets/c.jpg); }
+
+  39%  { background-image: url(/src/assets/d.jpg); }
+  51%  { background-image: url(/src/assets/d.jpg); }
+
+  52%  { background-image: url(/src/assets/e.jpg); }
+  64%  { background-image: url(/src/assets/e.jpg); }
+
+  65%  { background-image: url(/src/assets/v.webp); }
+  77%  { background-image: url(/src/assets/v.webp); }
+
+  78%  { background-image: url(/src/assets/m.jpg); }
+  90%  { background-image: url(/src/assets/m.jpg); }
+
+  91%  { background-image: url(/src/assets/s.jpg); }
+  99%  { background-image: url(/src/assets/s.jpg); }
+  /* 100% { background-image: url(/src/assets/n.jpg); } */
+}
+
+.search-input{
+      background: #555555c2;
+    border: 1px solid white;
+    color: #ffffff;
+}
+
+
+
 .data_car{
   width: 60%;
    margin: 0 auto;
 }
 
 .hero-section h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  text-align: center;
+    font-size: 2rem;
+    /* margin-bottom: 24px; */
+    text-align: center;
+    width: fit-content;
+    background: #555555c7;
+    
+ display: inline;
   
 }
 
@@ -48,8 +90,7 @@
  
 } */
 .filters-section {
-     display: flex
-;
+     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     background: #f8fafc;
@@ -196,11 +237,68 @@
   color: #666;
 }
 
+.car-navbar_bar-search {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.car-navbar_bar-search form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15); /* شفاف */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 5px 15px;
+  backdrop-filter: blur(6px); /* تأثير زجاجي */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.car-navbar_bar-search form:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  color: white;
+  font-size: 16px;
+      width: 455px;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-car-icon {
+  font-size: 37px;
+  color: white;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.search-car-icon:hover {
+  transform: scale(1.1);
+}
+.search-button{
+  font-family: "Cairo", sans-serif;
+    /* color: red; */
+    background: border-box;
+    /* font-size: 28px; */
+    box-shadow: none;
+    border: none;
+   width: 50px;
+  }
+
 /* التجاوب مع الشاشات الصغيرة */
 @media (max-width: 768px) {
   .hero-section {
     padding: 50px 15px;
-        height: 21vh;
+        height:37vh;
   }
   
   .hero-section h1 {
@@ -224,9 +322,8 @@
   }
   
   .filter-option {
-           padding: 2px 5px;
-        font-size: 0.6rem; 
-    
+       padding: 2px 9px;
+        font-size: 0.8rem;
   }
   
   .reset-btn {
@@ -238,6 +335,15 @@
       margin: 2px 15px;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
+  .search-input {
+    width: 200px;
+  }
+  .car-navbar_bar-search form{
+    padding: 0 5px;
+  }
+  .search-car-icon {
+  font-size: 22px;
+}
 }
 
 @media (max-width: 480px) {
@@ -249,6 +355,7 @@
   }
   .data_car{
     width: 100%;
+        margin-top: 45px;
   }
   
   .hero-section p {
