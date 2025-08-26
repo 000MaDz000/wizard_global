@@ -1,0 +1,79 @@
+.car-navbar {
+  background: #ffffff;
+  padding: 0px 150px;
+  color: #000000;
+}
+
+.car-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.car-navbar-logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.car-navbar-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.car-navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.car-navbar-link {
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.car-navbar-link:hover {
+  color: #2112f3;
+}
+
+.car-navbar-logo img{
+    width: 185px;
+}
+/* 📱 موبايل */
+@media (max-width: 768px) {
+  .car-navbar-toggle {
+    display: block;
+  }
+  .car-navbar{
+    
+    padding: 3px 10px;
+  }
+
+  .car-navbar-list {
+    display: none;
+    flex-direction: column;
+    background: #818ce0;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 15px;
+    width: 200px;
+  }
+  .car-navbar-logo img{
+    
+    width: 130px;
+}
+
+  .car-navbar-list.open {
+    display: flex;
+  }
+}

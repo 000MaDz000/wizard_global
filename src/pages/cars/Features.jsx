@@ -84,7 +84,7 @@ const CarServicesSection = ({ data }) => {
     return (
         <div className="car-services-container">
             {/* قسم الخدمات */}
-            <section className="car-services">
+            <section id="services-section" className="car-services">
                 <h2>{data.title}</h2>
                 <p className="services-description">
                     {data.description}
@@ -94,7 +94,7 @@ const CarServicesSection = ({ data }) => {
                     {data.services?.map(service => (
                         <div key={service.id} className="car-service-card">
                             <div className="car-service-icon">
-                                <ClientImage src={service.service_icon} style={{ width: "8rem", height: "8rem" }} />
+                                <ClientImage src={service.service_icon} style={{ width: "5rem", height: "5rem" }} />
                             </div>
                             <h3>{service.service_name}</h3>
                             <p>{service.service_details}</p>
@@ -114,7 +114,7 @@ const CarServicesSection = ({ data }) => {
             </section>
 
             {/* نموذج طلب السيارة */}
-            <section className="car-request-form">
+            <section id='contact-section' className="car-request-form">
                 <h2>{data.contact_section.title}</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
