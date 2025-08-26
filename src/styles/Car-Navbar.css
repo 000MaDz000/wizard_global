@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+      padding-top: 10px;
 }
 
 .car-navbar-logo {
@@ -34,13 +35,17 @@
 
 .car-navbar-link {
   text-decoration: none;
-  color: #000000;
-  font-size: 18px;
-  transition: color 0.3s ease;
+    color: #ffffff;
+    background: #2a6496;
+    font-size: 22px;
+    padding: 1px 9px;
+    border-radius: 10px;
+    font-weight: 800;
+    transition: color 0.3s ease;
 }
 
 .car-navbar-link:hover {
-  color: #2112f3;
+  color: #ffffff;
 }
 
 .car-navbar-logo img{
@@ -48,6 +53,14 @@
 }
 /* 📱 موبايل */
 @media (max-width: 768px) {
+  .car-navbar-container {
+    padding-top: 0;
+  }
+  .car-navbar-link {
+    color: #fff;
+    font-size: 18px;
+    
+}
   .car-navbar-toggle {
     display: block;
   }
@@ -59,14 +72,20 @@
   .car-navbar-list {
     display: none;
     flex-direction: column;
-    background: #818ce0;
+            background: #2a6496;
     position: absolute;
     top: 60px;
     right: 20px;
     padding: 15px;
     border-radius: 10px;
     gap: 15px;
-    width: 200px;
+    width: 107px;
+    
+  }
+  .car-navbar-list li{
+           border: 1px solid rgb(255, 255, 255);
+        padding: 3px;
+        border-radius: 8px;
   }
   .car-navbar-logo img{
     
@@ -75,5 +94,7 @@
 
   .car-navbar-list.open {
     display: flex;
+    text-align: center;
+    z-index: 100;
   }
 }
