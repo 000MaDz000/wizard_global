@@ -80,6 +80,9 @@ export const homepagePopulation = {
 // Cars Page populations
 export const carsPagePopulation = {
     categories: true,
+    navbar: {
+        populate: ['links']
+    },
     filters: {
         populate: {
             brands: true,

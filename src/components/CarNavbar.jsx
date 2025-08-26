@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "../styles/Car-Navbar.css";
 import { useNavigate } from "react-router-dom";
-
+import ClientLink from './ClientLink';
 import logo from '../assets/red_logo.png';
 
-const CarNavbar = () => {
+/**
+ * 
+ * @param {{data?: import("../api/types/content-types").Navbar}} param0 
+ */
+const CarNavbar = ({ data }) => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
+    if (!data) return;
 
     return (
         <nav className="car-navbar" >
@@ -27,21 +32,15 @@ const CarNavbar = () => {
 
                 {/* الروابط */}
                 <ul className={`car-navbar-list ${isOpen ? "open" : ""}`}>
-                    <li className="car-navbar-item">
-                        <a href="#cars-section" className="car-navbar-link">
-                            السيارات
-                        </a>
-                    </li>
-                    <li className="car-navbar-item">
-                        <a href="#services-section" className="car-navbar-link">
-                            الخدمات
-                        </a>
-                    </li>
-                    <li className="car-navbar-item">
-                        <a href="#contact-section" className="car-navbar-link">
-                            تواصل معنا
-                        </a>
-                    </li>
+                    {
+                        data.links.map((link, i) => (
+                            <li className="car-navbar-item">
+                                <ClientLink href={link} className="car-navbar-link" key={i}>
+                                    {link.text}
+                                </ClientLink>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
         </nav>

@@ -210,9 +210,11 @@ const CarList = () => {
                 />
             </Helmet>
 
- <div className="carr" style={{background:"white"}}>
-                     <CarNavbar/>
-            </div>            <div className="car-list-page">
+            <div className="carr" style={{ background: "white" }}>
+                <CarNavbar data={page.navbar} />
+            </div>
+
+            <div className="car-list-page">
                 <div className="hero-section">
                     <div className="data_car">
                         <h1>{page.hero_title}</h1>

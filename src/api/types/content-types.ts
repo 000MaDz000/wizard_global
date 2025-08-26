@@ -236,6 +236,7 @@ export interface CarsPage {
     reset_filters_text: string;
     categories_section_title: string;
     categories?: TextArray[];
+    navbar?: Navbar;
     services_section?: {
         title: string;
         description?: string;
