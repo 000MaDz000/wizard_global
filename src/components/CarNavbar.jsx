@@ -3,7 +3,7 @@ import "../styles/Car-Navbar.css";
 import { useNavigate } from "react-router-dom";
 import ClientLink from './ClientLink';
 import logo from '../assets/red_logo.png';
-
+import LanguageSelector from './components/LanguageSelector';
 /**
  * 
  * @param {{data?: import("../api/types/content-types").Navbar}} param0 
@@ -41,6 +41,10 @@ const CarNavbar = ({ data }) => {
                             </li>
                         ))
                     }
+                        {/* اللغة */}
+    <li className="car-navbar-item">
+        <LanguageSelector />
+    </li>
                 </ul>
             </div>
         </nav>
@@ -48,3 +52,4 @@ const CarNavbar = ({ data }) => {
 };
 
 export default CarNavbar;
+
