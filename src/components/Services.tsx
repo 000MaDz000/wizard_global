@@ -23,7 +23,7 @@ const OurServices = ({ data }: { data: ServicesSection }) => {
                             {/* <img src={cars} alt="سيارات" /> */}
                             <ClientImage src={service.icon} className="icon" />
                             <h3 className="servic_h3">{service.title}</h3>
-                            <p>{data.services?.[1].title}</p>
+                            <p>{service.description}</p>
                             <ClientLink href={service.link!} className="learn-more-btn">{service.link?.text}</ClientLink>
                         </div>
                     ))
