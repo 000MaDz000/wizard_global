@@ -37,7 +37,7 @@ const CarServiceDetails = () => {
     };
 
     const titleStyle = {
-        fontSize: "2.7rem",
+        fontSize: "2rem",
         color: "#ffffffff",
         marginBottom: "15px",
         textAlign: "center"
@@ -88,3 +88,4 @@ const CarServiceDetails = () => {
 };
 
 export default CarServiceDetails;
+
