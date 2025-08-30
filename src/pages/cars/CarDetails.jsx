@@ -144,7 +144,25 @@ const CarDetails = () => {
                         </div>
                     </div>
                     {/* رقم رجل المبيعات تبع السيارات */}
-                    <Link className="contact-btn" to={car.car_supplier?.contact_link}>{car.cta_button_text}</Link>
+                    <Link 
+  to={car.car_supplier?.contact_link}
+                        className='contact-btn'
+  style={{
+    display: "inline-block",
+    padding: "10px 20px",
+    backgroundColor: "#2a6496", // أزرق فاتح
+    color: "#fff",
+    textDecoration: "none",
+    borderRadius: "8px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    textAlign: "center",
+    transition: "background-color 0.3s ease",
+  }}
+>
+  {car.cta_button_text}
+</Link>
+                    
                 </div>
             </div>
             <Footer />
