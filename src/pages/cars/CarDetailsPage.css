@@ -292,8 +292,9 @@
   transition: all 0.3s;
   margin-top: 30px;
   display: block;
-  width: 100%;
+  width: 90%;
   text-align: center;
+  margin: 0 auto;
 }
 
 .contact-btn:hover {
@@ -349,4 +350,5 @@
     height: 40px;
     font-size: 1.2rem;
   }
+
 }
