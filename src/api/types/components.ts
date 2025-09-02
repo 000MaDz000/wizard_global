@@ -198,11 +198,11 @@ export interface Filters {
     title: string;
     type: 'brand' | 'fuel' | 'model' | "condition";
     brands?: CarBrand[];
-    models?: CarModel[];
     fuel_types?: CarFuelType[];
     all_condition_text?: string;
     used_condition_text?: string;
     new_condition_text?: string;
+    choose_model_filter_title?: string;
 }
 
 export type CarService = ECommerceService;

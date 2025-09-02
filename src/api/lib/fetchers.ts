@@ -95,11 +95,44 @@ export const fetchArticleCategory = async (id: number, populate?: string | strin
     return response.data;
 };
 
-export const fetchCars = async (): Promise<StrapiResponse<Car[]>> => {
+export const fetchCars = async (filterData: { brand?: CarBrand, model?: CarModel, fuel_type?: CarFuelType, condition?: "new" | "used" }): Promise<StrapiResponse<Car[]>> => {
+    const filters: Record<any, any> = {};
+
+    if (filterData.brand) {
+        filters.brand = {
+            id: {
+                $eq: filterData.brand.id
+            }
+        }
+    }
+
+    if (filterData.model) {
+        filters.model = {
+            id: {
+                $eq: filterData.model.id
+            }
+        }
+    }
+
+    if (filterData.fuel_type) {
+        filters.fuel_type = {
+            id: {
+                $eq: filterData.fuel_type.id
+            }
+        }
+    }
+
+    if (filterData.condition) {
+        filters.condition = {
+            $eq: filterData.condition
+        }
+    }
+
     const response = await axios.get(`/cars`, {
         params: {
             ...withLocale(),
-            populate: carsPopulation
+            populate: carsPopulation,
+            filters
         }
     });
 

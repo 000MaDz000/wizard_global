@@ -102,6 +102,8 @@ export interface CarSupplier {
 
 export interface CarBrand extends StrapiEntity {
     name: string;
+    logo?: StrapiMedia;
+    models?: CarModel[] | null;
     cars?: Car[];
     createdAt: string;
     updatedAt: string;

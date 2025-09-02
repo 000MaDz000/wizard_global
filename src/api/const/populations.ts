@@ -85,8 +85,9 @@ export const carsPagePopulation = {
     },
     filters: {
         populate: {
-            brands: true,
-            models: true,
+            brands: {
+                populate: ['models', "logo"]
+            },
             fuel_types: true
         }
     },

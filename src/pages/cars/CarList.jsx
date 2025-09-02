@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
@@ -7,7 +7,6 @@ import Footer from '../../components/Footer';
 import Navbar_bar from './Nav';
 import Features from './Features';
 import { useCars, useCarsPage } from '../../api/hooks';
-import { buildStrapiPopulateParams, carsPagePopulation, carsPopulation } from '../../api/const/populations';
 import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
 import CarNavbar from '../../components/CarNavbar';
@@ -15,72 +14,38 @@ import { CiSearch } from "react-icons/ci";
 
 
 const CarList = () => {
-    const carsRes = useCars(buildStrapiPopulateParams(carsPopulation));
-    const pageRes = useCarsPage(buildStrapiPopulateParams(carsPagePopulation));
-
-    // const [cars, setCars] = useState([]);
-    const [filteredCars, setFilteredCars] = useState([]);
     const [selectedBrand, setSelectedBrand] = useState('all');
     const [selectedCondition, setSelectedCondition] = useState('all');
     const [selectedModel, setSelectedModel] = useState('all');
     const [selectedFuelType, setSelectedFuelType] = useState('all'); // ✅ جديد
-    const [searchTerm, setSearchTerm] = useState('');
+    const [_searchTerm, setSearchTerm] = useState('');
+
+    const filters = useMemo(() => ({
+        brand: typeof selectedBrand === "string" ? undefined : selectedBrand,
+        model: typeof selectedModel === "string" ? undefined : selectedModel,
+        fuel_type: typeof selectedFuelType === "string" ? undefined : selectedFuelType,
+        condition: selectedCondition === "all" ? undefined : selectedCondition,
+    }), [selectedBrand, selectedModel, selectedFuelType, selectedCondition]);
+
+
+    const carsRes = useCars(filters);
+    const pageRes = useCarsPage();
+
 
     const { i18n } = useTranslation();
     const currentLang = i18n.language;
-      const [searchQuery, setSearchQuery] = useState('');
-    
+    const [searchQuery, setSearchQuery] = useState('');
+
     const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchTerm(searchQuery.toLowerCase());
+        e.preventDefault();
+        setSearchTerm(searchQuery.toLowerCase());
 
-    // نزّل الصفحة مباشرة على قسم السيارات
-    const carsSection = document.getElementById('cars-section');
-    if (carsSection) {
-        carsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-};
-
-    useEffect(() => {
-        if (!carsRes.data?.data) return;
-
-        const lowerSearch = searchTerm.toLowerCase();
-
-        const results = carsRes.data.data.filter(car => {
-            // Brand filter
-            if (selectedBrand !== 'all' && car.brand?.name !== selectedBrand) return false;
-
-            // Condition filter
-            if (selectedCondition !== 'all' && car.condition !== selectedCondition) return false;
-
-            // Model filter
-            if (selectedModel !== 'all' && car.model?.name !== selectedModel) return false;
-
-            // Fuel type filter
-            if (selectedFuelType !== 'all' && car.fuel_type?.name !== selectedFuelType) return false;
-
-            // Search filter
-            if (lowerSearch) {
-                const matchesSearch =
-                    car.brand?.name?.toLowerCase().includes(lowerSearch) ||
-                    car.model?.name?.toLowerCase().includes(lowerSearch) ||
-                    car.year?.toString().includes(lowerSearch) ||
-                    car.description?.toLowerCase().includes(lowerSearch);
-                if (!matchesSearch) return false;
-            }
-
-            return true; // Passed all filters
-        });
-
-        setFilteredCars(results);
-    }, [
-        searchTerm,
-        selectedBrand,
-        selectedCondition,
-        selectedFuelType,
-        selectedModel,
-        carsRes.data?.data
-    ]);
+        // نزّل الصفحة مباشرة على قسم السيارات
+        const carsSection = document.getElementById('cars-section');
+        if (carsSection) {
+            carsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const resetFilters = () => {
         setSelectedBrand('all');
@@ -99,29 +64,26 @@ const CarList = () => {
                 return filter.brands.map((brand) => (
                     <label
                         key={brand.id}
-                        className={`filter-option ${selectedBrand === brand.name ? "active" : ""}`}
+                        className={`filter-option ${selectedBrand?.name === brand.name ? "active" : ""}`}
                     >
-                        <input
-                            type="radio"
-                            name="brand"
-                            checked={selectedBrand === brand.name}
-                            onChange={() => setSelectedBrand(brand.name)}
+                        <ClientImage src={brand.logo}
+                            onClick={() => setSelectedBrand(brand)}
+                            style={{ width: 50, height: 50 }}
                         />
-                        {brand.name}
                     </label>
                 ))
 
             case "model":
-                return filter.models.map((model) => (
+                return filter.models?.map((model) => (
                     <label
                         key={model.id}
-                        className={`filter-option ${selectedModel === model.name ? "active" : ""}`}
+                        className={`filter-option ${selectedModel?.name === model.name ? "active" : ""}`}
                     >
                         <input
                             type="radio"
                             name="model"
-                            checked={selectedModel === model.name}
-                            onChange={() => setSelectedModel(model.name)}
+                            checked={selectedModel?.name === model.name}
+                            onChange={() => setSelectedModel(model)}
                         />
                         {model.name}
                     </label>
@@ -131,13 +93,13 @@ const CarList = () => {
                 return filter.fuel_types.map((fuel) => (
                     <label
                         key={fuel.id}
-                        className={`filter-option ${selectedFuelType === fuel.name ? "active" : ""}`}
+                        className={`filter-option ${selectedFuelType?.name === fuel.name ? "active" : ""}`}
                     >
                         <input
                             type="radio"
                             name="fuel"
-                            checked={selectedFuelType === fuel.name}
-                            onChange={() => setSelectedFuelType(fuel.name)}
+                            checked={selectedFuelType?.name === fuel.name}
+                            onChange={() => setSelectedFuelType(fuel)}
                         />
                         {fuel.name}
                     </label>
@@ -190,7 +152,7 @@ const CarList = () => {
     const page = pageRes.data.data;
 
     /** * @type {import('../../api/types/content-types').Car[]} */
-    const cars = filteredCars || carsRes.data?.data || [];
+    const cars = carsRes.data?.data || [];
 
     return (
         <>
@@ -228,7 +190,7 @@ const CarList = () => {
                     <div className="data_car">
                         <h1>{page.hero_title}</h1>
                     </div>
-                     <br />
+                    <br />
 
                     <div className="car-navbar_bar-search">
                         <div className="d">
@@ -255,7 +217,7 @@ const CarList = () => {
 
                 {/* الفلاتر */}
                 <div className="filters-section">
-                     <button className="reset-btn" onClick={resetFilters}>{page.reset_filters_text}</button>
+                    <button className="reset-btn" onClick={resetFilters}>{page.reset_filters_text}</button>
                     {
                         page.filters.map(filter => (
                             <div className='filter-group' key={filter.id}>
@@ -270,7 +232,25 @@ const CarList = () => {
                         ))
                     }
 
-                   
+                    {
+
+                        filters.brand ? (
+                            <div className='filter-group'>
+                                <h3 className='filter-title'>{page.filters.find(item => Boolean(item.choose_model_filter_title) && item.type === "brand")?.choose_model_filter_title}</h3>
+                                <div className='filter-options'>
+                                    {
+                                        renderFilterOptions({
+                                            type: "model",
+                                            models: filters.brand.models || []
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        ) : null
+
+
+                    }
+
                 </div>
 
                 {/* عرض السيارات */}

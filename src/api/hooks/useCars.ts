@@ -4,11 +4,12 @@ import { StrapiResponse } from '../types/strapi';
 import { Car } from '../types/content-types';
 
 export const useCars = (
-    options?: UseQueryOptions<StrapiResponse<Car[]>>
+    filters?: Parameters<typeof fetchCars>[0],
+    options?: UseQueryOptions<StrapiResponse<Car[]>>,
 ) => {
     return useQuery({
-        queryKey: ['cars'],
-        queryFn: () => fetchCars(),
+        queryKey: ['cars', filters],
+        queryFn: () => fetchCars(filters || {}),
         ...options,
     });
 };
