@@ -6,7 +6,7 @@ import '../../styles/Articles.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/red_logo.png'
 import { Helmet } from 'react-helmet';
-import '../cars/nav.css'
+import '../cars/Nav.css'
 
 // React Icons
 import { FaTools, FaMobileAlt, FaRobot, FaDatabase, FaCode, FaFire } from 'react-icons/fa';

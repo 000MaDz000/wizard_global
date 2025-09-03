@@ -57,7 +57,7 @@ const CarList = () => {
                     >
                         <ClientImage src={brand.logo}
                             onClick={() => setSelectedBrand(brand)}
-                            style={{ width: 50, height: 50 }}
+                            style={{ width: 100, height: 100 }}
                         />
                     </label>
                 ));
