@@ -1,5 +1,5 @@
 .language-selector {
-    display: flex;
+    
     justify-content: flex-end;
     padding: 0.5rem 2rem;
 }
@@ -20,8 +20,7 @@
 }
 @media (max-width: 768px) {
 .language-dropdown {
-    width: 40px;
-    margin-right: -71px;
-    padding: 3px 0px;
+           width: 90px;
+        
 }
 }
