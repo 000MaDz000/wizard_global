@@ -1,33 +1,23 @@
-
-import React from 'react';
-import { CopperLoading } from 'respinner';
-
-const Loading = ({ children }: { children?: any }) => {
+import React from "react";
+import "./Loading.css";
+import logo from '../../assets/red_logo.png'
+const Loading = () => {
     return (
-        <div
-            style={{
-                minHeight: '100vh',
-                background: 'radial-gradient(circle at top left, #e0f2ff, #f7fbff)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                position: "fixed",
-                inset: 0
-            }}
-        >
-            <CopperLoading id="spin" fill={"#0070f3"} style={{ zIndex: 60 }} />
-            <p
-                style={{
-                    marginTop: '1.5rem',
-                    fontSize: '1.25rem',
-                    color: '#333',
-                    fontWeight: '500',
-                    fontFamily: 'system-ui, sans-serif',
-                }}
-            >
-                {children}
-            </p>
+        <div className="loading-container">
+            <img className="lod_img" src={logo} alt=""/>
+            <div className="skeleton-card">
+                <div className="skeleton thumbnail"></div>
+                <div className="skeleton text-line short"></div>
+                <div className="skeleton text-line"></div>
+                <div className="skeleton text-line"></div>
+            </div>
+
+            <div className="skeleton-card">
+                <div className="skeleton thumbnail"></div>
+                <div className="skeleton text-line short"></div>
+                <div className="skeleton text-line"></div>
+                <div className="skeleton text-line"></div>
+            </div>
         </div>
     );
 };
