@@ -5,6 +5,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css'; // لو عندك ستايل للـ loader
 import logo from './assets/xwazir.jpg'
 
+// import Home from './pages/Home'
+
   const Loader = () => (
     <div className="loader-container">
       <div className="loader_image">

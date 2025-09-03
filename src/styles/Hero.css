@@ -37,6 +37,20 @@
     padding-left: 104px;
     width: 35%;}
 
+    .animate-hero {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .images{
   flex: 1;
    position: relative;
@@ -51,6 +65,8 @@
 .images img{
       width: 232px;
   margin-top: -35px;
+   animation: fadeInUp 1s forwards;
+  animation-delay: 0.5s;
 }
 .images .car{
         width: 540px;
