@@ -164,16 +164,16 @@ const ContactForm = ({ data }) => {
                                     display: "inline-flex",
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    width: "45px",
-                                    height: "45px",
+                                    width: "80px",
+                                    height: "80px",
                                     borderRadius: "50%",
                                     backgroundColor: "#007bff",
                                     color: "#fff",
                                     fontWeight: "bold",
-                                    fontSize: "25px"
+                                    fontSize: "45px"
                                 }}
                             >
-                                B
+                                b
                             </span>
                         </a>
 

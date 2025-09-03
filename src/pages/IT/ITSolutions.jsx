@@ -5,8 +5,8 @@ import Footer from '../../components/Footer';
 import '../../styles/Articles.css'
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/red_logo.png'
-import it from '../../assets/pexels-luckysam-50614.jpg'
 import { Helmet } from 'react-helmet';
+import '../cars/nav.css'
 
 // React Icons
 import { FaTools, FaMobileAlt, FaRobot, FaDatabase, FaCode, FaFire } from 'react-icons/fa';
@@ -35,60 +35,6 @@ const ITSolutions = () => {
     if (res.isLoading) return;
     const data = res.data?.data;
     if (!data) return;
-
-
-    // Dummy Data للقسم
-    // const itData = {
-    //     hero_title: "حلول المعلومات والتقنية",
-    //     intro: "نقدم حلول تقنية متكاملة تشمل تطوير التطبيقات الذكية، أنظمة إدارة الأعمال، ودمج تقنيات الذكاء الاصطناعي في بيئات العمل لضمان التوسع الرقمي.",
-
-    //     services: [
-    //         { name: "تطوير تطبيقات الهاتف (iOS وAndroid)", icon: <FaMobileAlt size={24} /> },
-    //         { name: "استشارات تقنية لمشاريع الابتكار", icon: <FaTools size={24} /> },
-    //         { name: "إدارة بيانات وتحليلات", icon: <FaDatabase size={24} /> },
-    //         { name: "تطوير حلول ذكاء صناعي", icon: <FaRobot size={24} /> },
-    //         { name: "ربط API بين الأنظمة", icon: <FaCode size={24} /> }
-    //     ],
-
-    //     technologies: [
-    //         { name: "Flutter", icon: <SiFlutter size={24} /> },
-    //         { name: "React", icon: <SiReact size={24} /> },
-    //         { name: "Supabase", icon: <FaDatabase size={24} /> },
-    //         { name: "GPT", icon: <SiOpenai size={24} /> },
-    //         { name: "Node.js", icon: <SiNodedotjs size={24} /> },
-    //         { name: "Firebase", icon: <FaFire size={24} /> }
-    //     ],
-
-    //     projects: [
-    //         {
-    //             id: 1,
-    //             name: "LingoWise",
-    //             description: "تطبيق ترجمة المكالمات",
-    //             image: it,
-    //             details: "تطبيق متقدم لترجمة المكالمات الصوتية في الوقت الحقيقي يدعم 40 لغة",
-    //             features: ["ترجمة فورية", "دعم 40 لغة", "تخزين المحادثات"],
-    //             demoUrl: "https://demo.example.com"
-    //         },
-    //         {
-    //             id: 2,
-    //             name: "SmartAgri",
-    //             description: "نظام زراعي ذكي",
-    //             image: it,
-    //             details: "نظام إدارة المزارع الذكية باستخدام إنترنت الأشياء والذكاء الاصطناعي",
-    //             features: ["مراقبة التربة", "توصيات الري", "تنبؤات المحاصيل"],
-    //             demoUrl: "https://demo.example.com"
-    //         },
-    //         {
-    //             id: 3,
-    //             name: "CashierPro",
-    //             description: "برنامج محاسبي ذكي",
-    //             image: it,
-    //             details: "نظام نقاط بيع متكامل مع تحليلات مالية ذكية",
-    //             features: ["إدارة المخزون", "تقارير مالية", "تكامل مع البنوك"],
-    //             demoUrl: "https://demo.example.com"
-    //         }
-    //     ]
-    // };
 
 
     return (

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import './CarListPage.css';
 import Footer from '../../components/Footer';
 import Navbar_bar from './Nav';
-import Features from '../../components/Features';
+import Features from './Features';
 import { useCars, useCarsPage } from '../../api/hooks';
 import Loading from '../../components/Loading';
 import ClientImage from '../../components/ClientImage';
