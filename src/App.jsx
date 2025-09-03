@@ -3,14 +3,21 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css'; // لو عندك ستايل للـ loader
+import logo from './assets/xwazir.jpg'
 
 // Loader كبير وثابت
-const Loader = () => (
-  <div className="loader-container">
-    <div className="loader-icon">⏳</div>
-    <p>Loading...</p>
-  </div>
-);
+ // Loader كبير وثابت
+  const Loader = () => (
+    <div className="loader-container">
+      <div className="loader_image">
+      <img src={logo} alt="" />
+      </div>
+      
+      <br />
+      <div className="loader-icon">⏳</div>
+     
+    </div>
+  );
 
 // إعداد React Query
 const queryClient = new QueryClient({
