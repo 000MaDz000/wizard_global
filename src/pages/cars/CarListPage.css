@@ -9,7 +9,6 @@
 }
 
 /* قسم الهيرو */
-/* قسم الهيرو */
 .hero-section {
   position: relative;
   background-size: cover;
@@ -18,35 +17,21 @@
   text-align: center;
   padding: 150px 20px;
   height: 25vh;
-
-  animation: bgSlider 60s infinite ease-in-out;
+  
+  animation: bgSlider 30s infinite ease-in-out;
 }
 
 @keyframes bgSlider {
   0%   { background-image: url(/src/assets/b.jpg); }
-  12%  { background-image: url(/src/assets/b.jpg); }
+  33%  { background-image: url(/src/assets/b.jpg); }
 
-  13%  { background-image: url(/src/assets/a.jpg); }
-  25%  { background-image: url(/src/assets/a.jpg); }
+  34%  { background-image: url(/src/assets/c.jpg); }
+  66%  { background-image: url(/src/assets/c.jpg); }
 
-  26%  { background-image: url(/src/assets/c.jpg); }
-  38%  { background-image: url(/src/assets/c.jpg); }
+  67%  { background-image: url(/src/assets/d.jpg); }
+  99%  { background-image: url(/src/assets/d.jpg); }
 
-  39%  { background-image: url(/src/assets/d.jpg); }
-  51%  { background-image: url(/src/assets/d.jpg); }
-
-  52%  { background-image: url(/src/assets/e.jpg); }
-  64%  { background-image: url(/src/assets/e.jpg); }
-
-  65%  { background-image: url(/src/assets/v.webp); }
-  77%  { background-image: url(/src/assets/v.webp); }
-
-  78%  { background-image: url(/src/assets/m.jpg); }
-  90%  { background-image: url(/src/assets/m.jpg); }
-
-  91%  { background-image: url(/src/assets/s.jpg); }
-  99%  { background-image: url(/src/assets/s.jpg); }
-  /* 100% { background-image: url(/src/assets/n.jpg); } */
+  100% { background-image: url(/src/assets/b.jpg); } /* للرجوع للبداية بسلاسة */
 }
 
 .search-input{
@@ -445,3 +430,4 @@ width: 93%;
     grid-template-columns: 1fr;
   }
 }
+
