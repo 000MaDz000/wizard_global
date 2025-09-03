@@ -65,10 +65,10 @@ const CompanyDetails = () => {
             <nav className="navbar_bar">
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact">
-                        <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
-                            className="contact-link">
+                       <Link to={-1} className="contact-link">
+                            
                             {company.company_translation.back_to_previous_page_text}
-                        </a>
+                        </Link>
                     </div>
                     <div className="navbar_bar-links">
                         <NavLink to="/">

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
 import './CarListPage.css';
 import Footer from '../../components/Footer';
@@ -238,7 +239,9 @@ const CarList = () => {
                                     <p>{car.condition_field_text}: {car.condition_display_text}</p>
                                     <p>{car.fuel_type_field_text}: {car.fuel_type?.name}</p>
                                     <p className="price">{car.price.toLocaleString()} {car.currency_sign}</p>
-                                    <a href={`/cars/${car.id}`} className="details-btn">{car.details_button_text}</a>
+                                    <Link to={`/cars/${car.id}`} className="details-btn">
+                                        {car.details_button_text}
+                                    </Link>
                                 </div>
                             </div>
                         ))

@@ -9,6 +9,8 @@ import logo from '../assets/red_logo.png';
 import "../styles/whyDetails.css";
 import { useWhyUsPage } from '../api/hooks/useWhyUsPage';
 import Loading from '../components/Loading';
+import { Link } from "react-router-dom";
+
 
 const WhyDetails = () => {
     const navigate = useNavigate();
@@ -24,10 +26,9 @@ const WhyDetails = () => {
             <nav className="navbar_bar">
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact">
-                        <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
-                            className="contact-link">
+                        <Link to={-1} className="contact-link">
                             {data.back_to_previous_page_text}
-                        </a>
+                        </Link>
                     </div>
                     <div className="navbar_bar-links">
                         <NavLink to="/">
@@ -43,7 +44,7 @@ const WhyDetails = () => {
                 <h1 className="why-title">{data.title}</h1>
             </div>
             <div className="why-container">
-                
+
                 <p className="why-text">
                     {data.text}
                 </p>

@@ -57,8 +57,8 @@ const ArticleDetail = () => {
             </Helmet>
 
             <div className="article-detail-page">
-{/*                 <LanguageSelector /> */}
-                <nav className="navbar_bar">
+                <LanguageSelector />
+                {/* <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
@@ -71,7 +71,7 @@ const ArticleDetail = () => {
                             </NavLink>
                         </div>
                     </div>
-                </nav>
+                </nav> */}
 
                 <ClientImage src={article.image} alt={article.title} className="article-detail-image" />
                 <div className="article-detail-content">
