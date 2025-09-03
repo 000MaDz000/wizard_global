@@ -9,7 +9,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { ServicesSection } from "../api/types/components";
 import ClientLink from "./ClientLink";
 import ClientImage from "./ClientImage";
-
+import '../pages/cars/Features.css'
 // import FaCar from 'react-icons'
 const OurServices = ({ data }: { data: ServicesSection }) => {
     if (!data) return;

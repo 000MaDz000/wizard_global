@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useParams, NavLink } from 'react-router-dom';
-
+import './cars/Nav.css'
 import Footer from "../components/Footer";
 import logo from '../assets/red_logo.png';
 import "../styles/whyDetails.css";
