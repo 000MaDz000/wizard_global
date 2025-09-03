@@ -6,28 +6,28 @@ import type { Hero } from "../api/types/components";
 import ClientLink from "./ClientLink";
 
 const Hero = ({ data }: { data?: Hero }) => {
-  if (!data) return null;
+    if (!data) return null;
 
-  return (
-    <section className="hero">
-      <Navbar />
-      <div className="overlay"></div>
-      <div className="all">
-        <div className="hero-content animate-hero">
-          <h1>{data.title}</h1>
-          <p>{data.subtitle}</p>
-          <ClientLink href={data.cta}>
-            <button>{data.cta.text}</button>
-          </ClientLink>
-        </div>
-        <div className="images animate-hero">
-          <div className="car_it_ecom">
-            <img className="cartoon_imag" src={all} alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section className="hero">
+            <Navbar />
+            <div className="overlay"></div>
+            <div className="all">
+                <div className="hero-content animate-hero">
+                    <h1>{data.title}</h1>
+                    <p>{data.subtitle}</p>
+                    <ClientLink href={data.cta}>
+                        <button>{data.cta.text}</button>
+                    </ClientLink>
+                </div>
+                <div className="images animate-hero">
+                    <div className="car_it_ecom">
+                        <img className="cartoon_imag" src={all} alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default Hero;

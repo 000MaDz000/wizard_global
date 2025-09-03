@@ -6,13 +6,15 @@
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+border-bottom: .1px solid #ffffff4f;
+    width: 90%;
+    padding: 0 48px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .logo {
@@ -139,15 +141,19 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .logo img {
     width: 137px;
+  }
+  .container{
+    padding: 0;
   }
   
   .nav-links {
     min-height: 70vh;
     padding: 1.5rem 0;
   }
+
   
   .nav-links li a {
     font-size: 1.1rem;
