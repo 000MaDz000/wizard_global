@@ -31,16 +31,23 @@ const Navbar = () => {
                 </div>
 
                 <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-                    {/* <li><a href="/">الرئيسية</a></li> */}
-                    {
-                        navbar.data?.data?.links.map(link => (
-                            <li><ClientLink href={link} key={link.text + link.href}>{link.text}</ClientLink></li>
-                        ))
-                    }
-                </ul>
+  {
+    navbar.data?.data?.links.map(link => (
+      <li key={link.text + link.href}>
+        <ClientLink href={link}>{link.text}</ClientLink>
+      </li>
+    ))
+  }
+
+  {/* زرار اللغة كـ li */}
+  <li className="language-selector-li">
+    <LanguageSelector />
+  </li>
+</ul>
+
 
                 <button className='cta'>  <a style={{ textDecoration: 'none', color: 'black' }} href="#contact">{navbar.data?.data?.contact_cta_text}</a></button>
-                  <LanguageSelector />
+                
                 {/* زر فتح/غلق القائمة */}
                 <button className="menu-toggle" onClick={toggleMenu}>
                     {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
