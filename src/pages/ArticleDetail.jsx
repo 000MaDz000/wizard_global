@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import  './cars/Nav.css'
 
 import '../styles/Articles.css';
 import Footer from '../components/Footer';
