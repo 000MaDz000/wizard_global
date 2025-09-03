@@ -41,7 +41,7 @@
   opacity: 0;
   transform: translateY(-20px);
   animation: fadeInUp 1s forwards;
-  animation-delay: 0.3s;
+  animation-delay: 0.9s;
 }
 
 @keyframes fadeInUp {
@@ -64,9 +64,9 @@
 }
 .images img{
       width: 232px;
-  margin-top: -35px;
+  margin-top: 42px;
    animation: fadeInUp 1s forwards;
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 .images .car{
         width: 540px;
@@ -465,7 +465,7 @@ padding: 10px 29px;
   }
   
   .images .cartoon_imag {
-    width: 321px;
-    margin-top: 15px;
+   width: 334px;
+        margin-top: 38px;
   }
 }
