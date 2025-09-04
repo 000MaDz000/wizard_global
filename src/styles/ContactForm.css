@@ -30,9 +30,9 @@
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 51px;
     margin-bottom: 20px;
 }
 
@@ -199,6 +199,7 @@
     
     .form-grid {
         grid-template-columns: 1fr;
+        gap: 2px;
     }
     
     .contact-icon, .social-icon {
@@ -210,8 +211,8 @@
         gap: 10px;
     }
     .botim_icon{
-    width: 55px;
-    height: 55px;
-    font-size: 38px;
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
 }
 }

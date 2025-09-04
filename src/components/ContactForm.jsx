@@ -157,7 +157,7 @@ const ContactForm = ({ data }) => {
                             href={`https://botim.me/${data.contact_info?.botim_number}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="contact-icon botim"
+                            // className="contact-icon botim"
                         >
                             <span
                                 className="botim_icon"
