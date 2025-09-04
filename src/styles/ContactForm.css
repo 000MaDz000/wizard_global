@@ -71,7 +71,7 @@
 }
 
 .submit-btn {
-    background: #5b7be4;
+    background: #0056b3;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -132,6 +132,11 @@
     color: white;
     transition: all 0.3s ease;
     text-decoration: none;
+}
+.botim_icon{
+    width: 80px;
+    height: 80px;
+    font-size: 45px;
 }
 
 .contact-icon span {
@@ -204,4 +209,9 @@
     .social-links{
         gap: 10px;
     }
+    .botim_icon{
+    width: 55px;
+    height: 55px;
+    font-size: 38px;
+}
 }

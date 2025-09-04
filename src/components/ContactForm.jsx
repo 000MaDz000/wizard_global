@@ -160,17 +160,17 @@ const ContactForm = ({ data }) => {
                             className="contact-icon botim"
                         >
                             <span
+                                className="botim_icon"
                                 style={{
                                     display: "inline-flex",
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    width: "60px",
-                                    height: "60px",
+                                    
                                     borderRadius: "50%",
                                     backgroundColor: "#007bff",
                                     color: "#fff",
                                     fontWeight: "bold",
-                                    fontSize: "35px"
+                                    
                                 }}
                             >
                                 b
