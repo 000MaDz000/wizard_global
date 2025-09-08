@@ -3,12 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useParams, NavLink } from 'react-router-dom';
-
+import  './cars/Nav.css'
 import Footer from "../components/Footer";
 import '../styles/vision_message.css'; // استيراد ملف CSS المنفصل
 import logo from '../assets/red_logo.png';
 import { useCompany } from '../api/hooks/useCompany';
 import Loading from '../components/Loading';
+import { Link } from 'react-router-dom';
+import LanguageSelector from '../components/LanguageSelector';
 
 const CompanyDetails = () => {
     const navigate = useNavigate();
@@ -65,11 +67,9 @@ const CompanyDetails = () => {
             <nav className="navbar_bar">
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact">
-                        <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
-                            className="contact-link">
-                            {company.company_translation.back_to_previous_page_text}
-                        </a>
+                   
                     </div>
+                    <LanguageSelector />
                     <div className="navbar_bar-links">
                         <NavLink to="/">
                             <img src={logo} alt="new" />

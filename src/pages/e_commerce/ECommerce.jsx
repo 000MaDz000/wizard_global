@@ -118,9 +118,9 @@ const ECommerce = () => {
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
-                            <a href="/contact" className="contact-link">
+                            {/* <a href="/contact" className="contact-link">
                                 {data.hero_contact_button_text}
-                            </a>
+                            </a> */}
                             <LanguageSelector />
                         </div>
                         <div className="navbar_bar-links">

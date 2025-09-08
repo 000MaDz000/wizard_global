@@ -91,7 +91,7 @@ const Register = () => {
                     </h1>
                 </Link>
 
-                <h2>{data.title} <LanguageSelector /></h2>
+                <h2>{data.title}</h2>
                 {error && <div className="error-message">{error}</div>}
 
                 <form onSubmit={handleSubmit}>

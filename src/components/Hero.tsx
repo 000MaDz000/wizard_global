@@ -1,49 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/Hero.css";
 import Navbar from "./Navbar";
 import all from '../assets/20250804_1539_Transparent Tech Elements_remix_01k1th9gygftzsd55g0jr0p4jt.png'
-import car from '../assets/main_car-hpkzbezO.png'
-import global from '../assets/global-network-digital-earth-visualization.png'
-import ecom from '../assets/ecommerce.png'
 import type { Hero } from "../api/types/components";
 import ClientLink from "./ClientLink";
 
-
-const Hero = (props: { data: Hero }) => {
-    const { data } = props;
+const Hero = ({ data }: { data?: Hero }) => {
+    if (!data) return null;
 
     return (
-        <section className="hero" data-aos="fade-in">
+        <section className="hero">
             <Navbar />
             <div className="overlay"></div>
             <div className="all">
-                <div className="hero-content">
-                    <h1 data-aos="fade-down" data-aos-delay="300">
-                        {/* من قلب الابتكار ننطلق لنصنع الفارق عالميًا */}
-                        {data.title}
-                    </h1>
-                    <p data-aos="fade-up" data-aos-delay="600">
-                        {/* IFZA DIGITAL PARK - A2 */}
-                        {data.subtitle}
-                    </p>
-
-                    <ClientLink href={data.cta} data-aos="zoom-in" data-aos-delay="900">
+                <div className="hero-content animate-hero">
+                    <h1>{data.title}</h1>
+                    <p>{data.subtitle}</p>
+                    <ClientLink href={data.cta}>
                         <button>{data.cta.text}</button>
                     </ClientLink>
                 </div>
-                <div className="images">
+                <div className="images animate-hero">
                     <div className="car_it_ecom">
-                        {/* سيبهم زي ما هما  */}
-                        <img className="cartoon_imag" src={all} alt="" data-aos="fade-left" data-aos-delay="1000" />
-                        {/* <img className="ecom" src={ecom} alt="" data-aos="fade-right" data-aos-delay="1800" />
-                        <img className="global" src={global} alt="" data-aos="fade-up" data-aos-delay="1500" />
-                        <img className="car" src={car} alt="" data-aos="fade-left" data-aos-delay="1300" /> */}
-
+                        <img className="cartoon_imag" src={all} alt="" />
                     </div>
                 </div>
             </div>
-
         </section>
     );
 };

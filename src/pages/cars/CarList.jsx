@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
 import './CarListPage.css';
 import Footer from '../../components/Footer';
-import Navbar_bar from './Nav';
 import Features from './Features';
 import { useCars, useCarsPage } from '../../api/hooks';
 import Loading from '../../components/Loading';
@@ -57,7 +57,7 @@ const CarList = () => {
                     >
                         <ClientImage src={brand.logo}
                             onClick={() => setSelectedBrand(brand)}
-                            style={{ width: 100, height: 100 }}
+                            style={{ width: 90, height: 90 }}
                         />
                     </label>
                 ));
@@ -136,6 +136,11 @@ const CarList = () => {
     const page = pageRes.data.data;
     const cars = carsRes.data?.data || [];
 
+    const filteredCars = cars.filter(car => {
+        const carName = `${car.brand?.name || ''} ${car.model?.name || ''}`.toLowerCase();
+        return carName.includes(_searchTerm);
+    });
+
     return (
         <>
             <Helmet>
@@ -184,16 +189,19 @@ const CarList = () => {
                     </div>
 
                     {/* الموديل */}
-                    {filters.brand && filters.brand.models?.length > 0 && (
-                        <div className="filter-group model-filter">
-                            <h3 className="filter-title">
+                    {selectedBrand !== 'all' && (
+                        <div className='filter-group'>
+                            <h3 className='filter-title'>
                                 {page.filters.find(item => Boolean(item.choose_model_filter_title) && item.type === "brand")?.choose_model_filter_title}
                             </h3>
-                            <div className="filter-options">
-                                {renderFilterOptions({ type: "model", models: filters.brand.models })}
+                            <div className='filter-options'>
+                                {renderFilterOptions({ type: "model", models: selectedBrand.models || [] })}
                             </div>
                         </div>
                     )}
+
+
+
 
                     {/* الحالة والوقود جنب بعض */}
                     <div className="filters-row">
@@ -219,10 +227,10 @@ const CarList = () => {
                 <div id="cars-section" className="cars-grid">
                     {isLoading ? (
                         <div className="loading">{page.loading_text}</div>
-                    ) : cars.length === 0 ? (
+                    ) : filteredCars.length === 0 ? (
                         <div className="no-results">{page.no_results_text}</div>
                     ) : (
-                        cars.map(car => (
+                        filteredCars.map(car => (
                             <div key={car.id} className="car-card">
                                 <ClientImage src={car.thumbnail} alt={car.brand?.name + ': ' + car.model?.name} />
                                 <div className="car-info">
@@ -231,12 +239,15 @@ const CarList = () => {
                                     <p>{car.condition_field_text}: {car.condition_display_text}</p>
                                     <p>{car.fuel_type_field_text}: {car.fuel_type?.name}</p>
                                     <p className="price">{car.price.toLocaleString()} {car.currency_sign}</p>
-                                    <a href={`/cars/${car.id}`} className="details-btn">{car.details_button_text}</a>
+                                    <Link to={`/cars/${car.id}`} className="details-btn">
+                                        {car.details_button_text}
+                                    </Link>
                                 </div>
                             </div>
                         ))
                     )}
                 </div>
+
             </div>
 
             <Features data={{

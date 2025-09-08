@@ -30,9 +30,9 @@
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 51px;
     margin-bottom: 20px;
 }
 
@@ -50,7 +50,7 @@
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
+    width: 95%;
     padding: 12px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -71,7 +71,7 @@
 }
 
 .submit-btn {
-    background: #5b7be4;
+    background: #0056b3;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -132,6 +132,11 @@
     color: white;
     transition: all 0.3s ease;
     text-decoration: none;
+}
+.botim_icon{
+    width: 80px;
+    height: 80px;
+    font-size: 45px;
 }
 
 .contact-icon span {
@@ -194,6 +199,7 @@
     
     .form-grid {
         grid-template-columns: 1fr;
+        gap: 2px;
     }
     
     .contact-icon, .social-icon {
@@ -204,4 +210,9 @@
     .social-links{
         gap: 10px;
     }
+    .botim_icon{
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+}
 }

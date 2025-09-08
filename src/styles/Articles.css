@@ -3,7 +3,7 @@
   /* max-width: 1200px; */
   margin: 0 auto;
   /* padding: 20px; */
-  direction: rtl;
+  /* direction: rtl; */
 }
 .articles-page{
      max-width: 1200px;
@@ -91,7 +91,7 @@
 }
 
 .article-detail-content h1 {
-  text-align: right;
+  text-align: center;
     color: #1e4363;
       margin-bottom: 15px;
 }

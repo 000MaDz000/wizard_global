@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useParams, NavLink } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
+import { useParams, NavLink } from 'react-router-dom';
+import './cars/Nav.css'
 import Footer from "../components/Footer";
 import '../styles/vision_message.css'; // استيراد ملف CSS المنفصل
 import logo from '../assets/red_logo.png';
@@ -28,10 +30,9 @@ const VisionDetails = () => {
             <nav className="navbar_bar">
                 <div className="navbar_bar-container">
                     <div className="navbar_bar-contact">
-                        <a style={{ cursor: "pointer" }} onClick={() => navigate(-1)}
-                            className="contact-link">
+                       <Link to={-1} className="contact-link">
                             {data.back_to_previous_page_text}
-                        </a>
+                        </Link>
                     </div>
                     <div className="navbar_bar-links">
                         <NavLink to="/">

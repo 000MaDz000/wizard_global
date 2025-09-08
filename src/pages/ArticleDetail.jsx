@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import  './cars/Nav.css'
 
 import '../styles/Articles.css';
 import Footer from '../components/Footer';
@@ -56,14 +57,15 @@ const ArticleDetail = () => {
             </Helmet>
 
             <div className="article-detail-page">
-{/*                 <LanguageSelector /> */}
+               
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
-                        <div className="navbar_bar-contact">
+                        {/* <div className="navbar_bar-contact">
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 {article.navbar_contact_link_text}
                             </a>
-                        </div>
+                        </div> */}
+                        <LanguageSelector />
                         <div className="navbar_bar-links">
                             <NavLink to="/">
                                 <img src={logo} alt="new" />
