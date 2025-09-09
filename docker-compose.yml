@@ -4,3 +4,4 @@ services:
     container_name: vite_wizardglobalx_frontend
     ports:
       - "5173:5173"
+    restart: unless-stopped
