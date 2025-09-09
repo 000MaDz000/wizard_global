@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './ECommerce.css';
 import Footer from '../../components/Footer';
 import logo from '../../assets/red_logo.png';
+// here is the problem
 import '../cars/Nav.css';
 
 import {
