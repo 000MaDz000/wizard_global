@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState ,useEffect} from 'react';
 import { Helmet } from 'react-helmet';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './ECommerce.css';
 import Footer from '../../components/Footer';
 import logo from '../../assets/red_logo.png';
+import '../cars/Nav.css';
+
 import {
     FaShoppingCart,
     FaCreditCard,
@@ -42,6 +44,10 @@ const ECommerce = () => {
 
     const navigate = useNavigate();
 
+     useEffect(() => {
+            window.scrollTo(0, 0);
+     }, []);
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -118,10 +124,11 @@ const ECommerce = () => {
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
-                            {/* <a href="/contact" className="contact-link">
+                            <a href="#contact-form" className="contact-link">
                                 {data.hero_contact_button_text}
-                            </a> */}
+                            </a>
                             <LanguageSelector />
+
                         </div>
                         <div className="navbar_bar-links">
                             <NavLink to="/">
@@ -142,7 +149,7 @@ const ECommerce = () => {
                         {data.services.map((service) => (
                             <div key={service.id} className="e-commerce-service-card">
                                 <div className="e-commerce-service-icon">
-                                    <ClientImage src={service.service_icon} style={{ width: '5rem', height: '5rem' }} />
+                                    <ClientImage src={service.service_icon} className='e-commerce-icons' />
                                 </div>
 
                                 <h3>{service.service_name}</h3>

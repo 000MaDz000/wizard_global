@@ -63,10 +63,10 @@ margin: 0 auto;
         height: 29px;
 }
 .dropdown-selected img{
-    margin: -4px auto;
-    text-align: center;
-    /* width: 119%; */
-    width: 61px;
+           margin: 15px auto;
+        text-align: center;
+        /* width: 119%; */
+        width: 30px;
 }
 .dropdown-options img {
    

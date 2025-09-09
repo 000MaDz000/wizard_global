@@ -47,9 +47,9 @@ const ITSolutions = () => {
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
                         <div className="navbar_bar-contact">
-                            {/* <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
+                            <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 {data.hero_contact_text}
-                            </a> */}
+                            </a>
                             <LanguageSelector />
                         </div>
                         <div className="navbar_bar-links">

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState,useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
@@ -29,6 +29,10 @@ const CarList = () => {
     const carsRes = useCars(filters);
     const pageRes = useCarsPage();
 
+       useEffect(() => {
+                window.scrollTo(0, 0);
+       }, []);
+    
     const { i18n } = useTranslation();
     const currentLang = i18n.language;
     const [searchQuery, setSearchQuery] = useState('');
