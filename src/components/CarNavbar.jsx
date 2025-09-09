@@ -42,8 +42,11 @@ const CarNavbar = ({ data }) => {
                         ))
                     }
                     {/* اللغة */}
-                    <li className="car-navbar-item">
-                        <LanguageSelector />
+                    <li className="car-navbar-item" style={{
+                        border: "none"
+                        
+                    }}>
+                        <LanguageSelector  />
                     </li>
                 </ul>
             </div>

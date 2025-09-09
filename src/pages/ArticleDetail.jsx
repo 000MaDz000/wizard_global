@@ -60,12 +60,13 @@ const ArticleDetail = () => {
                
                 <nav className="navbar_bar">
                     <div className="navbar_bar-container">
-                        {/* <div className="navbar_bar-contact">
+                        <div className="navbar_bar-contact">
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 {article.navbar_contact_link_text}
                             </a>
-                        </div> */}
                         <LanguageSelector />
+
+                        </div>
                         <div className="navbar_bar-links">
                             <NavLink to="/">
                                 <img src={logo} alt="new" />

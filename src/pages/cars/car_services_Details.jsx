@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import { useParams, NavLink } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
+import './Nav.css';
 import Footer from "../../components/Footer";
 import '../../styles/vision_message.css';
 import logo from '../../assets/red_logo.png';
@@ -88,4 +89,5 @@ const CarServiceDetails = () => {
 };
 
 export default CarServiceDetails;
+
 
