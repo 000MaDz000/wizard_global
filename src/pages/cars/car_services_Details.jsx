@@ -4,12 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useParams, NavLink } from 'react-router-dom';
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-
 import './Nav.css';
-=======
-import './Nav.css'
->>>>>>> 70aa090bf6da7f053395983942d3739cf89f15ab
 import Footer from "../../components/Footer";
 import '../../styles/vision_message.css';
 import logo from '../../assets/red_logo.png';
