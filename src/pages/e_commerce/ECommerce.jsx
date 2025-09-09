@@ -1,4 +1,4 @@
-import React, { useCallback, useState ,useEffect} from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './ECommerce.css';
@@ -44,10 +44,10 @@ const ECommerce = () => {
 
     const navigate = useNavigate();
 
-     useEffect(() => {
-            window.scrollTo(0, 0);
-     }, []);
-    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -56,6 +56,7 @@ const ECommerce = () => {
         }));
     };
 
+    const [play, setPlay] = useState(false);
     const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
 
@@ -199,17 +200,63 @@ const ECommerce = () => {
                 {
                     data.video_section ? (
                         <div className="e-commerce-video-section">
-                            <h2 className='proje_h2'>{data.video_section?.video_title}</h2>
-                            <div className="e-commerce-video-container">
-                                <iframe
-                                    width="100%"
-                                    height="500"
-                                    src={`${data.video_section?.video.url}`}
-                                    title={data.video_section?.video_title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
+                            <h2 className="proje_h2">{data.video_section?.video_title}</h2>
+                            <div className="e-commerce-video-container" style={{ position: "relative" }}>
+                                {play ? (
+                                    // ✅ تشغيل الفيديو
+                                    data.video_section?.video.url.includes("youtube.com") || data.video_section?.video.url.includes("youtu.be") ? (
+                                        <iframe
+                                            width="100%"
+                                            height="500"
+                                            src={`${data.video_section?.video.url}?autoplay=1`}
+                                            title={data.video_section?.video_title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    ) : (
+                                        <video
+                                            width="100%"
+                                            height="500"
+                                            controls
+                                            autoPlay
+                                        >
+                                            <source src={data.video_section?.video.url} type="video/mp4" />
+                                            متصفحك لا يدعم تشغيل الفيديو.
+                                        </video>
+                                    )
+                                ) : (
+                                    // ✅ صورة + زر تشغيل
+                                    <>
+                                        <img
+                                            src={
+                                                data.video_section?.video.url.includes("youtube.com") || data.video_section?.video.url.includes("youtu.be")
+                                                    ? `https://img.youtube.com/vi/${data.video_section?.video.url.split("v=")[1]}/hqdefault.jpg`
+                                                    : "/video-placeholder.jpg" // صورة افتراضية لو مش يوتيوب (ممكن تخليها أي صورة عندك)
+                                            }
+                                            alt="video thumbnail"
+                                            style={{ width: "100%", height: "500px", objectFit: "cover" }}
+                                        />
+                                        <button
+                                            onClick={() => setPlay(true)}
+                                            style={{
+                                                position: "absolute",
+                                                top: "50%",
+                                                left: "50%",
+                                                transform: "translate(-50%, -50%)",
+                                                background: "rgba(0,0,0,0.6)",
+                                                border: "none",
+                                                borderRadius: "50%",
+                                                padding: "20px",
+                                                cursor: "pointer",
+                                                color: "#fff",
+                                                fontSize: "24px"
+                                            }}
+                                        >
+                                            ▶
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     ) : null
