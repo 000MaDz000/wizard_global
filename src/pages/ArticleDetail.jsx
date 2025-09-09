@@ -64,7 +64,7 @@ const ArticleDetail = () => {
                             <a style={{ cursor: "pointer" }} onClick={handleContactClick} className="contact-link">
                                 {article.navbar_contact_link_text}
                             </a>
-                        <LanguageSelector />
+                        {/* <LanguageSelector /> */}
 
                         </div>
                         <div className="navbar_bar-links">
