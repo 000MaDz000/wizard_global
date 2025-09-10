@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './AIchatbot.css';
-import ropot from '../assets/ropot2.png';
+import ropot from '../assets/new-ropot.png';
 // import ropot from '../assets/newRoptot.jpg';
 import { X } from 'lucide-react';
 import { sendMessageToGemini } from './Gemini';
