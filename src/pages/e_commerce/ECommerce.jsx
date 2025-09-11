@@ -28,6 +28,7 @@ import ClientImage from '../../components/ClientImage';
 import ClientLink from '../../components/ClientLink';
 import { submitEcommerceContact } from '../../api/contact/senders';
 import LanguageSelector from '../../components/LanguageSelector';
+import ClientVideo from "../../components/ClientVideo";
 
 const ECommerce = () => {
     const res = useECommerce(buildStrapiPopulateParams(eCommercePopulation));
@@ -204,43 +205,20 @@ const ECommerce = () => {
                             <h2 className="proje_h2">{data.video_section?.video_title}</h2>
                             <div className="e-commerce-video-container" style={{ position: "relative" }}>
                                 {play ? (
-                                    // ✅ تشغيل الفيديو
-                                    data.video_section?.video.url.includes("youtube.com") || data.video_section?.video.url.includes("youtu.be") ? (
-                                        <iframe
-                                            width="100%"
-                                            height="500"
-                                            src={`${data.video_section?.video.url}?autoplay=1`}
-                                            title={data.video_section?.video_title}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        ></iframe>
-                                    ) : (
-                                        <video
-                                            width="100%"
-                                            height="500"
-                                            controls
-                                            autoPlay
-                                        >
-                                            <source src={data.video_section?.video.url} type="video/mp4" />
-                                            متصفحك لا يدعم تشغيل الفيديو.
-                                        </video>
-                                    )
+                                    <ClientVideo src={data.video_section.video} controls style={{ width: "100%", height: "100%" }} autoPlay />
                                 ) : (
                                     // ✅ صورة + زر تشغيل
                                     <>
-                                        <img
-                                            src={
-                                                data.video_section?.video.url.includes("youtube.com") || data.video_section?.video.url.includes("youtu.be")
-                                                    ? `https://img.youtube.com/vi/${data.video_section?.video.url.split("v=")[1]}/hqdefault.jpg`
-                                                    : "/video-placeholder.jpg" // صورة افتراضية لو مش يوتيوب (ممكن تخليها أي صورة عندك)
-                                            }
-                                            alt="video thumbnail"
-                                            style={{ width: "100%", height: "500px", objectFit: "cover" }}
-                                        />
+                                        <ClientImage src={data.video_section.thumbnail} style={{ width: "100%", height: "100%" }} />
+
                                         <button
                                             onClick={() => setPlay(true)}
                                             style={{
+                                                width: '60px',
+                                                height: '60px',
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
                                                 position: "absolute",
                                                 top: "50%",
                                                 left: "50%",
